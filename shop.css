@@ -103,6 +103,7 @@
     background: transparent;
     font-family: var(--font-body);
     font-size: 0.875rem;
+    color: var(--text);
 }
 
 .filter-group.search-bar input:focus {

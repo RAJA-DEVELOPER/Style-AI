@@ -17,7 +17,7 @@ body {
     min-height: 100vh;
     width: 100vw;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Right Visual Background */
@@ -74,14 +74,14 @@ body {
 
 /* Left Register Form */
 .register-form-container {
-    flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     background: var(--background);
     position: relative;
-    padding: 6rem 2rem;
+    padding: 120px 2rem 4rem;
     width: 50%;
+    min-height: 100vh;
 }
 
 [data-theme="dark"] .register-form-container {
@@ -93,6 +93,8 @@ body {
     max-width: 480px;
     padding: 3rem 4rem;
     z-index: 2;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* Glassmorphism Effect */

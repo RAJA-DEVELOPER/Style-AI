@@ -12,6 +12,7 @@
 <body>
 
     <div class="admin-layout">
+        <div class="sidebar-overlay"></div>
         
         <!-- Sidebar -->
         <aside class="admin-sidebar">
@@ -88,8 +89,13 @@
             
             <header class="topbar">
                 <div class="page-title">
-                    <h1>Dashboard</h1>
-                    <p>Welcome back, here's what's happening today.</p>
+                    <button class="mobile-menu-btn" style="display: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p>Welcome back, here's what's happening today.</p>
+                    </div>
                 </div>
                 <div class="topbar-actions">
                     <div class="search-box">
@@ -406,5 +412,33 @@
     </div>
 
     <script src="admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const sidebar = document.querySelector('.admin-sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            function toggleMenu() {
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('open');
+            }
+
+            if (mobileMenuBtn && sidebar && overlay) {
+                mobileMenuBtn.addEventListener('click', toggleMenu);
+                overlay.addEventListener('click', toggleMenu);
+                
+                // Close menu when a link is clicked on mobile
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth <= 767) {
+                            sidebar.classList.remove('open');
+                            overlay.classList.remove('open');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
