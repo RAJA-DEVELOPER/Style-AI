@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | StyleAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" style="color: inherit;" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero -->
+    <header class="about-hero">
+        <div class="about-hero-bg"></div>
+        <div class="container text-center" style="position: relative; z-index: 2;">
+            <p class="section-subtitle" style="color: #fff;">The Vanguard of Retail</p>
+            <h1 class="hero-title" style="color: #fff; font-size: 5rem;">Intelligence Meets Aesthetics.</h1>
+        </div>
+    </header>
+
+    <!-- 2. Brand Story -->
+    <section class="section-padding" style="background: var(--cards);">
+        <div class="container">
+            <div class="split-layout animate-on-scroll">
+                <div class="split-text">
+                    <p class="section-subtitle">Our Heritage</p>
+                    <h2>The Genesis of a New Paradigm</h2>
+                    <p>Founded in 2024 at the intersection of haute couture and artificial intelligence, StyleAI was born from a singular frustration: the modern luxury landscape was overwhelmed by choice, yet starved of true personalization.</p>
+                    <p>Our founders, blending decades of experience from heritage fashion houses in Paris with machine learning expertise from Silicon Valley, set out to eliminate the friction from luxury shopping. We built an engine that understands proportion, drape, and color theory just as intimately as a master tailor does.</p>
+                </div>
+                <div class="split-image">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071" alt="Fashion Atelier">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Leadership / Founders -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container text-center">
+            <p class="section-subtitle animate-on-scroll">The Architects</p>
+            <h2 class="section-title animate-on-scroll">Leadership</h2>
+            <div class="grid-3 animate-on-scroll" style="margin-top: 3rem; gap: 2rem;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 4px solid var(--cards); margin-bottom: 1.5rem;" alt="Founder">
+                    <h3 style="margin-bottom: 0.5rem;">Aria Vance</h3>
+                    <p style="color: var(--muted); font-family: var(--font-accent); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; margin-bottom: 1rem;">Chief Executive Officer</p>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Former executive at LVMH. Merging heritage luxury with digital innovation.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 4px solid var(--cards); margin-bottom: 1.5rem;" alt="Founder">
+                    <h3 style="margin-bottom: 0.5rem;">Julian Thorne</h3>
+                    <p style="color: var(--muted); font-family: var(--font-accent); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; margin-bottom: 1rem;">Chief Technology Officer</p>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Machine learning researcher from MIT. Architect of the StyleAI neural network.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1508214751196-bfd143477451?q=80&w=600" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; border: 4px solid var(--cards); margin-bottom: 1.5rem;" alt="Founder">
+                    <h3 style="margin-bottom: 0.5rem;">Maya Patel</h3>
+                    <p style="color: var(--muted); font-family: var(--font-accent); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; margin-bottom: 1rem;">Head of Styling</p>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Vogue editorial alumni. Translating high fashion into algorithmic data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- 3. Mission & 4. Vision -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="mission-vision-grid animate-on-scroll">
+                <div class="mv-card">
+                    <h3>01. Our Mission</h3>
+                    <p>To democratize access to elite personal styling by leveraging artificial intelligence, ensuring that every individual can curate a wardrobe that perfectly aligns with their unique physical architecture and personal narrative.</p>
+                </div>
+                <div class="mv-card">
+                    <h3>02. Our Vision</h3>
+                    <p>To become the global standard for personalized commerce—a future where deadstock is eliminated through predictive algorithms, and every garment produced is meticulously matched to its perfect owner.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Fashion Philosophy -->
+
+
+    <!-- 5. Fashion Philosophy -->
+    <section class="section-padding" style="background: var(--text); color: #fff;">
+        <div class="container text-center animate-on-scroll" style="max-width: 800px;">
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.6);">Manifesto</p>
+            <h2 style="color: #fff; margin-bottom: 2rem;">"True luxury is not defined by excess, but by precise execution and uncompromising personal relevance."</h2>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.125rem;">We reject the disposable nature of fast fashion. Our philosophy is rooted in the acquisition of fewer, better things. By utilizing our intelligence engine, we guide our clients toward foundational pieces that will age gracefully and define their aesthetic for decades.</p>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container text-center">
+            <p class="section-subtitle animate-on-scroll">Our Ethos</p>
+            <h2 class="section-title animate-on-scroll">The Pillars of StyleAI</h2>
+            <div class="grid-4 animate-on-scroll" style="margin-top: 3rem; text-align: left;">
+                <div style="background: var(--cards); padding: 2.5rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 1rem; font-family: var(--font-heading); font-size: 1.5rem;">Precision</h3>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Algorithms calibrated to the millimeter. We treat data with the same reverence a master tailor treats silk.</p>
+                </div>
+                <div style="background: var(--cards); padding: 2.5rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 1rem; font-family: var(--font-heading); font-size: 1.5rem;">Curation</h3>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Editing the noise of modern retail into a singular, highly concentrated vision of personal style.</p>
+                </div>
+                <div style="background: var(--cards); padding: 2.5rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 1rem; font-family: var(--font-heading); font-size: 1.5rem;">Longevity</h3>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Building foundational wardrobes designed to outlast seasons, micro-trends, and algorithms.</p>
+                </div>
+                <div style="background: var(--cards); padding: 2.5rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 1rem; font-family: var(--font-heading); font-size: 1.5rem;">Discretion</h3>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Total cryptographic privacy for our tier-one clients and their biometric data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Behind the Scenes -->
+    <section class="section-padding" style="background: var(--cards); text-align: center;">
+        <div class="container animate-on-scroll">
+            <p class="section-subtitle">Inside The Lab</p>
+            <h2 class="section-title">Where Data Meets Design</h2>
+            <div style="position: relative; margin-top: 3rem; border-radius: 1rem; overflow: hidden; aspect-ratio: 21/9;">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2000" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" alt="Atelier Lab">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); cursor: pointer; background: rgba(0,0,0,0.5); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); border: 2px solid rgba(255,255,255,0.8);">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- 6. AI Technology -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="split-layout reverse animate-on-scroll">
+                <div class="split-text">
+                    <p class="section-subtitle">Proprietary Engine</p>
+                    <h2>The Neural Network of Style</h2>
+                    <p>Our platform isn't just a recommendation algorithm; it is a continuously evolving neural network trained on over 5 million high-fashion editorials, archival runway shows, and human biometric data points.</p>
+                    <ul class="tech-list">
+                        <li><strong>Biometric Mapping:</strong> Analyzes facial structure, skin tone, and body proportions via a single photo.</li>
+                        <li><strong>Fabric Simulation:</strong> Predicts how specific textiles will drape on your exact silhouette.</li>
+                        <li><strong>Trend Filtering:</strong> Separates fleeting micro-trends from enduring macro-movements.</li>
+                    </ul>
+                </div>
+                <div class="split-image">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064" alt="AI Fluid Rendering">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Statistics -->
+    <section class="section-padding" style="background: var(--cards); border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <div class="container">
+            <div class="stats-grid animate-on-scroll">
+                <div>
+                    <div class="stat-number">2.5M</div>
+                    <div class="stat-label">Outfits Curated</div>
+                </div>
+                <div>
+                    <div class="stat-number">94%</div>
+                    <div class="stat-label">Retention Rate</div>
+                </div>
+                <div>
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">Brand Partners</div>
+                </div>
+                <div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Deadstock Waste</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container">
+            <div class="split-layout animate-on-scroll">
+                <div class="split-image" style="order: -1;">
+                    <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=2074" alt="Sustainable Fabrics">
+                </div>
+                <div class="split-text">
+                    <p class="section-subtitle">Environmental Responsibility</p>
+                    <h2>The Zero-Waste Imperative</h2>
+                    <p>The traditional fashion calendar operates on a cycle of overproduction and massive obsolescence. StyleAI leverages predictive analytics to entirely bypass this archaic model.</p>
+                    <p>By determining exactly what our clients will purchase before a garment is even cut, we advise our brand partners on exact production minimums. We have proudly facilitated a 40% reduction in deadstock across our 400+ partner houses.</p>
+                    <a href="javascript:void(0);" style="color: var(--text); text-decoration: underline; font-weight: 500; display: inline-block; margin-top: 1rem;">Read our 2026 Impact Report</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Testimonials -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Industry Voices</p>
+                <h2 class="section-title animate-on-scroll">The Verdict</h2>
+            </div>
+            <div class="grid-3 animate-on-scroll" style="margin-top: 3rem;">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">StyleAI has successfully quantified taste. They are doing for luxury fashion what Spotify did for music discovery.</p>
+                    <div class="testimonial-author">Vogue Business</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">An essential tool for the modern executive. It removes the decision fatigue of dressing while elevating personal presentation.</p>
+                    <div class="testimonial-author">Financial Times</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">The most sophisticated application of machine learning we have seen in the retail sector to date.</p>
+                    <div class="testimonial-author">Wired Magazine</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Press Banner -->
+    <section style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 0; background: var(--background);">
+        <div class="container text-center animate-on-scroll">
+            <p class="section-subtitle" style="margin-bottom: 2rem;">Global Coverage</p>
+            <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; opacity: 0.6; filter: grayscale(100%);">
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; margin:0;">BOF</h2>
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; margin:0;">Fast Company</h2>
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; margin:0;">TechCrunch</h2>
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; margin:0;">The Wall Street Journal</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investors Banner -->
+    <section style="border-bottom: 1px solid var(--border); padding: 3rem 0; background: var(--cards);">
+        <div class="container text-center animate-on-scroll">
+            <p style="color: var(--muted); font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; margin-bottom: 1.5rem;">Backed by the Pioneers of Luxury & Technology</p>
+            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 3rem; opacity: 0.8;">
+                <h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1.25rem; margin:0;">LVMH Luxury Ventures</h3>
+                <h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1.25rem; margin:0;">Sequoia Capital</h3>
+                <h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1.25rem; margin:0;">Kering Group</h3>
+                <h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1.25rem; margin:0;">Andreessen Horowitz</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Banner -->
+    <section class="section-padding" style="background: var(--cards);">
+        <div class="container text-center animate-on-scroll" style="max-width: 600px;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1.5rem;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <h2>Join The Vanguard</h2>
+            <p style="color: var(--muted); margin: 1.5rem 0;">We are always seeking brilliant minds in machine learning, 3D garment simulation, and editorial styling to join our Paris and San Francisco hubs.</p>
+            <a href="contact.html" class="btn btn-outline" style="border-color: var(--text); color: var(--text);">View Open Roles</a>
+        </div>
+    </section>
+
+
+
+<!-- 9. Timeline -->
+    <section class="section-padding" style="background: var(--cards);">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Our Trajectory</p>
+                <h2 class="section-title animate-on-scroll">The Evolution</h2>
+            </div>
+            <div class="timeline animate-on-scroll">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>Inception</h3>
+                        <p>StyleAI is founded in a Paris atelier, merging European tailoring traditions with advanced neural networks.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h3>The Beta Launch</h3>
+                        <p>Release of the proprietary Biometric Mapping engine to a private waitlist of 10,000 users.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026</div>
+                    <div class="timeline-content">
+                        <h3>Global Expansion</h3>
+                        <p>Public launch partnering with over 400 luxury houses, introducing the personalized storefront.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Future</div>
+                    <div class="timeline-content">
+                        <h3>Predictive Production</h3>
+                        <p>Pioneering zero-waste fashion by predicting micro-trends and advising brands on exact production runs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Offices -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Our Headquarters</p>
+                <h2 class="section-title animate-on-scroll">Two Worlds, One Vision</h2>
+            </div>
+            <div class="grid-2 animate-on-scroll" style="margin-top: 3rem; gap: 3rem;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e907600bb8e?q=80&w=2070" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;" alt="Paris Headquarters">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">The Style Lab — Paris</h3>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">15 Rue Cambon, 75001 Paris, France</p>
+                    <p>Where our editorial stylists and fashion researchers construct the foundational taxonomy of style.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;" alt="San Francisco Headquarters">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">The Engineering Hub — San Francisco</h3>
+                    <p style="color: var(--muted); margin-bottom: 1rem;">Pier 24, The Embarcadero, SF, CA</p>
+                    <p>Where our machine learning engineers translate high fashion into scalable predictive models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CTA -->
+    <section class="section-padding about-cta" style="background: var(--primary); color: #fff; text-align: center;">
+        <div class="container animate-on-scroll">
+            <h2 style="color: #fff; font-size: 3rem; margin-bottom: 1rem;">Experience the Vanguard</h2>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join the revolution of personalized luxury. Your digital atelier awaits.</p>
+            <a href="stylist.html" class="btn" style="background: #fff; color: var(--primary);">Begin Style Analysis</a>
+        </div>
+    </section>
+    <!-- Footer -->
+        <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-brand">
+                    <h3>StyleAI.</h3>
+                    <p>Where artificial intelligence meets haute couture. Elevating your wardrobe with data-driven styling.</p>
+                    <div class="social-icons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://instagram.com/styleai" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://twitter.com/styleai" target="_blank" aria-label="Twitter"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://tiktok.com/@styleai" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="stylist.html">AI Stylist</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <div class="footer-title">Customer Support</div>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <div class="footer-title">Newsletter</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.2); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1rem; width: 100%; border-radius: 4px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleAI. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://instagram.com/styleai" target="_blank">Instagram</a>
+                    <a href="https://twitter.com/styleai" target="_blank">Twitter</a>
+                    <a href="https://tiktok.com/@styleai" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

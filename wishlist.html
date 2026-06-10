@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist | StyleAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" style="color: inherit;" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Wishlist Header -->
+    <header class="wishlist-header">
+        <div class="container">
+            <h1 class="hero-title">Your Archives</h1>
+            <p class="hero-subtitle">Curated selections and saved inspirations.</p>
+        </div>
+    </header>
+
+    <!-- Wishlist Container -->
+    <div class="container section-padding" style="padding-top: 0;">
+        
+        <!-- Controls & Tabs -->
+        <div class="wishlist-controls">
+            <div class="wishlist-tabs">
+                <button class="tab-btn active" data-tab="products">Saved Products</button>
+                <button class="tab-btn" data-tab="looks">Saved Looks</button>
+                <button class="tab-btn" data-tab="recent">Recently Viewed</button>
+            </div>
+
+            <div class="wishlist-filters">
+                <div class="search-box">
+                    <input type="text" id="wishlist-search" placeholder="Search saved items...">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <div class="filter-dropdown">
+                    <select id="wishlist-filter">
+                        <option value="all">All Categories</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="wishlist-content" id="wishlist-container">
+            <!-- Injected by JS -->
+        </main>
+        
+        <!-- Empty State Template (Hidden by default) -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <h2>Your Archive is Empty</h2>
+            <p>You haven't saved any items to this section yet. Explore the shop to build your curated collection.</p>
+            <a href="shop.html" class="btn btn-primary" style="margin-top: 2rem;">Explore Shop</a>
+        </div>
+
+    </div>
+
+    
+    <!-- Waitlist / Out of Stock -->
+    <section class="section-padding" style="background: var(--background); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Highly Coveted</p>
+                <h2 class="section-title animate-on-scroll">Your Waitlist</h2>
+            </div>
+            <div class="grid-3 animate-on-scroll" style="margin-top: 3rem;">
+                <div style="display: flex; gap: 1.5rem; background: var(--cards); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border); align-items: center;">
+                    <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=400" style="width: 80px; height: 100px; object-fit: cover; border-radius: 0.25rem;" alt="Waitlist Item">
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Tom Ford</h4>
+                        <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 0.5rem;">Shelton Suit - Size 40R</p>
+                        <p style="color: #ff3366; font-size: 0.75rem; font-weight: 500; font-family: var(--font-accent); text-transform: uppercase;">Expected Restock: Next Week</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1.5rem; background: var(--cards); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid var(--border); align-items: center;">
+                    <img src="https://images.unsplash.com/photo-1627384113743-6bd5a479fffd?q=80&w=400" style="width: 80px; height: 100px; object-fit: cover; border-radius: 0.25rem;" alt="Waitlist Item">
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Vivienne Westwood</h4>
+                        <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 0.5rem;">Mini Bas Relief Choker</p>
+                        <p style="color: #ff3366; font-size: 0.75rem; font-weight: 500; font-family: var(--font-accent); text-transform: uppercase;">Expected Restock: TBD</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Price Alerts Banner -->
+    <section class="section-padding" style="background: var(--cards); text-align: center;">
+        <div class="container animate-on-scroll" style="max-width: 600px;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1.5rem;"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"></path><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"></path></svg>
+            <h2 class="section-title">AI Price Intelligence</h2>
+            <p style="color: var(--muted); margin-bottom: 2rem;">Our predictive model monitors global inventory and pricing fluctuations. Enable alerts to be notified instantly when items in your archive reach optimal acquisition value.</p>
+            <button class="btn btn-outline" style="border-color: var(--text); color: var(--text);">Manage Alert Settings</button>
+        </div>
+    </section>
+
+    <!-- Recent Searches Mini-Section -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container text-center animate-on-scroll">
+            <h4 style="font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Recent Queries</h4>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+                <span style="padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 2rem; font-size: 0.875rem; cursor: pointer;">Camel Trench Coat</span>
+                <span style="padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 2rem; font-size: 0.875rem; cursor: pointer;">Silk Slip Dress</span>
+                <span style="padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 2rem; font-size: 0.875rem; cursor: pointer;">Margiela Tabi</span>
+                <span style="padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 2rem; font-size: 0.875rem; cursor: pointer;">Cashmere Turtleneck</span>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Recommendations -->
+    <section class="section-padding" style="background: var(--cards); border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle">Algorithmic Match</p>
+                <h2 class="section-title">Recommended For You</h2>
+            </div>
+            <div class="grid-4" id="recommendation-grid" style="margin-top: 3rem;">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+        <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-brand">
+                    <h3>StyleAI.</h3>
+                    <p>Where artificial intelligence meets haute couture. Elevating your wardrobe with data-driven styling.</p>
+                    <div class="social-icons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://instagram.com/styleai" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://twitter.com/styleai" target="_blank" aria-label="Twitter"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://tiktok.com/@styleai" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="stylist.html">AI Stylist</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <div class="footer-title">Customer Support</div>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <div class="footer-title">Newsletter</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.2); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1rem; width: 100%; border-radius: 4px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleAI. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://instagram.com/styleai" target="_blank">Instagram</a>
+                    <a href="https://twitter.com/styleai" target="_blank">Twitter</a>
+                    <a href="https://tiktok.com/@styleai" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification for Cart -->
+    <div class="toast-notification" id="toast">Item moved to cart.</div>
+
+    <script src="script.js"></script>
+    <script src="wishlist.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

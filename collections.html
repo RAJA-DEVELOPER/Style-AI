@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | StyleAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="collections.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" style="color: inherit;" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="collections-header">
+        <div class="container text-center">
+            <h1 class="hero-title">The Editorials</h1>
+            <p class="hero-subtitle">Volume 01. A curated exploration of aesthetic movements and seasonal narratives.</p>
+        </div>
+    </header>
+
+    
+    <!-- Curator's Note -->
+    <section class="section-padding" style="background: var(--background); border-bottom: 1px solid var(--border);">
+        <div class="container text-center" style="max-width: 800px;">
+            <p class="section-subtitle animate-on-scroll">A Word from the Editor</p>
+            <h2 class="section-title animate-on-scroll" style="font-size: 2rem;">Curation over Consumption</h2>
+            <p style="color: var(--muted); font-size: 1.125rem; line-height: 1.8; font-style: italic;" class="animate-on-scroll">"We treat our collections not as a sprawling inventory, but as chapters in a continuous sartorial narrative. Volume 01 explores the tension between brutalist architecture and organic, fluid draping."</p>
+        </div>
+    </section>
+
+
+<!-- Magazine Layout Container -->
+    <div class="container magazine-layout">
+        
+        <!-- Sticky Table of Contents -->
+        <aside class="toc-sidebar">
+            <h3 class="toc-title">Volumes</h3>
+            <ul class="toc-list" id="toc-list">
+                <!-- Injected by JS -->
+            </ul>
+        </aside>
+
+        <!-- Collections Content -->
+        <main class="collections-main" id="collections-container">
+            <!-- Injected by JS -->
+        </main>
+        
+    </div>
+    
+    <!-- Shop by Aesthetic -->
+    <section class="section-padding" style="background: var(--background); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Explore Narratives</p>
+                <h2 class="section-title animate-on-scroll">Shop by Aesthetic</h2>
+            </div>
+            <div class="grid-4 animate-on-scroll" style="margin-top: 3rem;">
+                <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=2073" style="width: 100%; height: 100%; object-fit: cover;" alt="Dark Academia">
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
+                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Nocturnal</h3>
+                    </div>
+                </div>
+                <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
+                    <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=1974" style="width: 100%; height: 100%; object-fit: cover;" alt="Minimalist">
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
+                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Minimalist</h3>
+                    </div>
+                </div>
+                <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070" style="width: 100%; height: 100%; object-fit: cover;" alt="Avant Garde">
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
+                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Avant-Garde</h3>
+                    </div>
+                </div>
+                <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
+                    <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?q=80&w=1980" style="width: 100%; height: 100%; object-fit: cover;" alt="Resort">
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
+                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Resort</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Vault -->
+    <section class="section-padding" style="background: var(--text); color: var(--cards);">
+        <div class="container">
+            <div class="editorial-grid" style="grid-template-columns: 1.5fr 1fr; align-items: center;">
+                <div class="animate-on-scroll">
+                    <h2 style="font-size: 3rem; margin-bottom: 1.5rem; color: var(--cards);">The Archive Vault</h2>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 1.125rem; margin-bottom: 2rem; max-width: 500px;">Access highly coveted, limited-edition pieces from previous volumes. Once a year, the vault opens for 48 hours exclusively to Premium members.</p>
+                    <a href="register.html" class="btn btn-outline" style="border-color: var(--cards); color: var(--cards);">Request Vault Access</a>
+                </div>
+                <div class="animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070" style="width: 100%; border-radius: 1rem; object-fit: cover; aspect-ratio: 1/1; opacity: 0.8;" alt="The Vault">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Order Highlight -->
+    <section class="section-padding" style="background: var(--cards);">
+        <div class="container text-center animate-on-scroll">
+            <p class="section-subtitle">Coming Soon</p>
+            <h2 class="section-title">Volume 02: Translucence</h2>
+            <p style="color: var(--muted); max-width: 600px; margin: 0 auto 3rem;">A study in sheer fabrics, delicate layering, and the interplay between light and structure. Pre-order opens next month.</p>
+            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1983" style="width: 100%; max-width: 800px; border-radius: 1rem; aspect-ratio: 16/9; object-fit: cover; margin: 0 auto; display: block;" alt="Sneak Peek">
+        </div>
+    </section>
+
+
+<!-- Footer -->
+        <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-brand">
+                    <h3>StyleAI.</h3>
+                    <p>Where artificial intelligence meets haute couture. Elevating your wardrobe with data-driven styling.</p>
+                    <div class="social-icons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://instagram.com/styleai" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://twitter.com/styleai" target="_blank" aria-label="Twitter"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://tiktok.com/@styleai" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="stylist.html">AI Stylist</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <div class="footer-title">Customer Support</div>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <div class="footer-title">Newsletter</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.2); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1rem; width: 100%; border-radius: 4px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleAI. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://instagram.com/styleai" target="_blank">Instagram</a>
+                    <a href="https://twitter.com/styleai" target="_blank">Twitter</a>
+                    <a href="https://tiktok.com/@styleai" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="collections.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

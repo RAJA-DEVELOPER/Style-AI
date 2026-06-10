@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag | StyleAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+    
+    <!-- Top Promo Banner -->
+    <div style="background: var(--text); color: var(--cards); text-align: center; padding: 0.5rem; font-size: 0.75rem; font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.05em; z-index: 1001; position: relative;">
+        Complimentary global shipping and returns on all orders over $1,000
+    </div>
+
+
+<!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" style="color: inherit;" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="cart-page-header">
+        <div class="container text-center">
+            <h1 class="hero-title">Your Bag</h1>
+            <p class="hero-subtitle" id="cart-item-count">Review your curated selections.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container">
+            <div class="cart-layout" id="cart-layout">
+                <!-- Left: Items -->
+                <div class="cart-items-column">
+                    <div class="cart-table-header">
+                        <div>Product</div>
+                        <div class="text-center">Quantity</div>
+                        <div class="text-right">Total</div>
+                    </div>
+                    <div id="full-cart-items">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Right: Summary -->
+                <div class="cart-summary-column">
+                    <div class="summary-box">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Estimated Shipping</span>
+                            <span id="summary-shipping">Free</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Estimated Tax (8%)</span>
+                            <span id="summary-tax">$0.00</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-row total">
+                            <span>Grand Total</span>
+                            <span id="summary-total">$0.00</span>
+                        </div>
+                        
+                        <button class="btn btn-primary checkout-btn">Proceed to Checkout</button>
+                        
+                        
+    <!-- Packaging Options -->
+    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--background); border: 1px solid var(--border); border-radius: 0.5rem;">
+        <h4 style="margin-bottom: 1rem; font-size: 1rem;">Packaging Preference</h4>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <label style="display: flex; gap: 1rem; align-items: flex-start; cursor: pointer;">
+                <input type="radio" name="packaging" checked style="margin-top: 0.25rem;">
+                <div>
+                    <div style="font-weight: 500; font-size: 0.875rem;">Signature Luxury Box</div>
+                    <div style="color: var(--muted); font-size: 0.75rem;">Your items will be wrapped in tissue paper and secured in our rigid signature box.</div>
+                </div>
+            </label>
+            <label style="display: flex; gap: 1rem; align-items: flex-start; cursor: pointer;">
+                <input type="radio" name="packaging" style="margin-top: 0.25rem;">
+                <div>
+                    <div style="font-weight: 500; font-size: 0.875rem;">Eco-Conscious Packaging</div>
+                    <div style="color: var(--muted); font-size: 0.75rem;">Minimal, recycled materials. Eliminates the rigid box to reduce carbon footprint.</div>
+                </div>
+            </label>
+        </div>
+    </div>
+
+
+                        <div class="secure-checkout">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            Secure Checkout Guaranteed
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="cart-empty-state" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <h2>Your Bag is Empty</h2>
+                <p>Discover the latest collections and personalized recommendations to curate your wardrobe.</p>
+                <a href="shop.html" class="btn btn-primary" style="margin-top: 2rem;">Explore Shop</a>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- Delivery Estimate & Concierge -->
+    <section class="section-padding" style="background: var(--cards); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div class="container">
+            <div class="grid-2 animate-on-scroll" style="gap: 2rem;">
+                <div style="padding: 2rem; background: var(--background); border-radius: 0.5rem; border: 1px solid var(--border); text-align: center;">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem;"><rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect><line x1="16" y1="8" x2="16" y2="4"></line><line x1="8" y1="8" x2="8" y2="4"></line><line x1="3" y1="13" x2="21" y2="13"></line></svg>
+                    <h3 style="margin-bottom: 0.5rem;">Estimated Delivery</h3>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Order within the next 4 hours for dispatch today. Standard delivery takes 2-4 business days globally.</p>
+                </div>
+                <div style="padding: 2rem; background: var(--background); border-radius: 0.5rem; border: 1px solid var(--border); text-align: center;">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <h3 style="margin-bottom: 0.5rem;">Concierge Support</h3>
+                    <p style="color: var(--muted); font-size: 0.875rem;">Need sizing advice or styling recommendations before you check out? Our experts are online.</p>
+                    <a href="contact.html" style="font-size: 0.875rem; color: var(--text); font-weight: 500; text-decoration: underline; margin-top: 0.5rem; display: inline-block;">Start Live Chat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-Sell Recommendation -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Complete The Look</p>
+                <h2 class="section-title animate-on-scroll" style="font-size: 1.5rem;">Suggested Accessories</h2>
+            </div>
+            <div class="grid-4 animate-on-scroll" style="margin-top: 3rem;">
+                <div style="background: var(--cards); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border); text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=400" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 0.25rem; margin-bottom: 1rem;" alt="Accessory">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">Saint Laurent</h4>
+                    <p style="color: var(--muted); font-size: 0.75rem; margin-bottom: 0.5rem;">Leather Cardholder</p>
+                    <p style="font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">$295</p>
+                    <button class="btn btn-outline" style="width: 100%; padding: 0.5rem; font-size: 0.75rem;">Add to Bag</button>
+                </div>
+                <div style="background: var(--cards); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border); text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 0.25rem; margin-bottom: 1rem;" alt="Accessory">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">Tom Ford</h4>
+                    <p style="color: var(--muted); font-size: 0.75rem; margin-bottom: 0.5rem;">Oud Wood EDP</p>
+                    <p style="font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">$295</p>
+                    <button class="btn btn-outline" style="width: 100%; padding: 0.5rem; font-size: 0.75rem;">Add to Bag</button>
+                </div>
+                <div style="background: var(--cards); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border); text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1509941943102-10c232535736?q=80&w=400" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 0.25rem; margin-bottom: 1rem;" alt="Accessory">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">Gucci</h4>
+                    <p style="color: var(--muted); font-size: 0.75rem; margin-bottom: 0.5rem;">Silk Pocket Square</p>
+                    <p style="font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">$155</p>
+                    <button class="btn btn-outline" style="width: 100%; padding: 0.5rem; font-size: 0.75rem;">Add to Bag</button>
+                </div>
+                <div style="background: var(--cards); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border); text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 0.25rem; margin-bottom: 1rem;" alt="Accessory">
+                    <h4 style="font-size: 0.875rem; margin-bottom: 0.25rem;">Bottega Veneta</h4>
+                    <p style="color: var(--muted); font-size: 0.75rem; margin-bottom: 0.5rem;">Intrecciato Belt</p>
+                    <p style="font-weight: 500; font-size: 0.875rem; margin-bottom: 1rem;">$550</p>
+                    <button class="btn btn-outline" style="width: 100%; padding: 0.5rem; font-size: 0.75rem;">Add to Bag</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-brand">
+                    <h3>StyleAI.</h3>
+                    <p>Where artificial intelligence meets haute couture. Elevating your wardrobe with data-driven styling.</p>
+                    <div class="social-icons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://instagram.com/styleai" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://twitter.com/styleai" target="_blank" aria-label="Twitter"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://tiktok.com/@styleai" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="stylist.html">AI Stylist</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <div class="footer-title">Customer Support</div>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <div class="footer-title">Newsletter</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.2); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1rem; width: 100%; border-radius: 4px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleAI. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://instagram.com/styleai" target="_blank">Instagram</a>
+                    <a href="https://twitter.com/styleai" target="_blank">Twitter</a>
+                    <a href="https://tiktok.com/@styleai" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const itemsContainer = document.getElementById('full-cart-items');
+            const layout = document.getElementById('cart-layout');
+            const emptyState = document.getElementById('cart-empty-state');
+            const itemCount = document.getElementById('cart-item-count');
+            
+            const subtotalEl = document.getElementById('summary-subtotal');
+            const taxEl = document.getElementById('summary-tax');
+            const shippingEl = document.getElementById('summary-shipping');
+            const totalEl = document.getElementById('summary-total');
+
+            const formatMoney = (amount) => {
+                return '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            };
+
+            const renderFullCart = () => {
+                let cartData = JSON.parse(localStorage.getItem('styleai_cart')) || [];
+                
+                if (cartData.length === 0) {
+                    layout.style.display = 'none';
+                    emptyState.style.display = 'block';
+                    itemCount.innerText = '0 Items';
+                    return;
+                } else {
+                    layout.style.display = 'grid';
+                    emptyState.style.display = 'none';
+                }
+
+                // Render Items
+                itemsContainer.innerHTML = cartData.map((item, index) => `
+                    <div class="full-cart-item">
+                        <div class="full-cart-product">
+                            <img src="${item.img}" alt="${item.title}">
+                            <div class="full-cart-info">
+                                <div class="full-cart-brand">${item.brand}</div>
+                                <h3 class="full-cart-title">${item.title}</h3>
+                                <div class="full-cart-meta">Size: ${item.size || 'OS'} | Color: ${item.color || 'Default'}</div>
+                                <div class="full-cart-price-mobile">${formatMoney(item.price)}</div>
+                                <button class="remove-item-btn" data-index="${index}">Remove</button>
+                            </div>
+                        </div>
+                        <div class="full-cart-qty">
+                            <div class="qty-control" style="width: fit-content; margin: 0 auto;">
+                                <button class="qty-btn full-minus" data-index="${index}">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="qty-btn full-plus" data-index="${index}">+</button>
+                            </div>
+                        </div>
+                        <div class="full-cart-total text-right">
+                            ${formatMoney(item.price * item.quantity)}
+                        </div>
+                    </div>
+                `).join('');
+
+                // Calculations
+                const totalItems = cartData.reduce((acc, item) => acc + item.quantity, 0);
+                itemCount.innerText = `${totalItems} Item${totalItems !== 1 ? 's' : ''}`;
+
+                const subtotal = cartData.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+                const tax = subtotal * 0.08;
+                const shipping = subtotal > 1000 ? 0 : 25;
+                const grandTotal = subtotal + tax + shipping;
+
+                subtotalEl.innerText = formatMoney(subtotal);
+                taxEl.innerText = formatMoney(tax);
+                shippingEl.innerText = shipping === 0 ? 'Free' : formatMoney(shipping);
+                totalEl.innerText = formatMoney(grandTotal);
+            };
+
+            // Event Delegation for Table actions
+            itemsContainer.addEventListener('click', (e) => {
+                let cartData = JSON.parse(localStorage.getItem('styleai_cart')) || [];
+                const index = e.target.getAttribute('data-index');
+                
+                if (index !== null) {
+                    if (e.target.classList.contains('full-plus')) {
+                        cartData[index].quantity += 1;
+                    }
+                    if (e.target.classList.contains('full-minus')) {
+                        if (cartData[index].quantity > 1) {
+                            cartData[index].quantity -= 1;
+                        } else {
+                            cartData.splice(index, 1);
+                        }
+                    }
+                    if (e.target.classList.contains('remove-item-btn')) {
+                        cartData.splice(index, 1);
+                    }
+                    
+                    // Save and trigger global render
+                    localStorage.setItem('styleai_cart', JSON.stringify(cartData));
+                    if (window.renderCart) window.renderCart(); // update navbar counter
+                    renderFullCart();
+                }
+            });
+
+            // Make sure if sidebar modifies cart, full page updates too
+            const originalRenderCart = window.renderCart;
+            if (originalRenderCart) {
+                window.renderCart = () => {
+                    originalRenderCart();
+                    renderFullCart();
+                };
+            }
+
+            renderFullCart();
+
+            // Checkout button listener
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', () => {
+                    const originalText = checkoutBtn.innerText;
+                    checkoutBtn.innerHTML = 'Processing Order...';
+                    checkoutBtn.style.opacity = '0.8';
+                    checkoutBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        // Clear cart data
+                        localStorage.removeItem('styleai_cart');
+                        if (window.renderCart) window.renderCart();
+                        
+                        alert('Thank you for your purchase! Your order has been placed successfully.');
+                        window.location.href = 'shop.html';
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

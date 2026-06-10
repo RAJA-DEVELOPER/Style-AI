@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | StyleAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" style="color: inherit;" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Hero Banner -->
+    <header class="shop-hero">
+        <div class="shop-hero-bg"></div>
+        <div class="shop-hero-content text-center">
+            <h1>The Collection</h1>
+            <p>Curated essentials for the modern wardrobe.</p>
+        </div>
+    </header>
+
+    <!-- Shop Layout -->
+    <div class="shop-container container section-padding">
+        
+        <!-- Sidebar Filters -->
+        <div class="filter-overlay" id="filter-overlay"></div>
+        <aside class="shop-filters" id="shop-filters">
+            <div class="filter-drawer-header">
+                <h3>Filters</h3>
+                <button class="filter-close" id="filter-close" aria-label="Close Filters">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="filter-group search-bar">
+                <h4 class="filter-title">Search</h4>
+                <input type="text" placeholder="Search pieces...">
+            </div>
+
+            <div class="filter-group category-filter-group">
+                <h4 class="filter-title">Category</h4>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> <span>Coats & Jackets</span></label></li>
+                    <li><label><input type="checkbox"> <span>Knitwear</span></label></li>
+                    <li><label><input type="checkbox"> <span>Tailoring & Bottoms</span></label></li>
+                    <li><label><input type="checkbox"> <span>Dresses & Skirts</span></label></li>
+                    <li><label><input type="checkbox"> <span>Shirts & Tops</span></label></li>
+                    <li><label><input type="checkbox"> <span>Shoes</span></label></li>
+                </ul>
+            </div>
+
+            <div class="filter-group price-filter-group">
+                <h4 class="filter-title">Price</h4>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> <span>Under $500</span></label></li>
+                    <li><label><input type="checkbox"> <span>$500 - $1,000</span></label></li>
+                    <li><label><input type="checkbox"> <span>$1,000 - $2,500</span></label></li>
+                    <li><label><input type="checkbox"> <span>Over $2,500</span></label></li>
+                </ul>
+            </div>
+
+            <div class="filter-group">
+                <h4 class="filter-title">Color</h4>
+                <div class="color-filters">
+                    <div class="color-swatch" style="background: #000000;" title="Black"></div>
+                    <div class="color-swatch" style="background: #ffffff; border: 1px solid #ddd;" title="White"></div>
+                    <div class="color-swatch" style="background: #f5f5dc;" title="Beige"></div>
+                    <div class="color-swatch" style="background: #1e3a5f;" title="Navy"></div>
+                    <div class="color-swatch" style="background: #8b4513;" title="Brown"></div>
+                    <div class="color-swatch" style="background: #808080;" title="Grey"></div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4 class="filter-title">Size</h4>
+                <div class="size-filters">
+                    <button class="size-btn">XS</button>
+                    <button class="size-btn">S</button>
+                    <button class="size-btn">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                    <button class="size-btn">OS</button>
+                </div>
+            </div>
+            <div class="filter-drawer-footer">
+                <button class="btn btn-primary" id="apply-filters-btn" style="width: 100%;">View Results</button>
+            </div>
+        </aside>
+
+        <!-- Main Product Area -->
+        <main class="shop-main">
+            <!-- Top Bar -->
+            <div class="shop-topbar">
+                <button class="mobile-filter-toggle-btn" id="mobile-filter-toggle-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                    Filters
+                </button>
+                <div class="results-count">Showing 40 products</div>
+                <div class="sort-dropdown">
+                    <label for="sort">Sort by: </label>
+                    <select id="sort">
+                        <option>Recommended</option>
+                        <option>Newest</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Category Quick Links -->
+            <div class="category-quick-links" style="display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 2rem;">
+                <div style="text-align: center; cursor: pointer; flex: 0 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1574291814206-363acdf2aa79?q=80&w=150" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border);" alt="Knitwear">
+                    <p style="font-size: 0.75rem; margin-top: 0.5rem; font-family: var(--font-accent); text-transform: uppercase;">Knitwear</p>
+                </div>
+                <div style="text-align: center; cursor: pointer; flex: 0 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=150" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border);" alt="Shirts">
+                    <p style="font-size: 0.75rem; margin-top: 0.5rem; font-family: var(--font-accent); text-transform: uppercase;">Shirts</p>
+                </div>
+                <div style="text-align: center; cursor: pointer; flex: 0 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=150" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border);" alt="Outerwear">
+                    <p style="font-size: 0.75rem; margin-top: 0.5rem; font-family: var(--font-accent); text-transform: uppercase;">Outerwear</p>
+                </div>
+                <div style="text-align: center; cursor: pointer; flex: 0 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=150" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border);" alt="Trousers">
+                    <p style="font-size: 0.75rem; margin-top: 0.5rem; font-family: var(--font-accent); text-transform: uppercase;">Trousers</p>
+                </div>
+                <div style="text-align: center; cursor: pointer; flex: 0 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=150" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border);" alt="Skirts">
+                    <p style="font-size: 0.75rem; margin-top: 0.5rem; font-family: var(--font-accent); text-transform: uppercase;">Skirts</p>
+                </div>
+            </div>
+
+            <!-- Flash Sale Banner -->
+            <div class="flash-sale-banner" style="background: var(--text); color: var(--cards); padding: 1.5rem 2rem; border-radius: 0.5rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div>
+                    <h3 style="margin-bottom: 0.25rem;">Private Sale: The Archive Collection</h3>
+                    <p style="opacity: 0.9; font-size: 0.875rem;">Up to 40% off selected seasonal pieces.</p>
+                </div>
+                <div style="font-family: var(--font-heading); font-size: 1.5rem; font-variant-numeric: tabular-nums;">
+                    24 : 12 : 59
+                </div>
+            </div>
+
+            <!-- Featured Collection Highlight within Shop -->
+            <div class="featured-highlight">
+                <div class="highlight-content">
+                    <h3>The Minimalist Edit</h3>
+                    <p>Discover our curated selection of foundational pieces.</p>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="editorial-grid-products" id="product-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Recommended Products -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container">
+            <h2 class="section-title text-center" style="font-size: 2rem;">You May Also Like</h2>
+            <div class="grid-4" id="recommended-grid" style="margin-top: 3rem;">
+                <!-- Recommended injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stylist Advice -->
+    <section class="section-padding" style="background: var(--cards); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="editorial-grid" style="grid-template-columns: 1fr 2fr;">
+                <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=2070" style="width: 100%; border-radius: 1rem; object-fit: cover; aspect-ratio: 4/5;" alt="Stylist">
+                <div style="padding-left: 2rem; display: flex; flex-direction: column; justify-content: center;">
+                    <p class="section-subtitle">From The Atelier</p>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">How To Master Transitional Dressing</h2>
+                    <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 1.125rem; line-height: 1.8;">"The key to unpredictable weather is intelligent layering. Begin with lightweight, breathable foundational pieces—like silk camisoles or fine-gauge merino wool—and build structure with an oversized blazer or a trench. It’s not about bulk; it’s about modularity."</p>
+                    <p style="font-family: var(--font-accent); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;">— Elara Vance, Head of Styling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Material Focus -->
+    <section class="section-padding" style="background: var(--background);">
+        <div class="container text-center">
+            <p class="section-subtitle">The Cashmere Edit</p>
+            <h2 class="section-title">Sourced from Inner Mongolia</h2>
+            <p style="color: var(--muted); max-width: 600px; margin: 0 auto 3rem; font-size: 1.125rem;">Experience unparalleled softness and temperature regulation. Our Grade-A cashmere is meticulously hand-combed and spun in century-old Italian mills.</p>
+            <div class="grid-3">
+                <img src="https://plus.unsplash.com/premium_photo-1697753121099-f2988a868ecf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNhc2htZXJlfGVufDB8fDB8fHww" style="width:100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 0.5rem;" alt="Cashmere 1">
+                <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?q=80&w=1957" style="width:100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 0.5rem;" alt="Cashmere 2">
+                <img src="https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=1974" style="width:100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 0.5rem;" alt="Cashmere 3">
+            </div>
+            <a href="collections.html" class="btn btn-primary" style="margin-top: 3rem;">Shop Cashmere</a>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="section-padding" style="background: var(--cards); border-top: 1px solid var(--border);">
+        <div class="container">
+            <h2 class="section-title text-center" style="font-size: 2rem;">Recently Viewed</h2>
+            <div class="grid-4" style="margin-top: 3rem;">
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=400" class="product-img" alt="Ribbed Cashmere Sweater">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Brunello Cucinelli</div>
+                        <h3 class="product-title">Ribbed Cashmere Sweater</h3>
+                        <div class="product-price">$1,450</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=400" class="product-img" alt="Straight-Leg Denim Jeans">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Saint Laurent</div>
+                        <h3 class="product-title">Straight-Leg Denim Jeans</h3>
+                        <div class="product-price">$850</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=400" class="product-img" alt="Silk Poplin Shirt">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Maison Margiela</div>
+                        <h3 class="product-title">Silk Poplin Shirt</h3>
+                        <div class="product-price">$850</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=400" class="product-img" alt="Tailored Wool Trousers">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Bottega Veneta</div>
+                        <h3 class="product-title">Tailored Wool Trousers</h3>
+                        <div class="product-price">$1,200</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section-padding newsletter" id="newsletter">
+        <div class="container animate-on-scroll">
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">The Inner Circle</p>
+            <h2 class="section-title">Join The Vanguard</h2>
+            <p>Subscribe for exclusive access to private sales, editorial previews, and personalized style intelligence drops.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-brand">
+                    <h3>StyleAI.</h3>
+                    <p>Where artificial intelligence meets haute couture. Elevating your wardrobe with data-driven styling.</p>
+                    <div class="social-icons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://instagram.com/styleai" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://twitter.com/styleai" target="_blank" aria-label="Twitter"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://tiktok.com/@styleai" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="stylist.html">AI Stylist</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <div class="footer-title">Customer Support</div>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <div class="footer-title">Newsletter</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.2); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1rem; width: 100%; border-radius: 4px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleAI. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://instagram.com/styleai" target="_blank">Instagram</a>
+                    <a href="https://twitter.com/styleai" target="_blank">Twitter</a>
+                    <a href="https://tiktok.com/@styleai" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

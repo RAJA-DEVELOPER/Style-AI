@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleAI | Fashion Intelligence Meets Luxury Shopping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;"
+                    aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" style="color: inherit;" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;"
+                    aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-image">
+            <img src="images/hero.png" alt="Luxury Fashion Model in Navy Coat">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">The Future of Style</span>
+                <h1 class="hero-title">Fashion Intelligence Meets Luxury Shopping</h1>
+                <p class="hero-subtitle">Discover curated fashion experiences powered by advanced style intelligence. We
+                    decode your personal aesthetic to deliver unparalleled wardrobe curation.</p>
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn btn-primary">Shop Collection</a>
+                    <a href="stylist.html" class="btn btn-outline">Try AI Stylist</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Featured Categories -->
+    <section class="section-padding" id="categories">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title animate-on-scroll">Curated Aesthetics</h2>
+                <p class="section-subtitle animate-on-scroll">Explore by Department</p>
+            </div>
+            <div class="grid-4 animate-on-scroll">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070"
+                        alt="Women's Collection">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Womenswear</h3>
+                        <a href="#womens" class="btn btn-outline" style="border-color:#fff; color:#fff;">Explore</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1974"
+                        alt="Men's Collection">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Menswear</h3>
+                        <a href="#mens" class="btn btn-outline" style="border-color:#fff; color:#fff;">Explore</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974"
+                        alt="Top Wear">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Top Wear</h3>
+                        <a href="shop.html?category=top" class="btn btn-outline"
+                            style="border-color:#fff; color:#fff;">Explore</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=2000" alt="Bottom Wear">
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Bottom Wear</h3>
+                        <a href="shop.html?category=bottom" class="btn btn-outline"
+                            style="border-color:#fff; color:#fff;">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. New Arrivals -->
+    <section class="section-padding" style="background: var(--cards)" id="new-arrivals">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Just Landed</p>
+                <h2 class="section-title animate-on-scroll">New Arrivals</h2>
+            </div>
+            <div class="grid-4 animate-on-scroll">
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=400"
+                            class="product-img" alt="Silk Poplin Shirt">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Maison Margiela</div>
+                        <h3 class="product-title">Silk Poplin Shirt</h3>
+                        <div class="product-price">$850</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=400"
+                            class="product-img" alt="Tailored Wool Trousers">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Bottega Veneta</div>
+                        <h3 class="product-title">Tailored Wool Trousers</h3>
+                        <div class="product-price">$1,200</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=400"
+                            class="product-img" alt="Shelton Wool Blazer">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Tom Ford</div>
+                        <h3 class="product-title">Shelton Wool Blazer</h3>
+                        <div class="product-price">$2,450</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=400"
+                            class="product-img" alt="Straight-Leg Chino Pants">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Loro Piana</div>
+                        <h3 class="product-title">Straight-Leg Chino Pants</h3>
+                        <div class="product-price">$850</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Best Sellers -->
+    <section class="section-padding" id="best-sellers">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Iconic Pieces</p>
+                <h2 class="section-title animate-on-scroll">Best Sellers</h2>
+            </div>
+            <div class="grid-4 animate-on-scroll">
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974"
+                            class="product-img" alt="Minimalist Blazer">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">The Row</div>
+                        <h3 class="product-title">Crespi Wool-Blend Blazer</h3>
+                        <div class="product-price">$2,890</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=400"
+                            class="product-img" alt="High-Waisted Crepe Trousers">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">The Row</div>
+                        <h3 class="product-title">High-Waisted Crepe Trousers</h3>
+                        <div class="product-price">$1,150</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1976"
+                            class="product-img" alt="Cashmere Sweater">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Brunello Cucinelli</div>
+                        <h3 class="product-title">Ribbed Cashmere Sweater</h3>
+                        <div class="product-price">$1,450</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=400"
+                            class="product-img" alt="Straight-Leg Denim Jeans">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Saint Laurent</div>
+                        <h3 class="product-title">Straight-Leg Denim Jeans</h3>
+                        <div class="product-price">$850</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Row of Best Sellers -->
+            <div class="grid-4 animate-on-scroll" style="margin-top: 2rem;">
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=400"
+                            class="product-img" alt="Oversized Leather Biker">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Acne Studios</div>
+                        <h3 class="product-title">Oversized Leather Biker</h3>
+                        <div class="product-price">$2,100</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=400"
+                            class="product-img" alt="Wyatt Leather Boots">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Saint Laurent</div>
+                        <h3 class="product-title">Wyatt Leather Boots</h3>
+                        <div class="product-price">$1,150</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=400"
+                            class="product-img" alt="Silk Slip Dress">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Lemaire</div>
+                        <h3 class="product-title">Silk Slip Dress</h3>
+                        <div class="product-price">$950</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=400"
+                            class="product-img" alt="Intrecciato Tote">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Bottega Veneta</div>
+                        <h3 class="product-title">Intrecciato Tote</h3>
+                        <div class="product-price">$3,400</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="shop.html" class="btn btn-outline animate-on-scroll">View All Best Sellers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. AI Stylist Showcase -->
+    <section class="section-padding" id="ai-stylist">
+        <div class="container">
+            <div class="ai-stylist-wrapper animate-on-scroll">
+                <div class="ai-stylist-content">
+                    <p class="section-subtitle">Style Intelligence</p>
+                    <h2 class="section-title">Meet Your Personal AI Stylist</h2>
+                    <p style="color: var(--muted); font-size: 1.125rem; margin-top: 1rem;">Upload a photo, share your
+                        upcoming events, or describe your aesthetic. Our proprietary AI analyzes millions of data points
+                        to curate the perfect luxury wardrobe tailored exclusively to you.</p>
+
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Advanced fit prediction technology</span>
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Seasonal color palette analysis</span>
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Event-specific outfit generation</span>
+                        </li>
+                    </ul>
+                    <div>
+                        <a href="stylist.html" class="btn btn-primary">Start Style Analysis</a>
+                    </div>
+                </div>
+                <div class="ai-stylist-image">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070"
+                        alt="AI Stylist Interface Mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Men's Collection -->
+    <section id="mens">
+        <div class="collection-banner animate-on-scroll"
+            style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071'); background-size: cover; background-position: center; height: 60vh; display: flex; align-items: center; justify-content: center; position: relative;">
+            <div class="collection-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 1;"></div>
+            <div style="z-index: 2; text-align: center; color: #fff;">
+                <h2 style="font-size: 3rem; font-family: var(--font-heading);">The Menswear Edit</h2>
+                <a href="shop.html" class="btn btn-outline" style="border-color:#fff; color:#fff; margin-top:2rem;">Shop
+                    Men's</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Women's Collection -->
+    <section id="womens">
+        <div class="collection-banner animate-on-scroll"
+            style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920'); background-size: cover; background-position: center 20%; height: 60vh; display: flex; align-items: center; justify-content: center; position: relative;">
+            <div class="collection-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); z-index: 1;"></div>
+            <div style="z-index: 2; text-align: center; color: #fff;">
+                <h2 style="font-size: 3rem; font-family: var(--font-heading);">The Womenswear Edit</h2>
+                <a href="shop.html" class="btn btn-outline" style="border-color:#fff; color:#fff; margin-top:2rem;">Shop
+                    Women's</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Fashion Editorial -->
+    <section class="section-padding" id="editorial">
+        <div class="container">
+            <div class="editorial-grid animate-on-scroll">
+                <div class="editorial-text">
+                    <p class="section-subtitle">Volume 04. The Modern Muse</p>
+                    <h2>Architectural Fluidity in Contemporary Design</h2>
+                    <p>This season, we explore the intersection of rigid architectural structures and the fluid movement
+                        of silk. The collection draws inspiration from brutalist monuments softened by natural light,
+                        translating structural integrity into wearable art.</p>
+                    <a href="collections.html" class="btn btn-outline">Read Editorial</a>
+                </div>
+                <div class="editorial-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1964"
+                        alt="Editorial Main">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000"
+                        alt="Editorial Detail">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Trending Products -->
+    <section class="section-padding" style="background: var(--cards)" id="trending">
+        <div class="container">
+            <div class="text-center">
+                <p class="section-subtitle animate-on-scroll">Current Zeitgeist</p>
+                <h2 class="section-title animate-on-scroll">Trending Now</h2>
+            </div>
+            <div class="grid-4 animate-on-scroll">
+                <!-- Reusing product cards with different images for trending -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1574291814206-363acdf2aa79?q=80&w=1974"
+                            class="product-img" alt="Knit Sweater">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Jil Sander</div>
+                        <h3 class="product-title">Chunky Knit Sweater</h3>
+                        <div class="product-price">$1,100</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=400"
+                            class="product-img" alt="Pleated Linen Midi Skirt">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Toteme</div>
+                        <h3 class="product-title">Pleated Linen Midi Skirt</h3>
+                        <div class="product-price">$750</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1935"
+                            class="product-img" alt="Leather Jacket">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Acne Studios</div>
+                        <h3 class="product-title">Oversized Leather Biker</h3>
+                        <div class="product-price">$2,100</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=400"
+                            class="product-img" alt="Relaxed Wide-Leg Trousers">
+                        <div class="add-to-cart">Quick Add</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Balenciaga</div>
+                        <h3 class="product-title">Relaxed Wide-Leg Trousers</h3>
+                        <div class="product-price">$950</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Seasonal Collection -->
+    <section class="seasonal-section animate-on-scroll" id="seasonal">
+        <div class="seasonal-content">
+            <p class="section-subtitle" style="color: #fff;">Autumn / Winter</p>
+            <h2>The Evening Capsule</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">A curated selection of
+                nocturnal elegance, designed for the modern metropolitan landscape.</p>
+            <a href="collections.html" class="btn btn-outline" style="border-color:#fff; color:#fff;">Explore
+                Capsule</a>
+        </div>
+    </section>
+
+    <!-- 11. Brand Story -->
+    <section class="section-padding brand-story" id="brand">
+        <div class="container">
+            <div class="story-wrapper animate-on-scroll">
+                <p class="section-subtitle">Our Heritage</p>
+                <h2>Redefining Luxury Through Innovation</h2>
+                <p>Founded at the intersection of haute couture and artificial intelligence, StyleAI exists to eliminate
+                    the friction from luxury shopping.</p>
+                <p>We believe that true luxury is not just in the craftsmanship of a garment, but in the effortless
+                    discovery of pieces that perfectly align with your personal narrative. Our platform merges the
+                    critical eye of fashion's top stylists with the precision of machine learning.</p>
+                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071"
+                    alt="Atelier Details" style="margin-top: 3rem; border-radius: 4px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Testimonials -->
+    <section class="section-padding" id="testimonials">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title animate-on-scroll">Client Experiences</h2>
+            </div>
+            <div class="grid-3 animate-on-scroll" style="margin-top: 3rem;">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">The AI Stylist perfectly captured my aesthetic after analyzing just a
+                        few photos. The recommendations were pieces I never would have found myself, yet they felt
+                        inherently me.</p>
+                    <div class="testimonial-author">Eleanor R. — Creative Director</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">An absolute paradigm shift in online luxury retail. The curation is
+                        remarkably precise, and the editorial content contextualizes each piece beautifully.</p>
+                    <div class="testimonial-author">Julian M. — Architect</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">StyleAI removed the paradox of choice. Finding the perfect tuxedo for
+                        the gala was effortless. The platform understands fit and proportion intrinsically.</p>
+                    <div class="testimonial-author">Alexander C. — Financier</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. Fashion Statistics -->
+    <section class="section-padding" style="background: var(--cards); border-top: 1px solid rgba(0,0,0,0.05);"
+        id="stats">
+        <div class="container">
+            <div class="stats-grid animate-on-scroll">
+                <div>
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">Luxury Brands</div>
+                </div>
+                <div>
+                    <div class="stat-number">2M+</div>
+                    <div class="stat-label">Data Points Analyzed</div>
+                </div>
+                <div>
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Fit Accuracy</div>
+                </div>
+                <div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Style Intelligence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Newsletter -->
+    <section class="section-padding newsletter" id="newsletter">
+        <div class="container animate-on-scroll">
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">The Inner Circle</p>
+            <h2 class="section-title">Join The Vanguard</h2>
+            <p>Subscribe for exclusive access to private sales, editorial previews, and personalized style intelligence
+                drops.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-brand">
+                    <h3>StyleAI.</h3>
+                    <p>Where artificial intelligence meets haute couture. Elevating your wardrobe with data-driven
+                        styling.</p>
+                    <div class="social-icons" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="https://instagram.com/styleai" target="_blank" aria-label="Instagram"><svg
+                                viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg></a>
+                        <a href="https://twitter.com/styleai" target="_blank" aria-label="Twitter"><svg
+                                viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg></a>
+                        <a href="https://tiktok.com/@styleai" target="_blank" aria-label="TikTok"><svg
+                                viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <div class="footer-title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="stylist.html">AI Stylist</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <div class="footer-title">Customer Support</div>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4 -->
+                <div>
+                    <div class="footer-title">Newsletter</div>
+                    <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to receive
+                        updates, access to exclusive deals, and more.</p>
+                    <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.5rem;"
+                        onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Enter your email address" required
+                            style="padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.2); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
+                        <button type="submit" class="btn btn-primary"
+                            style="padding: 0.75rem 1rem; width: 100%; border-radius: 4px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StyleAI. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://instagram.com/styleai" target="_blank">Instagram</a>
+                    <a href="https://twitter.com/styleai" target="_blank">Twitter</a>
+                    <a href="https://tiktok.com/@styleai" target="_blank">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+/* 404 Page Specific Styles */
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.error-visual {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Giant 404 with Fashion Image Mask */
+.giant-404 {
+    font-size: 25vw; /* Scales with screen width */
+    line-height: 1;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin: 0;
+    
+    /* Image Text Mask Magic */
+    background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+
+    /* Subtle shadow for depth */
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+}
+
+[data-theme="dark"] .giant-404 {
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
+}
+
+.error-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-headline {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.error-subheadline {
+    font-family: var(--font-accent);
+    color: var(--muted);
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Specific Animations */
+.animate-fade {
+    opacity: 0;
+    animation: fadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.animate-slide-up {
+    opacity: 0;
+    transform: translateY(60px);
+    animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .giant-404 {
+        font-size: 35vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .giant-404 {
+        font-size: 45vw;
+    }
+    .error-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .error-actions .btn {
+        width: 100%;
+    }
+}

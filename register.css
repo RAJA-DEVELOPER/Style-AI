@@ -1,0 +1,481 @@
+/* Register Page Styles - Luxury Glassmorphism */
+
+body {
+    overflow-y: auto; /* allow scroll for longer form */
+    overflow-x: hidden;
+}
+
+.login-nav {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Split Layout (Reversed from Login) */
+.register-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Right Visual Background */
+.register-visual {
+    flex: 1;
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 6rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+}
+
+.visual-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+    z-index: 1;
+}
+
+.visual-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    max-width: 500px;
+}
+
+.brand-statement {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.visual-content p {
+    font-size: 1.25rem;
+    opacity: 0.8;
+    font-family: var(--font-accent);
+    letter-spacing: 0.05em;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Left Register Form */
+.register-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+    position: relative;
+    padding: 6rem 2rem;
+    width: 50%;
+}
+
+[data-theme="dark"] .register-form-container {
+    background: var(--background);
+}
+
+.register-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 3rem 4rem;
+    z-index: 2;
+}
+
+/* Glassmorphism Effect */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .glass-panel {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.register-header {
+    margin-bottom: 2.5rem;
+}
+
+.register-header h2 {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.register-header p {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* Floating Inputs */
+.floating-input {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.floating-input input {
+    width: 100%;
+    padding: 1rem 2.5rem 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    color: var(--text);
+    transition: all 0.3s ease;
+    border-radius: 4px 4px 0 0;
+}
+
+[data-theme="dark"] .floating-input input {
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.floating-input input:focus {
+    outline: none;
+    border-bottom-color: var(--primary);
+    background: rgba(0,0,0,0.02);
+}
+
+[data-theme="dark"] .floating-input input:focus {
+    background: rgba(255,255,255,0.02);
+}
+
+.floating-input label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 1rem;
+}
+
+.floating-input input:focus ~ label,
+.floating-input input:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(0);
+    font-size: 0.75rem;
+    color: var(--primary);
+}
+
+/* Validation UI */
+.validation-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.floating-input.valid .validation-icon {
+    opacity: 1;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%2310B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+}
+
+.floating-input.invalid .validation-icon {
+    opacity: 1;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%23EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>');
+}
+
+.error-msg {
+    color: #EF4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+/* Password Group */
+.password-group {
+    margin-bottom: 0.5rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.toggle-password svg {
+    width: 18px;
+    height: 18px;
+}
+
+.toggle-password:hover {
+    color: var(--text);
+}
+
+/* Strength Meter */
+.strength-meter {
+    margin-bottom: 1.5rem;
+    padding: 0 0.25rem;
+}
+
+.strength-bar {
+    height: 4px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .strength-bar {
+    background: rgba(255,255,255,0.1);
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-fill.weak { background-color: #EF4444; }
+.strength-fill.medium { background-color: #F59E0B; }
+.strength-fill.strong { background-color: #10B981; }
+
+.strength-text {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: right;
+}
+
+/* Gender Select (Radio Group) */
+.gender-select {
+    margin-bottom: 1.5rem;
+}
+
+.select-label {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.radio-btn {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-btn span {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .radio-btn span {
+    border-color: rgba(255,255,255,0.1);
+}
+
+.radio-btn input:checked ~ span {
+    border-color: var(--text);
+    color: var(--text);
+    background: rgba(0,0,0,0.02);
+}
+
+[data-theme="dark"] .radio-btn input:checked ~ span {
+    background: rgba(255,255,255,0.05);
+}
+
+/* Custom Checkbox */
+.form-options {
+    margin-bottom: 2rem;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 1px solid var(--muted);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    position: relative;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+    border-color: var(--text);
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--text);
+    border-color: var(--text);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--cards);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox a {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.register-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-redirect {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+
+.login-redirect a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Spinner Animation */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Page Animations */
+.animate-fade {
+    animation: fadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .brand-statement {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .register-layout {
+        flex-direction: column;
+    }
+    .register-visual {
+        position: relative;
+        width: 100%;
+        height: 40vh;
+        min-height: 40vh;
+        padding: 4rem 2rem;
+        align-items: flex-end;
+    }
+    .register-form-container {
+        width: 100%;
+        padding: 2rem;
+    }
+    .register-card {
+        padding: 2rem;
+    }
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

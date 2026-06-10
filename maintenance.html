@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance | StyleAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="maintenance.css">
+</head>
+<body>
+
+    <!-- Minimal Nav -->
+    <nav class="navbar" id="navbar" style="background: transparent; box-shadow: none;">
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" style="color: inherit;" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Vector Background Pattern -->
+    <div class="vector-bg">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 Q50,100 100,0 T200,0" stroke="currentColor" fill="none" stroke-width="0.1" opacity="0.1"/>
+            <path d="M0,20 Q50,120 100,20 T200,20" stroke="currentColor" fill="none" stroke-width="0.1" opacity="0.1"/>
+            <path d="M0,40 Q50,140 100,40 T200,40" stroke="currentColor" fill="none" stroke-width="0.1" opacity="0.1"/>
+            <path d="M0,60 Q50,160 100,60 T200,60" stroke="currentColor" fill="none" stroke-width="0.1" opacity="0.1"/>
+            <path d="M0,80 Q50,180 100,80 T200,80" stroke="currentColor" fill="none" stroke-width="0.1" opacity="0.1"/>
+            <circle cx="50" cy="50" r="30" stroke="currentColor" fill="none" stroke-width="0.05" opacity="0.05"/>
+            <circle cx="50" cy="50" r="40" stroke="currentColor" fill="none" stroke-width="0.05" opacity="0.05"/>
+        </svg>
+    </div>
+
+    <!-- Maintenance Content -->
+    <main class="maintenance-page">
+        <div class="container text-center">
+            
+            <div class="maintenance-content animate-slide-up">
+                
+                <!-- Central Abstract Vector Illustration -->
+                <div class="abstract-vector">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 22 22 22"></polygon>
+                        <polygon points="12 6 6 18 18 18"></polygon>
+                        <circle cx="12" cy="14" r="2"></circle>
+                    </svg>
+                </div>
+
+                <h1 class="maintenance-headline">We're Preparing Something Beautiful.</h1>
+                <p class="maintenance-subheadline">StyleAI is currently undergoing maintenance.<br>We'll be back shortly.</p>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-timer">
+                    <div class="time-block">
+                        <span class="time-number" id="hours">02</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-block">
+                        <span class="time-number" id="minutes">45</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-block">
+                        <span class="time-number" id="seconds">30</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="notify-form-container">
+                    <p class="notify-text">Be the first to know when we return.</p>
+                    <form class="newsletter-form notify-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Notify Me</button>
+                    </form>
+                </div>
+
+                
+    <!-- While you wait -->
+    <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(0,0,0,0.1); width: 100%;">
+        <p style="font-family: var(--font-accent); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 1.5rem;">While You Wait</p>
+        <div style="display: inline-block; background: var(--cards); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border); text-align: left; max-width: 400px; width: 100%;">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070" style="width: 100%; height: 150px; object-fit: cover; border-radius: 0.25rem; margin-bottom: 1rem; filter: grayscale(100%); opacity: 0.8;" alt="Sneak Peek">
+            <h4 style="margin-bottom: 0.25rem; font-size: 1rem;">Volume 03 Preview</h4>
+            <p style="color: var(--muted); font-size: 0.875rem;">Our upcoming collection explores the duality of structured tailoring and fluid silk draping.</p>
+        </div>
+    </div>
+
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://instagram.com/styleai" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://twitter.com/styleai" target="_blank" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                    </a>
+                    <a href="https://pinterest.com/styleai" target="_blank" aria-label="Pinterest">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="22" x2="12" y2="12"></line><path d="M12 2A10 10 0 0 0 2 12c0 4.25 2.67 8 6.55 9.4A20.65 20.65 0 0 1 8 16c.32-1.3 2-8 2-8a4.4 4.4 0 0 1 .4-2.8c1.3-1.8 3.5-1.5 4.3-.2a2.3 2.3 0 0 1-.3 3.3c-1.3 1.1-2.2 2.7-1.8 4.2.5 1.5 2 2.3 3.6 2.1a5.6 5.6 0 0 0 4.8-5.6c0-3.3-2.7-6-6-6-3.8 0-6.9 3.1-6.9 6.9 0 1.2.3 2.4.9 3.4"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup countdown timer (e.g., 2 hours and 45 minutes from now)
+            let timeRemaining = (2 * 60 * 60) + (45 * 60) + 30; // seconds
+
+            const hEl = document.getElementById('hours');
+            const mEl = document.getElementById('minutes');
+            const sEl = document.getElementById('seconds');
+
+            const formatTime = (time) => {
+                return time < 10 ? `0${time}` : time;
+            };
+
+            const interval = setInterval(() => {
+                if (timeRemaining <= 0) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                timeRemaining--;
+                
+                const hours = Math.floor(timeRemaining / 3600);
+                const minutes = Math.floor((timeRemaining % 3600) / 60);
+                const seconds = timeRemaining % 60;
+
+                hEl.innerText = formatTime(hours);
+                mEl.innerText = formatTime(minutes);
+                sEl.innerText = formatTime(seconds);
+            }, 1000);
+
+            // Notify Form Logic
+            const form = document.querySelector('.notify-form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'Subscribed';
+                btn.style.background = '#10B981';
+                btn.style.color = '#fff';
+                btn.style.border = 'none';
+                setTimeout(() => {
+                    form.reset();
+                    btn.innerHTML = originalText;
+                    btn.style = '';
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>

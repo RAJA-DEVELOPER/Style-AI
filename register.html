@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | StyleAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <!-- Simplified Navigation for Register -->
+    <nav class="navbar login-nav" id="navbar">
+        <div class="container nav-container" style="justify-content: flex-start; padding-left: 2rem;">
+            <div class="nav-logo"><a href="index.html">StyleAI.</a></div>
+        </div>
+        <div class="nav-icons" style="position: absolute; right: 2rem; top: 1.5rem; z-index: 10;">
+            <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </a>
+        </div>
+    </nav>
+
+    <div class="register-layout">
+        
+        <!-- Left Side: Register Form -->
+        <div class="register-form-container">
+            <div class="register-card glass-panel animate-slide-up">
+                <div class="register-header">
+                    <h2>Join StyleAI</h2>
+                    <p>Create an account to begin your personalized fashion journey.</p>
+                </div>
+
+                <form class="register-form" id="registerForm">
+                    
+                    <div class="form-group floating-input">
+                        <input type="text" id="fullname" required placeholder=" ">
+                        <label for="fullname">Full Name</label>
+                        <div class="validation-icon"></div>
+                    </div>
+
+                    <div class="form-group floating-input">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Email address</label>
+                        <div class="validation-icon"></div>
+                    </div>
+
+                    <div class="form-group floating-input password-group">
+                        <input type="password" id="password" required placeholder=" ">
+                        <label for="password">Password</label>
+                        <button type="button" class="toggle-password" tabindex="-1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Password Strength Meter -->
+                    <div class="strength-meter">
+                        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+                        <div class="strength-text" id="strength-text">Password strength</div>
+                    </div>
+
+                    <div class="form-group floating-input">
+                        <input type="password" id="confirm-password" required placeholder=" ">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="validation-icon"></div>
+                        <div class="error-msg" id="match-error">Passwords do not match.</div>
+                    </div>
+
+                    <div class="form-group gender-select">
+                        <p class="select-label">Shopping Preference</p>
+                        <div class="radio-group">
+                            <label class="radio-btn">
+                                <input type="radio" name="gender" value="women" checked>
+                                <span>Womenswear</span>
+                            </label>
+                            <label class="radio-btn">
+                                <input type="radio" name="gender" value="men">
+                                <span>Menswear</span>
+                            </label>
+                            <label class="radio-btn">
+                                <input type="radio" name="gender" value="unisex">
+                                <span>Unisex</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" required id="terms">
+                            <span class="checkmark"></span>
+                            <span>I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary register-btn" id="submitBtn">Create Account</button>
+                </form>
+
+                <div class="login-redirect">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Brand Visual -->
+        <div class="register-visual animate-fade">
+            <div class="visual-overlay"></div>
+            <div class="visual-content text-right">
+                <h1 class="brand-statement">The future of<br>luxury retail.</h1>
+                <p>Curated. Intelligent. Uniquely yours.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('password');
+            const confirmInput = document.getElementById('confirm-password');
+            const toggleBtn = document.querySelector('.toggle-password');
+            const strengthFill = document.getElementById('strength-fill');
+            const strengthText = document.getElementById('strength-text');
+            const matchError = document.getElementById('match-error');
+            const registerForm = document.getElementById('registerForm');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Show/Hide Password
+            toggleBtn.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                // Switch icon
+                if (type === 'text') {
+                    toggleBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>'; // Eye off
+                } else {
+                    toggleBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>'; // Eye
+                }
+            });
+
+            // Password Strength Indicator
+            passwordInput.addEventListener('input', () => {
+                const val = passwordInput.value;
+                let strength = 0;
+                
+                if (val.length > 5) strength += 1;
+                if (val.length > 8) strength += 1;
+                if (/[A-Z]/.test(val)) strength += 1;
+                if (/[0-9]/.test(val)) strength += 1;
+                if (/[^A-Za-z0-9]/.test(val)) strength += 1;
+
+                strengthFill.className = 'strength-fill'; // Reset
+                if (val.length === 0) {
+                    strengthFill.style.width = '0';
+                    strengthText.innerText = 'Password strength';
+                } else if (strength <= 2) {
+                    strengthFill.style.width = '33%';
+                    strengthFill.classList.add('weak');
+                    strengthText.innerText = 'Weak';
+                } else if (strength <= 3) {
+                    strengthFill.style.width = '66%';
+                    strengthFill.classList.add('medium');
+                    strengthText.innerText = 'Medium';
+                } else {
+                    strengthFill.style.width = '100%';
+                    strengthFill.classList.add('strong');
+                    strengthText.innerText = 'Strong';
+                }
+                
+                checkMatch();
+            });
+
+            // Password Match Validation
+            const checkMatch = () => {
+                if (confirmInput.value.length > 0) {
+                    if (passwordInput.value !== confirmInput.value) {
+                        confirmInput.parentElement.classList.add('invalid');
+                        confirmInput.parentElement.classList.remove('valid');
+                        matchError.style.display = 'block';
+                    } else {
+                        confirmInput.parentElement.classList.remove('invalid');
+                        confirmInput.parentElement.classList.add('valid');
+                        matchError.style.display = 'none';
+                    }
+                }
+            };
+            confirmInput.addEventListener('input', checkMatch);
+
+            // Generic Validation UI on blur
+            const inputs = document.querySelectorAll('.floating-input input');
+            inputs.forEach(input => {
+                input.addEventListener('blur', () => {
+                    if (input.id !== 'confirm-password') {
+                        if (input.checkValidity() && input.value.trim() !== '') {
+                            input.parentElement.classList.add('valid');
+                            input.parentElement.classList.remove('invalid');
+                        } else if (input.value.trim() !== '') {
+                            input.parentElement.classList.add('invalid');
+                            input.parentElement.classList.remove('valid');
+                        }
+                    }
+                });
+            });
+
+            // Form Submit Animation
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (passwordInput.value !== confirmInput.value) return;
+
+                submitBtn.innerHTML = '<span class="spinner"></span> Creating Account...';
+                submitBtn.style.opacity = '0.8';
+                setTimeout(() => {
+                    window.location.href = 'shop.html';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
