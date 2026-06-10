@@ -136,7 +136,7 @@ body {
 }
 
 [data-theme="dark"] .floating-input input {
-    border-bottom: 2px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid rgba(255,255,255,0.25);
 }
 
 .floating-input input:focus {
@@ -230,13 +230,13 @@ body {
 }
 
 .forgot-link {
-    color: var(--muted);
+    color: var(--text);
     text-decoration: underline;
     transition: var(--transition);
 }
 
 .forgot-link:hover {
-    color: var(--text);
+    color: var(--primary);
 }
 
 /* Submit Button */
@@ -272,7 +272,7 @@ body {
 }
 
 [data-theme="dark"] .social-login-divider::before {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.18);
 }
 
 .social-login-divider span {
@@ -318,7 +318,8 @@ body {
 }
 
 [data-theme="dark"] .social-btn {
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text);
 }
 
 .social-btn:hover {

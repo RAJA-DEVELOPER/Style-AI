@@ -142,7 +142,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: rgba(0,0,0,0.1);
+    background: var(--border);
 }
 
 .timeline-item {
@@ -165,7 +165,7 @@
     transform: translate(-50%, -50%);
     width: 16px;
     height: 16px;
-    background: #fff;
+    background: var(--cards);
     border: 4px solid var(--primary);
     border-radius: 50%;
     z-index: 2;

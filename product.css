@@ -150,7 +150,7 @@
 }
 
 [data-theme="dark"] .color-swatch {
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
 }
 
 .color-swatch::after {
@@ -186,7 +186,8 @@
 }
 
 [data-theme="dark"] .size-btn {
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.25);
+    color: #F8FAFC;
 }
 
 .size-btn:hover:not(.disabled) {
@@ -225,7 +226,7 @@
 }
 
 [data-theme="dark"] .quantity-selector {
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.25);
 }
 
 .qty-btn {
@@ -285,7 +286,7 @@
 }
 
 [data-theme="dark"] .wishlist-btn {
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.25);
 }
 
 .wishlist-btn svg {
@@ -303,7 +304,7 @@
 }
 
 [data-theme="dark"] .product-details-accordion {
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.15);
 }
 
 .accordion-item {
@@ -311,7 +312,7 @@
 }
 
 [data-theme="dark"] .accordion-item {
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.15);
 }
 
 .accordion-header {
@@ -391,7 +392,7 @@
 }
 
 [data-theme="dark"] .reviews-header {
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.15);
 }
 
 .reviews-header h2 {

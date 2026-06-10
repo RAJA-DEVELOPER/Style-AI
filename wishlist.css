@@ -21,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 1rem;
     margin-bottom: 3rem;
 }
@@ -70,8 +70,9 @@
     width: 100%;
     padding: 0.5rem 2rem 0.5rem 0;
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border);
     background: transparent;
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 0.875rem;
     transition: var(--transition);
@@ -93,8 +94,9 @@
 }
 
 .filter-dropdown select {
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
     background: var(--cards);
+    color: var(--text);
     padding: 0.5rem 1rem;
     font-family: var(--font-body);
     font-size: 0.875rem;
@@ -148,7 +150,12 @@
     cursor: pointer;
     z-index: 10;
     transition: var(--transition);
-    color: var(--text);
+    color: #0F172A;
+}
+
+[data-theme="dark"] .remove-btn {
+    background: rgba(15, 23, 42, 0.85);
+    color: #F8FAFC;
 }
 
 .remove-btn:hover {
@@ -168,6 +175,7 @@
     width: 100%;
     padding: 1rem;
     background: rgba(255,255,255,0.95);
+    color: #0F172A;
     border: none;
     font-family: var(--font-accent);
     font-size: 0.75rem;
@@ -178,6 +186,11 @@
     transition: var(--transition);
     font-weight: 500;
     min-height: 44px;
+}
+
+[data-theme="dark"] .move-to-cart-btn {
+    background: rgba(15, 23, 42, 0.92);
+    color: #F8FAFC;
 }
 
 .wishlist-card:hover .move-to-cart-btn {
@@ -225,7 +238,7 @@
     text-align: center;
     padding: 6rem 2rem;
     background: var(--cards);
-    border: 1px dashed rgba(0,0,0,0.1);
+    border: 1px dashed var(--border);
 }
 
 .empty-state svg {

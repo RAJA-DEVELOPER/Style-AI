@@ -145,7 +145,7 @@ body {
 }
 
 [data-theme="dark"] .floating-input input {
-    border-bottom: 2px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid rgba(255,255,255,0.25);
 }
 
 .floating-input input:focus {
@@ -247,7 +247,7 @@ body {
 }
 
 [data-theme="dark"] .strength-bar {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.15);
 }
 
 .strength-fill {
@@ -298,15 +298,16 @@ body {
     display: block;
     text-align: center;
     padding: 0.75rem 0.5rem;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 0.5rem;
     font-size: 0.875rem;
-    color: var(--muted);
+    color: var(--text);
     transition: all 0.3s ease;
 }
 
 [data-theme="dark"] .radio-btn span {
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    color: var(--text);
 }
 
 .radio-btn input:checked ~ span {

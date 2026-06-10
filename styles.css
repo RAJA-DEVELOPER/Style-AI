@@ -21,9 +21,9 @@
     --background: #0F172A;
     --cards: #1E293B;
     --text: #F8FAFC;
-    --muted: #94A3B8;
+    --muted: #A8BCCE;
     --secondary: #334155;
-    --border: rgba(255,255,255,0.1);
+    --border: rgba(255,255,255,0.15);
 }
 
 * {
@@ -471,6 +471,7 @@ ul {
     left: 0;
     width: 100%;
     background: rgba(255,255,255,0.9);
+    color: #0F172A;
     padding: 1rem;
     text-align: center;
     transform: translateY(100%);
@@ -705,7 +706,7 @@ ul {
     background: var(--cards);
     padding: 3rem;
     text-align: center;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
 }
 
 .quote-icon {
@@ -1248,16 +1249,16 @@ ul {
 
 /* Dark Mode Overrides for Overlays */
 [data-theme="dark"] .navbar {
-    background: rgba(15, 23, 42, 0.75);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .navbar.scrolled {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.95);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .hero-overlay {
@@ -1280,8 +1281,8 @@ ul {
 }
 
 [data-theme="dark"] .hero-buttons .btn-outline {
-    background-color: rgba(30, 41, 59, 0.8) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(30, 41, 59, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
     color: #f8fafc !important;
 }
 
@@ -1291,10 +1292,10 @@ ul {
     border-color: #f8fafc !important;
 }
 
-
-
+/* Dark mode: add-to-cart hover button - dark bg with light text */
 [data-theme="dark"] .add-to-cart {
-    background: rgba(30, 41, 59, 0.9);
+    background: rgba(15, 23, 42, 0.92);
+    color: #F8FAFC;
 }
 
 [data-theme="dark"] .shop-hero-bg::after {
@@ -1302,21 +1303,73 @@ ul {
 }
 
 [data-theme="dark"] .featured-highlight::before {
-    background: linear-gradient(to right, rgba(15, 23, 42, 0.9), transparent);
+    background: linear-gradient(to right, rgba(15, 23, 42, 0.92), transparent);
 }
 
+/* Dark mode: quick-view/add buttons - dark bg with light text */
 [data-theme="dark"] .quick-view-btn {
-    background: rgba(30, 41, 59, 0.9);
+    background: rgba(15, 23, 42, 0.92);
+    color: #F8FAFC;
 }
 
 [data-theme="dark"] .quick-add-btn {
-    background: rgba(30, 41, 59, 0.9);
+    background: rgba(15, 23, 42, 0.92);
+    color: #F8FAFC;
 }
 
 [data-theme="dark"] .wishlist-action-bar {
-    background: rgba(30, 41, 59, 0.95);
+    background: rgba(15, 23, 42, 0.95);
+    color: #F8FAFC;
 }
 
 [data-theme="dark"] .upload-area {
     background: rgba(30, 41, 59, 0.95);
+}
+
+/* Dark mode: filter sidebar borders and interactive elements */
+[data-theme="dark"] .filter-title {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .size-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #F8FAFC;
+}
+
+[data-theme="dark"] .sort-dropdown select {
+    color: #F8FAFC;
+    background: transparent;
+}
+
+/* Dark mode: cart sidebar */
+[data-theme="dark"] .cart-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .sidebar-item {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .cart-summary-row.total {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .cart-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.6);
+}
+
+/* Dark mode: qty controls in cart sidebar */
+[data-theme="dark"] .qty-control {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark mode: newsletter input in footer */
+[data-theme="dark"] .footer input[type="email"] {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #F8FAFC;
+}
+
+[data-theme="dark"] .footer input[type="email"]::placeholder {
+    color: #A8BCCE;
 }
