@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -92,25 +92,25 @@
                 <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
                     <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=2073" style="width: 100%; height: 100%; object-fit: cover;" alt="Dark Academia">
                     <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
-                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Nocturnal</h3>
+                        <h3 style="color: var(--cards); margin: 0; font-family: var(--font-heading);">Nocturnal</h3>
                     </div>
                 </div>
                 <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
                     <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=1974" style="width: 100%; height: 100%; object-fit: cover;" alt="Minimalist">
                     <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
-                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Minimalist</h3>
+                        <h3 style="color: var(--cards); margin: 0; font-family: var(--font-heading);">Minimalist</h3>
                     </div>
                 </div>
                 <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
                     <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070" style="width: 100%; height: 100%; object-fit: cover;" alt="Avant Garde">
                     <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
-                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Avant-Garde</h3>
+                        <h3 style="color: var(--cards); margin: 0; font-family: var(--font-heading);">Avant-Garde</h3>
                     </div>
                 </div>
                 <div style="position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 0.5rem; cursor: pointer;" class="collection-aesthetic">
                     <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?q=80&w=1980" style="width: 100%; height: 100%; object-fit: cover;" alt="Resort">
                     <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; padding: 2rem;">
-                        <h3 style="color: #fff; margin: 0; font-family: var(--font-heading);">Resort</h3>
+                        <h3 style="color: var(--cards); margin: 0; font-family: var(--font-heading);">Resort</h3>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
     </section>
 
     <!-- The Vault -->
-    <section class="section-padding" style="background: var(--text); color: var(--cards);">
+    <section class="section-padding inverted-section">
         <div class="container">
             <div class="editorial-grid vault-grid" style="align-items: center;">
                 <div class="animate-on-scroll">
@@ -189,7 +189,7 @@
                     <div class="footer-title">Newsletter</div>
                     <p style="color: var(--muted); font-size: 0.875rem; margin-bottom: 1rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
                     <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault();">
-                        <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.2); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
+                        <input type="email" placeholder="Enter your email address" required style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: transparent; border-radius: 4px; color: var(--text); font-family: var(--font-body); width: 100%; box-sizing: border-box;">
                         <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1rem; width: 100%; border-radius: 4px;">Subscribe</button>
                     </form>
                 </div>
@@ -210,3 +210,5 @@
     <script src="cart.js"></script>
 </body>
 </html>
+
+

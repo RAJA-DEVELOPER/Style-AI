@@ -98,6 +98,28 @@ ul {
     margin-bottom: var(--spacing-lg);
 }
 
+/* Inverted Section Utility for Dark Mode Contrast */
+.inverted-section {
+    background: var(--text) !important;
+    color: var(--cards) !important;
+}
+.inverted-section h1, 
+.inverted-section h2, 
+.inverted-section h3, 
+.inverted-section h4, 
+.inverted-section h5, 
+.inverted-section h6,
+.inverted-section p,
+.inverted-section span,
+.inverted-section div {
+    color: var(--cards);
+}
+.inverted-section .section-subtitle,
+.inverted-section .muted-text {
+    color: var(--cards);
+    opacity: 0.8;
+}
+
 /* Buttons */
 .btn {
     display: inline-flex;
@@ -154,19 +176,19 @@ ul {
     z-index: 1000;
     padding: 1.25rem 0;
     transition: var(--transition);
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(248, 250, 252, 0.75);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(248, 250, 252, 0.92);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
     padding: 0.85rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border);
 }
 
 
@@ -470,8 +492,8 @@ ul {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(255,255,255,0.9);
-    color: #0F172A;
+    background: var(--cards);
+    color: var(--text);
     padding: 1rem;
     text-align: center;
     transform: translateY(100%);
@@ -482,6 +504,7 @@ ul {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 500;
+    border-top: 1px solid var(--border);
 }
 
 .product-card:hover .add-to-cart {
@@ -1069,7 +1092,7 @@ ul {
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border);
 }
 
 .cart-header h2 {
@@ -1112,7 +1135,7 @@ ul {
     gap: 1.5rem;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--border);
 }
 
 .sidebar-item-img {
@@ -1166,7 +1189,7 @@ ul {
 .qty-control {
     display: flex;
     align-items: center;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
 }
@@ -1176,11 +1199,12 @@ ul {
     border: none;
     padding: 0.25rem 0.75rem;
     cursor: pointer;
+    color: var(--text);
     transition: background 0.2s;
 }
 
 .qty-btn:hover {
-    background: rgba(0,0,0,0.05);
+    background: var(--border);
 }
 
 .qty-control span {
@@ -1203,7 +1227,7 @@ ul {
 
 .cart-footer {
     padding: 2rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid var(--border);
     background: var(--background);
 }
 
@@ -1221,7 +1245,7 @@ ul {
     color: var(--text);
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid var(--border);
 }
 
 /* Nav Cart Counter */
@@ -1341,35 +1365,57 @@ ul {
     background: transparent;
 }
 
-/* Dark mode: cart sidebar */
-[data-theme="dark"] .cart-header {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .sidebar-item {
-    border-bottom-color: rgba(255, 255, 255, 0.06);
-}
-
-[data-theme="dark"] .cart-summary-row.total {
-    border-top-color: rgba(255, 255, 255, 0.1);
-}
-
+/* Dark mode: cart footer */
 [data-theme="dark"] .cart-footer {
-    border-top-color: rgba(255, 255, 255, 0.1);
     background: rgba(15, 23, 42, 0.6);
-}
-
-/* Dark mode: qty controls in cart sidebar */
-[data-theme="dark"] .qty-control {
-    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Dark mode: newsletter input in footer */
 [data-theme="dark"] .footer input[type="email"] {
-    border-color: rgba(255, 255, 255, 0.2);
     color: #F8FAFC;
 }
 
 [data-theme="dark"] .footer input[type="email"]::placeholder {
     color: #A8BCCE;
+}
+
+/* Dark mode: form inputs / selects site-wide */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    color-scheme: dark;
+    color: #F8FAFC;
+    background-color: transparent;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #A8BCCE;
+}
+
+/* Dark mode: select dropdown native arrow colour */
+[data-theme="dark"] select option {
+    background: #1E293B;
+    color: #F8FAFC;
+}
+
+/* Dark mode: newsletter form input */
+[data-theme="dark"] .newsletter-form input {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.2);
+    color: #F8FAFC;
+}
+
+/* Dark mode: contact form input */
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+    color: #F8FAFC;
+    border-bottom-color: rgba(255,255,255,0.3);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group select:focus,
+[data-theme="dark"] .form-group textarea:focus {
+    border-bottom-color: #F8FAFC;
 }

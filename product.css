@@ -176,7 +176,7 @@
 .size-btn {
     min-width: 60px;
     height: 44px;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
     background: transparent;
     color: var(--text);
     font-family: var(--font-body);
@@ -186,7 +186,6 @@
 }
 
 [data-theme="dark"] .size-btn {
-    border-color: rgba(255,255,255,0.25);
     color: #F8FAFC;
 }
 
@@ -221,12 +220,8 @@
 .quantity-selector {
     display: flex;
     align-items: center;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
     height: 52px;
-}
-
-[data-theme="dark"] .quantity-selector {
-    border-color: rgba(255,255,255,0.25);
 }
 
 .qty-btn {
@@ -279,14 +274,10 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
     color: var(--text);
     cursor: pointer;
     transition: var(--transition);
-}
-
-[data-theme="dark"] .wishlist-btn {
-    border-color: rgba(255,255,255,0.25);
 }
 
 .wishlist-btn svg {
@@ -300,19 +291,11 @@
 
 /* Accordions */
 .product-details-accordion {
-    border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-[data-theme="dark"] .product-details-accordion {
-    border-color: rgba(255,255,255,0.15);
+    border-top: 1px solid var(--border);
 }
 
 .accordion-item {
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-[data-theme="dark"] .accordion-item {
-    border-color: rgba(255,255,255,0.15);
+    border-bottom: 1px solid var(--border);
 }
 
 .accordion-header {
@@ -388,11 +371,7 @@
     align-items: center;
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-[data-theme="dark"] .reviews-header {
-    border-color: rgba(255,255,255,0.15);
+    border-bottom: 1px solid var(--border);
 }
 
 .reviews-header h2 {
@@ -610,7 +589,7 @@
     position: absolute;
     top: 1.5rem; right: 1.5rem;
     background: var(--background);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
     color: var(--text);
     width: 40px; height: 40px;
     border-radius: 50%;
@@ -623,10 +602,6 @@
     transition: var(--transition);
 }
 
-[data-theme="dark"] .close-tryon {
-    border-color: rgba(255,255,255,0.1);
-}
-
 .tryon-layout {
     display: flex;
     height: 100%;
@@ -635,12 +610,8 @@
 .tryon-left {
     width: 40%;
     padding: 3rem;
-    border-right: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid var(--border);
     overflow-y: auto;
-}
-
-[data-theme="dark"] .tryon-left {
-    border-color: rgba(255,255,255,0.1);
 }
 
 .tryon-header {
