@@ -353,7 +353,7 @@
     background: var(--text);
     padding: clamp(2rem, 5vw, 4rem);
     border-radius: 1rem;
-    color: var(--cards);
+    color: var(--inverse-text);
 }
 
 /* Grids for specific sections */

@@ -60,20 +60,55 @@
     min-height: 40px;
 }
 
-.support-card a {
+.action-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--text);
+    border-radius: 0.5rem;
+    background: transparent;
     font-family: var(--font-accent);
     font-weight: 500;
     color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.875rem;
-    border-bottom: 1px solid var(--text);
-    padding-bottom: 2px;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
-.support-card a:hover {
-    color: var(--primary);
-    border-color: var(--primary);
+.action-pill:hover,
+.action-pill:focus-visible {
+    background: var(--text);
+    color: var(--inverse-text);
+    transform: translateY(-2px);
+}
+
+.action-pill:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.action-pill.action-pill-soft {
+    border-color: var(--border);
+    background: var(--background);
+}
+
+.action-pill.action-pill-soft:hover,
+.action-pill.action-pill-soft:focus-visible {
+    border-color: var(--text);
+    background: var(--text);
+    color: var(--inverse-text);
+}
+
+.support-card .action-pill {
+    width: 100%;
 }
 
 /* Contact Layout (Form + Location) */
@@ -272,12 +307,10 @@
 .biz-card a {
     color: var(--text);
     font-size: 1.125rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 2px;
 }
 
 .biz-card a:hover {
-    border-bottom-color: var(--primary);
+    color: var(--primary);
 }
 
 /* Social Links */
@@ -328,6 +361,7 @@
 @media (max-width: 480px) {
     .contact-hero .hero-title { font-size: clamp(1.75rem, 6vw, 2.5rem); }
     .support-card { padding: 2rem 1.5rem; }
+    .action-pill { width: 100%; padding-inline: 1rem; }
     .faq-question { font-size: 1rem; }
     .contact-form-wrapper p { margin-bottom: 2rem; }
     .social-links a { font-size: 1.5rem; }

@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Products -->
                 <div class="col-products-header">
                     <h4>Shop The Edit</h4>
-                    <a href="shop.html" style="font-family: var(--font-accent); text-transform: uppercase; font-size: 0.875rem; color: var(--primary);">View All →</a>
+                    <a href="shop.html" class="link-action-button">View All</a>
                 </div>
                 <div class="col-products-grid">
                     ${col.products.map(p => `

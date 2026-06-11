@@ -199,7 +199,7 @@
 
 .move-to-cart-btn:hover {
     background: var(--text);
-    color: var(--cards);
+    color: var(--inverse-text);
 }
 
 /* Info Section */
@@ -267,7 +267,7 @@
     left: 50%;
     transform: translateX(-50%) translateY(100px);
     background: var(--text);
-    color: var(--cards);
+    color: var(--inverse-text);
     padding: 1rem 2rem;
     border-radius: 2rem;
     font-family: var(--font-accent);
