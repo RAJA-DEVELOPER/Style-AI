@@ -477,3 +477,97 @@
     .dashboard-card { padding: 1.25rem; }
     .color-palette { grid-template-columns: repeat(3, 1fr); }
 }
+
+@media (max-width: 1024px) {
+    .stylist-hero {
+        padding-top: 6.5rem;
+    }
+
+    .dashboard-section {
+        margin-bottom: clamp(3rem, 7vw, 4rem);
+    }
+}
+
+@media (max-width: 767px) {
+    .stylist-hero .hero-subtitle,
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    .upload-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .dashboard-wrapper {
+        padding-bottom: 2.5rem;
+    }
+
+    .img-card-overlay {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .saved-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stylist-badge {
+        line-height: 1.4;
+    }
+
+    .upload-box p {
+        margin-bottom: 1.5rem;
+    }
+
+    .score-card {
+        padding-inline: 1rem;
+    }
+
+    .palette-swatch {
+        min-height: 84px;
+        padding: 0.5rem;
+        font-size: 0.68rem;
+    }
+}
+
+/* Stylist page responsive completion */
+@media (max-width: 1024px) {
+    .dashboard-grid,
+    .outfit-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .occasion-grid,
+    .gallery-grid,
+    .trending-carousel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .card-header,
+    .section-header,
+    .saved-header {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dashboard-cta .btn,
+    .btn-small {
+        width: 100%;
+        min-height: 46px;
+    }
+}
+
+@media (max-width: 520px) {
+    .occasion-grid,
+    .gallery-grid,
+    .trending-carousel,
+    .outfit-grid {
+        grid-template-columns: 1fr;
+    }
+}

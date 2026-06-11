@@ -1278,3 +1278,141 @@ input:checked + .slider:before {
         padding: 1.25rem;
     }
 }
+
+@media (max-width: 1024px) {
+    .breadcrumb {
+        margin-top: 76px;
+    }
+
+    .product-layout {
+        padding-bottom: 2rem;
+    }
+
+    .sticky-wrapper {
+        max-width: 760px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .breadcrumb {
+        padding-block: 0.75rem;
+    }
+
+    .product-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-img-container::after {
+        display: none;
+    }
+
+    .ai-stylist-section,
+    .reviews-section {
+        padding-block: clamp(3rem, 9vw, 4.5rem);
+    }
+
+    .ai-stylist-section h2,
+    .reviews-header h2 {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-img-container:first-child {
+        grid-column: auto;
+    }
+
+    .product-badges span,
+    .purchase-assurance div {
+        width: 100%;
+    }
+
+    .accordion-header {
+        font-size: 1rem;
+        gap: 1rem;
+        text-align: left;
+    }
+}
+
+/* Product page tablet/mobile alignment pass */
+@media (max-width: 1024px) {
+    .product-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .product-gallery,
+    .sticky-wrapper {
+        width: min(100%, 780px);
+        margin-inline: auto;
+    }
+
+    .product-actions-row {
+        align-items: stretch;
+    }
+
+    .add-to-cart-btn,
+    .buy-now-btn,
+    .try-on-btn {
+        min-height: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .breadcrumb .container {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .product-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-actions-row {
+        display: grid;
+        grid-template-columns: minmax(104px, 0.45fr) minmax(0, 1fr) 52px;
+    }
+
+    .product-actions-row .quantity-selector,
+    .product-actions-row .add-to-cart-btn,
+    .product-actions-row .wishlist-btn {
+        width: 100%;
+    }
+
+    .wishlist-btn {
+        min-width: 52px;
+    }
+
+    .try-on-btn,
+    .buy-now-btn {
+        width: 100%;
+    }
+
+    .reviews-header,
+    .review-meta {
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 540px) {
+    .product-actions-row {
+        grid-template-columns: 1fr;
+    }
+
+    .product-actions-row .wishlist-btn {
+        min-width: 0;
+    }
+
+    .product-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-img-container:first-child {
+        grid-column: auto;
+    }
+}

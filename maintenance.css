@@ -251,3 +251,84 @@ body {
         width: 100%;
     }
 }
+
+@media (max-width: 1024px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .maintenance-page {
+        padding-block: 6rem 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .maintenance-page {
+        min-height: 100svh;
+    }
+
+    .maintenance-content {
+        width: calc(100% - 2rem);
+        margin: 1rem;
+    }
+
+    .countdown-timer {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .time-separator {
+        display: none;
+    }
+
+    .time-block {
+        min-width: 0;
+    }
+
+    .time-number {
+        font-size: clamp(1.75rem, 9vw, 2.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .maintenance-content {
+        padding: 2rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .countdown-timer {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .time-label {
+        font-size: 0.62rem;
+    }
+
+    .notify-form-container {
+        padding-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Maintenance responsive completion */
+@media (max-width: 767px) {
+    .maintenance-page {
+        height: auto;
+    }
+
+    .maintenance-content {
+        max-width: none;
+    }
+
+    .notify-form,
+    .notify-form input,
+    .notify-form button {
+        width: 100%;
+    }
+
+    .notify-form button {
+        min-height: 46px;
+    }
+}

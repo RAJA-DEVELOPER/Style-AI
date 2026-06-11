@@ -295,3 +295,74 @@
     .timeline-content h3 { font-size: 1.25rem; }
     .about-hero { height: 40vh; }
 }
+
+@media (max-width: 1024px) {
+    .about-hero {
+        min-height: 380px;
+    }
+
+    .split-layout {
+        gap: clamp(2rem, 5vw, 3rem);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero {
+        margin-top: 70px;
+    }
+
+    .split-text p,
+    .mv-card p {
+        font-size: 1rem;
+    }
+
+    .timeline {
+        margin-top: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .split-text h2 {
+        font-size: clamp(1.85rem, 10vw, 2.35rem);
+    }
+
+    .tech-list li,
+    .timeline-item:nth-child(odd) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date,
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        padding-left: 42px;
+    }
+
+    .timeline::before,
+    .timeline-item::after {
+        left: 14px;
+    }
+}
+
+/* About page responsive completion */
+@media (max-width: 1024px) {
+    .split-layout,
+    .mission-vision-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero {
+        height: auto;
+        min-height: 340px;
+        padding-block: 7rem 3rem;
+    }
+
+    .split-layout.reverse .split-text,
+    .split-layout.reverse .split-image {
+        order: initial;
+    }
+
+    .timeline,
+    .timeline-content,
+    .timeline-date {
+        width: 100%;
+    }
+}

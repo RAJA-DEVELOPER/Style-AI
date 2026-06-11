@@ -110,3 +110,25 @@
         width: 100%;
     }
 }
+
+@media (max-width: 767px) {
+    .error-page {
+        min-height: 100svh;
+        padding-block: 6rem 3rem;
+    }
+
+    .error-subheadline {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .giant-404 {
+        font-size: 42vw;
+    }
+
+    .error-visual {
+        margin-bottom: 1rem;
+    }
+}

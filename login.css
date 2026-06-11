@@ -434,3 +434,78 @@ body {
     .login-header h2 { font-size: 1.5rem; }
     .form-options { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
+
+@media (max-width: 1024px) {
+    .login-visual {
+        padding: 5rem 3rem;
+    }
+
+    .login-card {
+        max-width: 440px;
+    }
+}
+
+@media (max-width: 767px) {
+    .login-nav {
+        background: color-mix(in srgb, var(--background) 86%, transparent) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+        border-bottom: 1px solid var(--border) !important;
+    }
+
+    .login-visual {
+        padding-top: 5.5rem;
+    }
+
+    .visual-content p {
+        font-size: 1rem;
+    }
+
+    .glass-panel {
+        border-radius: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form-container {
+        align-items: stretch;
+    }
+
+    .login-card {
+        max-width: none;
+    }
+
+    .floating-input {
+        margin-bottom: 1.25rem;
+    }
+}
+
+/* Login responsive completion */
+@media (max-width: 767px) {
+    .login-layout {
+        width: 100%;
+        min-height: 100svh;
+        height: auto;
+    }
+
+    .login-visual,
+    .login-form-container {
+        width: 100%;
+    }
+
+    .login-card,
+    .login-btn,
+    .social-btn {
+        width: 100%;
+    }
+
+    .login-btn,
+    .social-btn {
+        min-height: 46px;
+    }
+
+    .social-logins,
+    .form-options {
+        align-items: stretch;
+    }
+}
