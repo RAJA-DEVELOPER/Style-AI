@@ -509,6 +509,12 @@ ul {
     aspect-ratio: 3/4;
 }
 
+@media (max-width: 767px) {
+    .product-img-wrapper {
+        aspect-ratio: 1/1;
+    }
+}
+
 .product-img {
     width: 100%;
     height: 100%;
@@ -1132,6 +1138,12 @@ ul {
         width: fit-content !important;
         max-width: 260px;
         margin-inline: auto;
+    }
+    .grid-2, .grid-3, .grid-4, .stats-grid {
+        gap: 1rem;
+    }
+    .product-img-wrapper {
+        aspect-ratio: 4/3;
     }
 }
 

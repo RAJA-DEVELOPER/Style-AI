@@ -236,4 +236,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     renderCart();
 
+    // Wire up "Add to Bag" buttons in Suggested Accessories section
+    document.querySelectorAll('.grid-4 .btn-outline').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('[style*="background"]');
+            if (!card) return;
+            const img = card.querySelector('img')?.src || '';
+            const brand = card.querySelector('h4')?.innerText || 'Brand';
+            const title = card.querySelector('p')?.innerText || 'Product';
+            const priceText = card.querySelector('[style*="font-weight: 500"]')?.innerText || '$0';
+            const id = title.replace(/\s+/g, '-').toLowerCase();
+
+            window.addToCart({ id, brand, title, price: priceText, img });
+        });
+    });
+
+    // Handle bfcache / page navigation restore on mobile
+    window.addEventListener('pageshow', () => {
+        cartData = JSON.parse(localStorage.getItem('styleai_cart')) || [];
+        renderCart();
+        const sidebar = document.getElementById('cart-sidebar');
+        if (sidebar && sidebar.classList.contains('open')) {
+            window.openCart();
+        }
+    });
+
 });

@@ -379,3 +379,11 @@
     .mv-card { padding: 1.25rem; }
     .mv-card h3 { font-size: 1.1rem; }
 }
+
+@media (max-width: 480px) {
+    div[style*="flex-wrap"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+    }
+}
