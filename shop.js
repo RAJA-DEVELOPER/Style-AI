@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Product Database (40 Realistic Products)
     const images = [
         "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600", // 1. Oversized Wool Coat
-        "https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=600", // 2. Double-Breasted Blazer
+        "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=600", // 2. Double-Breasted Blazer
         "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600", // 3. Cashmere Turtleneck
         "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600", // 4. Silk Blouse
         "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600", // 5. Tailored Wool Trousers
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?q=80&w=600", // 16. Minimalist Sneakers
         "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?q=80&w=600", // 17. Belted Trench Coat
         "https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=600", // 18. V-Neck Cashmere Cardigan
-        "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600", // 19. Pleated Midi Skirt
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600", // 19. Pleated Midi Skirt
         "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600", // 20. Pleated Wool Trousers
         "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=600", // 21. Relaxed Fit Suit Jacket
         "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=600", // 22. Cropped Denim Jacket
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?q=80&w=600", // 34. Chelsea Leather Boots
         "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600", // 35. Ribbed Knit Dress
         "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600", // 36. Oversized Poplin Shirt
-        "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?q=80&w=600", // 37. Tailored Vest
+        "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=600", // 37. Tailored Vest
         "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600", // 38. Classic Loafers
         "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600", // 39. Quilted Leather Jacket
         "https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=600"  // 40. Suede Ankle Boots

@@ -12,15 +12,36 @@
 </head>
 <body>
 
-    <!-- Simplified Navigation for Register -->
     <nav class="navbar login-nav" id="navbar">
-        <div class="container nav-container" style="justify-content: flex-start; padding-left: 2rem;">
-            <div class="nav-logo"><a href="index.html">StyleAI.</a></div>
-        </div>
-        <div class="nav-icons" style="position: absolute; right: 2rem; top: 1.5rem; z-index: 10;">
-            <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </a>
+        <div class="container nav-container">
+            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="stylist.html">AI Stylist</a>
+                <a href="collections.html">Collections</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="dir-toggle" style="color: inherit;" aria-label="Toggle Direction">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 17H3M3 7l4 4-4 4"></path><path d="M3 7h18"></path></svg>
+                </a>
+                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="cart.html" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-counter" style="display: none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -214,6 +235,7 @@
                 }, 1500);
             });
         });
+
     </script>
 </body>
 </html>

@@ -159,9 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Recommendations
     const recs = [
         { brand: 'Acne Studios', title: 'Oversized Leather Biker', price: '$2,100', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1935' },
-        { brand: 'Tiffany & Co.', title: 'HardWear Link Necklace', price: '$2,500', img: 'https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?q=80&w=2080' },
+        { brand: 'Tiffany & Co.', title: 'HardWear Link Necklace', price: '$2,500', img: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?q=80&w=600' },
         { brand: 'Loro Piana', title: 'Summer Walk Loafers', price: '$980', img: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974' },
-        { brand: 'Tom Ford', title: 'Shelton Wool Suit', price: '$4,250', img: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1974' }
+        { brand: 'Tom Ford', title: 'Shelton Wool Suit', price: '$4,250', img: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=1974' }
     ];
 
     document.getElementById('recommendation-grid').innerHTML = recs.map(item => `

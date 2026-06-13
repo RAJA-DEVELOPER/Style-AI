@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,11 +29,14 @@
                 <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </a>
+                <a href="javascript:void(0);" class="nav-icon-wrapper" id="dir-toggle" style="color: inherit;" aria-label="Toggle Direction">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 17H3M3 7l4 4-4 4"></path><path d="M3 7h18"></path></svg>
+                </a>
                 
                 <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 </a>
-                <a href="javascript:void(0);" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
+                <a href="cart.html" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     <span class="cart-counter" style="display: none;">0</span>
                 </a>
@@ -58,15 +61,6 @@
         <div class="product-gallery">
             <div class="gallery-img-container" data-zoom="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=100&w=2000">
                 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt="Product Image 1">
-            </div>
-            <div class="gallery-img-container" data-zoom="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=100&w=2000">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" alt="Product Image 2">
-            </div>
-            <div class="gallery-img-container" data-zoom="https://images.unsplash.com/photo-1445205170230-053b83016050?q=100&w=2000">
-                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=800" alt="Product Image 3">
-            </div>
-            <div class="gallery-img-container" data-zoom="https://images.unsplash.com/photo-1550614000-4b95d466e828?q=100&w=2000">
-                <img src="https://images.unsplash.com/photo-1550614000-4b95d466e828?q=80&w=800" alt="Product Image 4">
             </div>
         </div>
 
@@ -258,7 +252,7 @@
             <div class="editorial-grid" style="grid-template-columns: 1fr 1fr; align-items: center;">
                 <div class="animate-on-scroll">
                     <p class="section-subtitle">Fabrication</p>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-heading);">The Anatomy of Quality</h2>
+                    <h2 style="font-size: clamp(1.5rem, 5vw, 2.5rem); margin-bottom: 1.5rem; font-family: var(--font-heading);">The Anatomy of Quality</h2>
                     <p style="color: var(--muted); margin-bottom: 2rem;">Sourced from the historic Biella region in Italy, our signature virgin wool blend is woven for exceptional density without the weight, providing superior thermal retention and a lustrous drape.</p>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
                         <li style="display: flex; align-items: center; gap: 1rem;">
@@ -289,10 +283,10 @@
     </section>
 
     <!-- The Inspiration (Designer's Note) -->
-    <section class="inverted-section" style="padding: 6rem 0;  text-align: center;">
+    <section class="inverted-section" style="padding: clamp(2rem, 8vh, 6rem) 0; text-align: center;">
         <div class="container animate-on-scroll" style="max-width: 800px;">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cards)" stroke-width="1" style="opacity: 0.5; margin-bottom: 2rem;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-style: italic; font-weight: 300; line-height: 1.4; margin-bottom: 2rem;">"I wanted to create an anchor for the winter wardrobe. A piece that feels protective yet completely unrestrictive. The dropped shoulders evoke a sense of borrowed-from-the-boys nonchalance, while the rigorous Italian tailoring ensures it never looks unkempt."</h2>
+            <h2 style="font-family: var(--font-heading); font-size: clamp(1.2rem, 4vw, 2.5rem); font-style: italic; font-weight: 300; line-height: 1.4; margin-bottom: 2rem;">"I wanted to create an anchor for the winter wardrobe. A piece that feels protective yet completely unrestrictive. The dropped shoulders evoke a sense of borrowed-from-the-boys nonchalance, while the rigorous Italian tailoring ensures it never looks unkempt."</h2>
             <p style="font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem;">— Creative Director</p>
         </div>
     </section>

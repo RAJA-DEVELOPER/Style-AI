@@ -343,3 +343,17 @@
         width: 100%;
     }
 }
+
+@media (max-width: 320px) {
+    .cart-page-header { padding: 5rem 0 1.5rem; }
+    .cart-page-header h1 { font-size: 1.5rem; }
+    .empty-cart { padding: 2rem 1rem; }
+    .empty-cart h2 { font-size: 1.25rem; }
+    .full-cart-layout { gap: 1rem; }
+    .full-cart-product { flex-direction: column; gap: 0.75rem; }
+    .full-cart-product img { width: 100%; height: auto; max-width: 120px; }
+    .cart-summary { padding: 1rem; }
+    .cart-summary h3 { font-size: 1.1rem; }
+    .cart-actions { flex-direction: column; gap: 0.5rem; }
+    .cart-actions .btn { width: 100%; }
+}

@@ -5,11 +5,6 @@ body {
     overflow-x: hidden;
 }
 
-.login-nav {
-    background: transparent !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-}
 
 /* Split Layout (Reversed from Login) */
 .register-layout {
@@ -31,12 +26,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 6rem;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 50%;
-    height: 100vh;
+    padding: 8rem 6rem 6rem;
 }
 
 .visual-overlay {
@@ -80,7 +70,7 @@ body {
     background: var(--background);
     position: relative;
     padding: 120px 2rem 4rem;
-    width: 50%;
+    flex: 1;
     min-height: 100vh;
 }
 
@@ -456,115 +446,230 @@ body {
     .brand-statement {
         font-size: 3.5rem;
     }
-}
-
-@media (max-width: 767px) {
-    .register-layout {
-        flex-direction: column;
-    }
     .register-visual {
-        position: relative;
-        width: 100%;
-        height: 40vh;
-        min-height: 40vh;
-        padding: 4rem 2rem;
-        align-items: flex-end;
+        padding: 8rem 3rem 5rem;
     }
-    .register-form-container {
-        width: 100%;
-        padding: 2rem;
-    }
-    .register-card {
-        padding: 2rem;
-    }
-    .radio-group {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-}
-
-@media (max-width: 1024px) {
-    .register-visual {
-        padding: 5rem 3rem;
-    }
-
     .register-card {
         padding: 2.5rem;
     }
 }
 
 @media (max-width: 767px) {
+    .register-layout {
+        flex-direction: column;
+        width: 100%;
+        min-height: 100svh;
+    }
     .login-nav {
         background: color-mix(in srgb, var(--background) 86%, transparent) !important;
         backdrop-filter: blur(18px) !important;
         -webkit-backdrop-filter: blur(18px) !important;
         border-bottom: 1px solid var(--border) !important;
     }
-
     .register-visual {
+        position: relative;
+        width: 100%;
         min-height: 34vh;
-        padding: 5.5rem 1.5rem 2rem;
+        padding: 7rem 1.5rem 2rem;
         justify-content: flex-start;
+        align-items: flex-end;
     }
-
-    .text-right {
-        text-align: left;
-    }
-
     .register-form-container {
+        width: 100%;
+        padding: 5.5rem 1.5rem 2rem;
         align-items: stretch;
-        padding: 2rem 1.5rem;
     }
-
     .register-card {
+        width: 100%;
+        padding: 2rem;
         max-width: 560px;
         margin-inline: auto;
+    }
+    .register-btn {
+        width: 100%;
+        min-height: 46px;
+    }
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .radio-btn span {
+        min-height: 46px;
+    }
+    .text-right {
+        text-align: left;
     }
 }
 
 @media (max-width: 480px) {
     .register-visual {
         min-height: 30vh;
-        padding-inline: 1rem;
+        padding: 6.5rem 1rem 2rem;
+        background-position: 60% center;
     }
-
     .brand-statement {
         font-size: 2rem;
     }
-
     .register-form-container {
-        padding: 1.5rem 1rem;
+        padding: 5rem 1rem 1.5rem;
     }
-
     .register-card {
         padding: 1.5rem 1rem;
         border-radius: 1rem;
     }
-
     .custom-checkbox {
         align-items: flex-start;
     }
 }
 
-/* Register responsive completion */
-@media (max-width: 767px) {
-    .register-layout {
-        width: 100%;
-        min-height: 100svh;
+@media (max-width: 360px) {
+    .login-nav .nav-container {
+        padding-left: 1rem !important;
     }
-
-    .register-visual,
+    .login-nav .nav-icons {
+        right: 1rem !important;
+    }
+    .register-visual {
+        min-height: 25vh;
+        padding: 6rem 0.5rem 1.5rem;
+        background-position: 60% center;
+    }
+    .brand-statement {
+        font-size: 1.65rem;
+    }
+    .visual-content p {
+        font-size: 0.875rem;
+    }
     .register-form-container {
-        width: 100%;
+        padding: 4.5rem 0.5rem 1rem;
     }
-
-    .register-card,
-    .register-btn {
-        width: 100%;
+    .register-card {
+        padding: 1.25rem 0.75rem;
     }
-
-    .register-btn,
+    .register-header h2 {
+        font-size: 1.3rem;
+    }
+    .register-header p {
+        font-size: 0.8rem;
+    }
+    .floating-input {
+        margin-bottom: 0.85rem;
+    }
+    .floating-input input {
+        padding: 0.75rem 2rem 0.35rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    .floating-input label {
+        font-size: 0.875rem;
+    }
+    .select-label {
+        font-size: 0.8rem;
+    }
     .radio-btn span {
-        min-height: 46px;
+        padding: 0.55rem 0.35rem;
+        font-size: 0.8rem;
     }
+    .register-btn {
+        padding: 0.8rem;
+        font-size: 0.875rem;
+    }
+    .custom-checkbox {
+        font-size: 0.8rem;
+    }
+}
+
+[dir="rtl"] .visual-content {
+    text-align: left;
+}
+
+[dir="rtl"] .visual-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+[dir="rtl"] .register-visual {
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .floating-input label {
+    left: auto;
+    right: 1rem;
+}
+
+[dir="rtl"] .floating-input input {
+    padding: 1rem 1rem 0.5rem 2.5rem;
+}
+
+[dir="rtl"] .floating-input input:focus ~ label,
+[dir="rtl"] .floating-input input:not(:placeholder-shown) ~ label {
+    left: auto;
+    right: 1rem;
+}
+
+[dir="rtl"] .toggle-password {
+    right: auto;
+    left: 10px;
+}
+
+[dir="rtl"] .validation-icon {
+    right: auto;
+    left: 10px;
+}
+
+[dir="rtl"] .register-header {
+    text-align: right;
+}
+
+[dir="rtl"] .custom-checkbox {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .custom-checkbox .checkmark {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+[dir="rtl"] .radio-group {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .strength-text {
+    text-align: left;
+}
+
+[dir="rtl"] .login-redirect {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    [dir="rtl"] .register-visual {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    [dir="rtl"] .radio-group {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+@media (max-width: 360px) {
+    [dir="rtl"] .floating-input input {
+        padding: 0.75rem 0.75rem 0.35rem 2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .register-header { padding: 4.5rem 0 1rem; }
+    .register-card { padding: 1.25rem; }
+    .register-card h2 { font-size: 1.25rem; }
+    .register-card p { font-size: 0.8rem; }
+    .radio-group { gap: 0.35rem; }
+    .radio-btn { padding: 0.4rem 0.6rem; font-size: 0.75rem; }
+    .radio-btn span { font-size: 0.65rem; }
+    .btn { padding: 0.65rem; font-size: 0.82rem; }
+    .social-register { gap: 0.5rem; }
+    .social-register .btn { font-size: 0.78rem; padding: 0.55rem; }
+    .register-footer { font-size: 0.8rem; }
+    .brand-statement { display: none; }
 }

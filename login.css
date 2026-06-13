@@ -1,17 +1,11 @@
 /* Login Page Styles - Luxury Glassmorphism */
 
 body {
-    overflow-y: hidden; /* Prevent scrolling on login for a desktop app feel */
+    overflow-y: auto;
     max-width: 100vw;
     overflow-x: hidden;
 }
 
-/* Ensure navbar overrides for this specific page */
-.login-nav {
-    background: transparent !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-}
 
 /* Split Layout */
 .login-layout {
@@ -32,7 +26,7 @@ body {
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    padding: 6rem;
+    padding: 8rem 6rem 6rem;
 }
 
 .visual-overlay {
@@ -68,10 +62,12 @@ body {
 .login-form-container {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: var(--background);
     position: relative;
+    padding: 10rem 2rem 2rem;
 }
 
 /* Dark mode subtle blend */
@@ -392,8 +388,14 @@ body {
     .brand-statement {
         font-size: 3.5rem;
     }
+    .login-layout {
+        overflow-y: auto;
+    }
     .login-visual {
-        padding: 5rem 4rem;
+        padding: 8rem 3rem 5rem;
+    }
+    .login-card {
+        max-width: 440px;
     }
 }
 
@@ -401,111 +403,219 @@ body {
     body {
         overflow-y: auto;
     }
-    .login-layout {
-        flex-direction: column;
-        height: auto;
-        min-height: 100svh;
-    }
-    .login-visual {
-        padding: 3rem 1.5rem;
-        min-height: 35vh;
-        align-items: flex-end;
-    }
-    .login-form-container {
-        padding: 2rem 1.5rem;
-    }
-    .login-card {
-        padding: 2rem 1.5rem;
-    }
-    .social-logins {
-        flex-direction: column;
-    }
-    .login-header h2 { font-size: 1.75rem; }
-}
-
-@media (max-width: 480px) {
-    .login-visual {
-        min-height: 30vh;
-        padding: 2.5rem 1rem;
-    }
-    .brand-statement { font-size: 2rem; }
-    .login-form-container { padding: 1.5rem 1rem; }
-    .login-card { padding: 1.5rem 1rem; }
-    .login-header h2 { font-size: 1.5rem; }
-    .form-options { flex-direction: column; align-items: flex-start; gap: 1rem; }
-}
-
-@media (max-width: 1024px) {
-    .login-visual {
-        padding: 5rem 3rem;
-    }
-
-    .login-card {
-        max-width: 440px;
-    }
-}
-
-@media (max-width: 767px) {
     .login-nav {
         background: color-mix(in srgb, var(--background) 86%, transparent) !important;
         backdrop-filter: blur(18px) !important;
         -webkit-backdrop-filter: blur(18px) !important;
         border-bottom: 1px solid var(--border) !important;
     }
-
-    .login-visual {
-        padding-top: 5.5rem;
+    .login-layout {
+        flex-direction: column;
+        height: auto;
+        min-height: 100svh;
+        width: 100%;
     }
-
+    .login-visual {
+        display: none;
+    }
+    .login-form-container {
+        width: 100%;
+        padding: 6.5rem 1.5rem 2rem;
+    }
+    .login-card {
+        width: 100%;
+        padding: 2rem 1.5rem;
+        border-radius: 1rem;
+    }
+    .login-btn,
+    .social-btn {
+        width: 100%;
+        min-height: 46px;
+    }
+    .social-logins {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .form-options {
+        align-items: stretch;
+    }
     .visual-content p {
         font-size: 1rem;
     }
-
-    .glass-panel {
-        border-radius: 1rem;
+    .login-header h2 {
+        font-size: 1.75rem;
     }
 }
 
 @media (max-width: 480px) {
+    .login-visual {
+        min-height: 30vh;
+        padding: 6.5rem 1rem 2.5rem;
+        background-position: 30% center;
+    }
+    .brand-statement {
+        font-size: 2rem;
+    }
     .login-form-container {
+        padding: 6rem 1rem 1.5rem;
         align-items: stretch;
     }
-
     .login-card {
+        padding: 1.5rem 1rem;
         max-width: none;
     }
-
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
     .floating-input {
         margin-bottom: 1.25rem;
     }
 }
 
-/* Login responsive completion */
-@media (max-width: 767px) {
-    .login-layout {
-        width: 100%;
-        min-height: 100svh;
-        height: auto;
+@media (max-width: 360px) {
+    .login-nav .nav-container {
+        padding-left: 1rem !important;
     }
-
-    .login-visual,
+    .login-nav .nav-icons {
+        right: 1rem !important;
+    }
+    .login-visual {
+        min-height: 28vh;
+        padding: 6rem 0.5rem 1.5rem;
+        background-position: 30% center;
+    }
+    .brand-statement {
+        font-size: 1.65rem;
+    }
+    .visual-content p {
+        font-size: 0.875rem;
+    }
     .login-form-container {
-        width: 100%;
+        padding: 5.5rem 0.5rem 1rem;
     }
-
-    .login-card,
-    .login-btn,
-    .social-btn {
-        width: 100%;
+    .login-card {
+        padding: 1.25rem 0.75rem;
     }
-
-    .login-btn,
-    .social-btn {
-        min-height: 46px;
+    .login-header h2 {
+        font-size: 1.3rem;
     }
-
-    .social-logins,
+    .login-header p {
+        font-size: 0.8rem;
+    }
+    .floating-input {
+        margin-bottom: 0.85rem;
+    }
+    .floating-input input {
+        padding: 0.75rem 0.75rem 0.35rem;
+        font-size: 0.875rem;
+    }
+    .floating-input label {
+        font-size: 0.875rem;
+    }
     .form-options {
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
     }
+    .social-login-divider {
+        margin: 1.25rem 0;
+    }
+    .social-btn {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+        gap: 0.35rem;
+    }
+    .social-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    .login-btn {
+        padding: 0.8rem;
+        font-size: 0.875rem;
+    }
+}
+
+[dir="rtl"] .visual-content {
+    text-align: right;
+}
+
+[dir="rtl"] .visual-overlay {
+    background: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+[dir="rtl"] .floating-input label {
+    left: auto;
+    right: 1rem;
+}
+
+[dir="rtl"] .floating-input input {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+[dir="rtl"] .floating-input input:focus ~ label,
+[dir="rtl"] .floating-input input:not(:placeholder-shown) ~ label {
+    left: auto;
+    right: 1rem;
+}
+
+[dir="rtl"] .form-options {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .remember-me {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .checkmark {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+[dir="rtl"] .forgot-link {
+    text-align: left;
+}
+
+[dir="rtl"] .social-btn {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .login-header {
+    text-align: right;
+}
+
+@media (max-width: 480px) {
+    [dir="rtl"] .form-options {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+@media (max-width: 360px) {
+    [dir="rtl"] .form-options {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+}
+
+@media (max-width: 320px) {
+    .login-header { padding: 4.5rem 0 1rem; }
+    .login-card { padding: 1.25rem; }
+    .login-card h2 { font-size: 1.25rem; }
+    .login-card p { font-size: 0.8rem; }
+    .form-group { gap: 0.2rem; }
+    .form-group label { font-size: 0.78rem; }
+    input { padding: 0.55rem; font-size: 0.82rem; }
+    .form-options { flex-direction: column; gap: 0.5rem; }
+    .btn { padding: 0.65rem; font-size: 0.82rem; }
+    .social-login { gap: 0.5rem; }
+    .social-login .btn { font-size: 0.78rem; padding: 0.55rem; }
+    .login-footer { font-size: 0.8rem; }
+    .brand-statement { display: none; }
 }

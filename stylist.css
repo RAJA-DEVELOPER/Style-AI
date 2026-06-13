@@ -5,6 +5,10 @@
     background: linear-gradient(to bottom, #F8FAFC 0%, #FFFFFF 100%);
 }
 
+[data-theme="dark"] .stylist-hero {
+    background: linear-gradient(to bottom, #1E293B 0%, #0F172A 100%);
+}
+
 .stylist-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -35,7 +39,7 @@
 .upload-section {
     position: relative;
     max-width: 800px;
-    margin: 0 auto 4rem;
+    margin: 3rem auto 4rem;
 }
 
 .upload-box {
@@ -561,6 +565,14 @@
         width: 100%;
         min-height: 46px;
     }
+
+    .grid-3 > .inverted-section {
+        transform: none;
+    }
+
+    .grid-3 > div {
+        padding: 2rem 1.25rem;
+    }
 }
 
 @media (max-width: 520px) {
@@ -570,4 +582,17 @@
     .outfit-grid {
         grid-template-columns: 1fr;
     }
+}
+
+@media (max-width: 320px) {
+    .stylist-header { padding: 5rem 0 1.5rem; }
+    .stylist-header h1 { font-size: 1.5rem; }
+    .pricing-card { padding: 1rem; }
+    .pricing-card h3 { font-size: 1.1rem; }
+    .pricing-card .price { font-size: 1.75rem; }
+    .pricing-features { gap: 0.5rem; }
+    .pricing-features li { font-size: 0.8rem; }
+    .color-palette { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .upload-section { padding: 1rem; }
+    .grid-3 > div { padding: 1.25rem 1rem; }
 }

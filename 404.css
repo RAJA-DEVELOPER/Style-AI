@@ -132,3 +132,11 @@
         margin-bottom: 1rem;
     }
 }
+
+@media (max-width: 320px) {
+    .error-code { font-size: 5rem; }
+    .error-page h1 { font-size: 1.25rem; }
+    .error-page p { font-size: 0.85rem; }
+    .error-actions { flex-direction: column; gap: 0.5rem; }
+    .error-actions .btn { width: 100%; }
+}

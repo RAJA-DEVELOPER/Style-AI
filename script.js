@@ -4,6 +4,12 @@ if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
 }
 
+// Direction Initialization
+const savedDir = localStorage.getItem('styleai_dir');
+if (savedDir) {
+    document.documentElement.setAttribute('dir', savedDir);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle Logic
     const themeToggle = document.getElementById('theme-toggle');
@@ -33,6 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('styleai_theme', 'dark');
                 updateThemeIcon('dark');
             }
+        });
+    }
+
+    // Direction Toggle Logic
+    const dirToggle = document.getElementById('dir-toggle');
+    if (dirToggle) {
+        dirToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const html = document.documentElement;
+            const current = html.getAttribute('dir') || 'ltr';
+            const next = current === 'rtl' ? 'ltr' : 'rtl';
+            html.setAttribute('dir', next);
+            localStorage.setItem('styleai_dir', next);
         });
     }
 

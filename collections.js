@@ -1,25 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Core Collections Data
+
+    const fashionImages = [
+        { id: 'pexels-994523', url: 'https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-1021693', url: 'https://images.pexels.com/photos/1021693/pexels-photo-1021693.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-1130626', url: 'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-1183266', url: 'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-1485805', url: 'https://images.pexels.com/photos/1485805/pexels-photo-1485805.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-1536619', url: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2026775', url: 'https://images.pexels.com/photos/2026775/pexels-photo-2026775.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2194246', url: 'https://images.pexels.com/photos/2194246/pexels-photo-2194246.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325755', url: 'https://images.pexels.com/photos/2325755/pexels-photo-2325755.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325757', url: 'https://images.pexels.com/photos/2325757/pexels-photo-2325757.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325759', url: 'https://images.pexels.com/photos/2325759/pexels-photo-2325759.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325760', url: 'https://images.pexels.com/photos/2325760/pexels-photo-2325760.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325761', url: 'https://images.pexels.com/photos/2325761/pexels-photo-2325761.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325762', url: 'https://images.pexels.com/photos/2325762/pexels-photo-2325762.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325763', url: 'https://images.pexels.com/photos/2325763/pexels-photo-2325763.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325765', url: 'https://images.pexels.com/photos/2325765/pexels-photo-2325765.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325769', url: 'https://images.pexels.com/photos/2325769/pexels-photo-2325769.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325770', url: 'https://images.pexels.com/photos/2325770/pexels-photo-2325770.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325771', url: 'https://images.pexels.com/photos/2325771/pexels-photo-2325771.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2325773', url: 'https://images.pexels.com/photos/2325773/pexels-photo-2325773.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2385058', url: 'https://images.pexels.com/photos/2385058/pexels-photo-2385058.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2387873', url: 'https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2387875', url: 'https://images.pexels.com/photos/2387875/pexels-photo-2387875.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2387876', url: 'https://images.pexels.com/photos/2387876/pexels-photo-2387876.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2480424', url: 'https://images.pexels.com/photos/2480424/pexels-photo-2480424.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2529146', url: 'https://images.pexels.com/photos/2529146/pexels-photo-2529146.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2529147', url: 'https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2529148', url: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2854164', url: 'https://images.pexels.com/photos/2854164/pexels-photo-2854164.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-2983464', url: 'https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-3214659', url: 'https://images.pexels.com/photos/3214659/pexels-photo-3214659.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-3492558', url: 'https://images.pexels.com/photos/3492558/pexels-photo-3492558.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-3755463', url: 'https://images.pexels.com/photos/3755463/pexels-photo-3755463.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-3755706', url: 'https://images.pexels.com/photos/3755706/pexels-photo-3755706.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4195342', url: 'https://images.pexels.com/photos/4195342/pexels-photo-4195342.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4210863', url: 'https://images.pexels.com/photos/4210863/pexels-photo-4210863.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4210864', url: 'https://images.pexels.com/photos/4210864/pexels-photo-4210864.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4210865', url: 'https://images.pexels.com/photos/4210865/pexels-photo-4210865.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4210866', url: 'https://images.pexels.com/photos/4210866/pexels-photo-4210866.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4210868', url: 'https://images.pexels.com/photos/4210868/pexels-photo-4210868.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4210870', url: 'https://images.pexels.com/photos/4210870/pexels-photo-4210870.jpeg?auto=compress&cs=tinysrgb&w=600' },
+        { id: 'pexels-4210871', url: 'https://images.pexels.com/photos/4210871/pexels-photo-4210871.jpeg?auto=compress&cs=tinysrgb&w=600' },
+    ];
+
+    const allFashion = fashionImages;
+
     const collectionsData = [
         {
             id: 'men',
             title: 'Menswear',
             desc: 'The Foundation of Modern Tailoring',
-            banner: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1974',
+            banner: 'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1200&h=800&fit=crop',
             story: [
                 "This season, menswear shifts its focus towards unstructured elegance. We are stepping away from rigid formality and embracing a softer, more fluid silhouette that allows for breathability and movement without sacrificing sophistication.",
                 "The color palette draws heavily from brutalist architecture—concrete grays, deep slate, and muted navy tones, providing a versatile foundation that seamlessly transitions from boardroom to evening gallery viewings."
             ],
             gallery: [
-                "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1974",
-                "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071",
-                "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1935"
+                'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&h=1000&fit=crop',
+                'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?q=80&w=600&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?q=80&w=600&h=800&fit=crop'
             ],
             products: [
-                { name: 'Unstructured Wool Blazer', price: '$1,250', img: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1974' },
-                { name: 'Cashmere Turtleneck', price: '$850', img: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1976' },
-                { name: 'Suede Loafers', price: '$650', img: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974' }
+                { name: 'Unstructured Wool Blazer', price: '$1,250', img: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=600&h=800&fit=crop' },
+                { name: 'Cashmere Turtleneck', price: '$850', img: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&h=800&fit=crop' },
+                { name: 'Suede Loafers', price: '$650', img: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=600&h=800&fit=crop' }
             ],
             tips: [
                 "Proportion is key: pair oversized blazers with slim, straight trousers.",
@@ -32,20 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'women',
             title: 'Womenswear',
             desc: 'Architectural Fluidity',
-            banner: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070',
+            banner: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&h=800&fit=crop',
             story: [
                 "The womenswear collection explores the tension between masculine tailoring and feminine draping. We focus on pieces that empower the wearer through bold cuts while maintaining an effortless elegance through the use of premium, lightweight silks and wools.",
                 "Expect to see exaggerated shoulders paired with bias-cut skirts, challenging traditional proportions. The narrative is one of quiet luxury—where the quality of the fabric speaks louder than logos."
             ],
             gallery: [
-                "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920",
-                "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1964",
-                "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=1915"
+                'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&h=1000&fit=crop',
+                'https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?q=80&w=600&h=800&fit=crop',
+                'https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=600&h=800&fit=crop'
             ],
             products: [
-                { name: 'Bias Cut Silk Slip', price: '$950', img: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1983' },
-                { name: 'Oversized Wool Coat', price: '$2,100', img: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974' },
-                { name: 'Sculptural Tote Bag', price: '$1,400', img: 'https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=1974' }
+                { name: 'Bias Cut Silk Slip', price: '$950', img: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=600&h=800&fit=crop' },
+                { name: 'Oversized Wool Coat', price: '$2,100', img: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=600&h=800&fit=crop' },
+                { name: 'Sculptural Tote Bag', price: '$1,400', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&h=800&fit=crop' }
             ],
             tips: [
                 "Use a structured belt to define the waist over oversized silhouettes.",
@@ -54,77 +100,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 "A strong shoulder line instantly elevates casual denim."
             ]
         },
-        // Using a loop to generate the remaining 10 to simulate the full page experience 
-        // while maintaining high performance and realistic mock data
+    ];
+
+    const poolImages = allFashion.slice(0, 40);
+
+    const formalImages = [
+        { id: 'formal-suit-1', url: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600' },
+        { id: 'formal-suit-2', url: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=600' },
+        { id: 'formal-suit-3', url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600' },
+        { id: 'formal-suit-4', url: 'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=600' },
+        { id: 'formal-suit-5', url: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=600' },
+        { id: 'formal-suit-6', url: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=600' },
+        { id: 'formal-suit-7', url: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=600' }
     ];
 
     const additionalCategories = [
-        { id: 'casual', title: 'The Casual Edit', desc: 'Elevated Off-Duty', banner: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1935' },
-        { id: 'formal', title: 'Formal Attire', desc: 'Sartorial Excellence', banner: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1974' },
-        { id: 'business', title: 'Business Class', desc: 'The Modern Executive', banner: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974' },
-        { id: 'streetwear', title: 'Streetwear', desc: 'Urban Aesthetics', banner: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974' },
-        { id: 'party', title: 'Evening & Party', desc: 'Nocturnal Glamour', banner: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1983' },
-        { id: 'luxury', title: 'High Luxury', desc: 'The Atelier Collection', banner: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=2070' },
-        { id: 'summer', title: 'Summer Resort', desc: 'Sun-Drenched Silhouettes', banner: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920' },
-        { id: 'winter', title: 'Winter Alpine', desc: 'Cold Weather Protection', banner: 'https://images.unsplash.com/photo-1574291814206-363acdf2aa79?q=80&w=1974' },
-        { id: 'new', title: 'New Arrivals', desc: 'The Latest Drops', banner: 'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071' },
-        { id: 'trending', title: 'Trending Now', desc: 'The Current Zeitgeist', banner: 'https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=1974' }
-    ];
-
-    // Image pool for dynamic categories to ensure they do not repeat images
-    const poolImages = [
-        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600",
-        "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600",
-        "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600",
-        "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=600",
-        "https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=600",
-        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=600",
-        "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600",
-        "https://images.unsplash.com/photo-1574291814206-363acdf2aa79?q=80&w=600",
-        "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600",
-        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600",
-        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600",
-        "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600",
-        "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=600",
-        "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=600",
-        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600",
-        "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=600",
-        "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600",
-        "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?q=80&w=600",
-        "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=600",
-        "https://images.unsplash.com/photo-1566207274740-0f8cf6b7d5a5?q=80&w=600",
-        "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?q=80&w=600",
-        "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600",
-        "https://images.unsplash.com/photo-1516257984-b1b4d707412e?q=80&w=600",
-        "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600",
-        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600",
-        "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600",
-        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600",
-        "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=600",
-        "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600",
-        "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=600",
-        "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?q=80&w=600",
-        "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?q=80&w=600",
-        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=600",
-        "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600",
-        "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=600",
-        "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=600",
-        "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=600",
-        "https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=600",
-        "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=600"
+        { id: 'casual', title: 'The Casual Edit', desc: 'Elevated Off-Duty', banner: allFashion[38].url },
+        { id: 'formal', title: 'Formal Attire', desc: 'Sartorial Excellence', banner: formalImages[0].url }
     ];
 
     function getUniqueImagesForCategory(banner, count, categoryIndex) {
+        const source = categoryIndex === 1 ? formalImages : poolImages;
         const selected = [];
-        let poolIndex = (categoryIndex * 6) % poolImages.length;
-        
+        let poolIndex = (categoryIndex * 6) % source.length;
+
         while (selected.length < count) {
-            const candidate = poolImages[poolIndex];
-            // Ensure the candidate doesn't match the banner, nor already selected
-            if (candidate !== banner && !selected.includes(candidate)) {
+            const candidate = source[poolIndex];
+            if (candidate.url !== banner && !selected.some(s => s.id === candidate.id)) {
                 selected.push(candidate);
             }
-            poolIndex = (poolIndex + 1) % poolImages.length;
+            poolIndex = (poolIndex + 1) % source.length;
         }
         return selected;
     }
@@ -141,14 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 `Sourced from the finest mills across Italy and Japan, the textiles used in this volume are designed to age gracefully, developing a unique patina that tells the story of the wearer over time.`
             ],
             gallery: [
-                uniqueImgs[0],
-                uniqueImgs[1],
-                uniqueImgs[2]
+                uniqueImgs[0].url,
+                uniqueImgs[1].url,
+                uniqueImgs[2].url
             ],
             products: [
-                { name: 'Signature Piece 01', price: '$1,100', img: uniqueImgs[3] },
-                { name: 'Essential Knit', price: '$650', img: uniqueImgs[4] },
-                { name: 'Premium Footwear', price: '$890', img: uniqueImgs[5] }
+                { name: 'Signature Piece 01', price: '$1,100', img: uniqueImgs[3].url },
+                { name: 'Essential Knit', price: '$650', img: uniqueImgs[4].url },
+                { name: 'Premium Footwear', price: '$890', img: uniqueImgs[5].url }
             ],
             tips: [
                 "Focus on building a strong foundation of basics.",
@@ -159,19 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const tocList = document.getElementById('toc-list');
     const container = document.getElementById('collections-container');
 
     collectionsData.forEach((col, index) => {
-        // 1. Generate TOC Link
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#${col.id}">${(index + 1).toString().padStart(2, '0')}. ${col.title}</a>`;
-        tocList.appendChild(li);
-
-        // 2. Generate Section HTML
         const sectionHTML = `
             <section class="collection-section" id="${col.id}">
-                <!-- Banner -->
                 <div class="col-banner">
                     <img src="${col.banner}" alt="${col.title}">
                     <div class="col-banner-overlay">
@@ -180,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <!-- Story -->
                 <div class="col-story">
                     <div>
                         <h3>${col.desc}</h3>
@@ -191,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <!-- Gallery -->
                 <div class="col-gallery">
                     <div class="col-gallery-img large">
                         <img src="${col.gallery[0]}" alt="Editorial Large">
@@ -204,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
 
-                <!-- Products -->
                 <div class="col-products-header">
                     <h4>Shop The Edit</h4>
                     <a href="shop.html" class="link-action-button">View All</a>
@@ -219,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     `).join('')}
                 </div>
 
-                <!-- Style Tips -->
                 <div class="col-tips">
                     <h4>Style Directives</h4>
                     <ul>
@@ -228,32 +221,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </section>
         `;
-        
+
         container.insertAdjacentHTML('beforeend', sectionHTML);
     });
 
-    // Active State for TOC on Scroll
-    const sections = document.querySelectorAll('.collection-section');
-    const navLinks = document.querySelectorAll('.toc-list a');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current) && current !== '') {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Aesthetic Card Click Routing
     const aestheticCards = document.querySelectorAll('.collection-aesthetic');
     aestheticCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -262,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mini Product Click Routing to Product Details Page
     document.addEventListener('click', (e) => {
         const miniProd = e.target.closest('.mini-product');
         if (miniProd) {

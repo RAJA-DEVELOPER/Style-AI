@@ -840,3 +840,19 @@ a {
         min-width: 640px;
     }
 }
+
+@media (max-width: 320px) {
+    .admin-main { padding: 0.75rem; }
+    .topbar { flex-direction: column; gap: 0.75rem; }
+    .topbar-left h1 { font-size: 1.25rem; }
+    .topbar-actions { flex-wrap: wrap; gap: 0.5rem; width: 100%; }
+    .admin-card { padding: 0.75rem; }
+    .metrics-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    .metric { padding: 0.75rem; }
+    .metric h3 { font-size: 1.5rem; }
+    .metric p { font-size: 0.75rem; }
+    .table-card { overflow-x: auto; }
+    .admin-table { min-width: 480px; }
+    .admin-table th, .admin-table td { padding: 0.5rem; font-size: 0.72rem; }
+    .page-title { font-size: 1.1rem; }
+}

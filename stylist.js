@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 14. Saved Looks Preview
         const saved = [
             "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974",
-            "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?q=80&w=2080",
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1974",
             "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1964",
             "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070",
             "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1974"
