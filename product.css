@@ -1440,30 +1440,44 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 360px) {
+    .product-header { padding: 5rem 0 1.5rem; }
+    .product-header h1 { font-size: 1.75rem; }
+    .product-layout { gap: 1.25rem; }
+    .product-gallery { gap: 0.85rem; }
+    .product-info { padding: 0; }
+    .product-info h1 { font-size: 1.6rem; }
+    .product-info .price { font-size: 1.4rem; }
+    .product-info .description { font-size: 0.95rem; }
+    .size-options { gap: 0.45rem; }
+    .size-option { width: 2.5rem; height: 2.5rem; font-size: 0.8rem; }
+    .color-options { gap: 0.6rem; }
+    .product-actions { gap: 0.75rem; }
+    .quantity-selector { gap: 0.5rem; }
+
     .tryon-left {
-        padding: 0.75rem;
+        padding: 1rem;
     }
 
     .upload-area {
-        height: 130px;
+        height: 140px;
     }
 
     .tryon-right {
-        min-height: 200px;
+        min-height: 220px;
     }
 
     .ghost-img {
-        height: 50%;
+        height: 55%;
     }
 
     .loading-text {
-        padding: 0.5rem 1rem;
-        font-size: 0.75rem;
-        bottom: 5%;
+        padding: 0.6rem 1.25rem;
+        font-size: 0.8rem;
+        bottom: 6%;
     }
 
     .tryon-modal-content .preview-result > div:last-child {
-        padding: 0.75rem;
+        padding: 1rem;
     }
 }
 

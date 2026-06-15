@@ -344,6 +344,19 @@
     }
 }
 
+@media (max-width: 360px) {
+    .cart-page-header { padding: 5rem 0 1.5rem; }
+    .cart-page-header h1 { font-size: 1.75rem; }
+    .empty-cart { padding: 2.5rem 1rem; }
+    .empty-cart h2 { font-size: 1.4rem; }
+    .full-cart-layout { gap: 1.5rem; }
+    .full-cart-product { gap: 1rem; }
+    .full-cart-product img { width: 100px; }
+    .cart-summary { padding: 1.5rem; }
+    .cart-summary h3 { font-size: 1.2rem; }
+    .checkout-btn, .remove-item-btn { width: 100%; }
+}
+
 @media (max-width: 320px) {
     .cart-page-header { padding: 5rem 0 1.5rem; }
     .cart-page-header h1 { font-size: 1.5rem; }

@@ -584,6 +584,19 @@
     }
 }
 
+@media (max-width: 360px) {
+    .stylist-header { padding: 5rem 0 1.5rem; }
+    .stylist-header h1 { font-size: 1.75rem; }
+    .pricing-card { padding: 1.25rem; }
+    .pricing-card h3 { font-size: 1.2rem; }
+    .pricing-card .price { font-size: 2rem; }
+    .pricing-features { gap: 0.6rem; }
+    .pricing-features li { font-size: 0.85rem; }
+    .color-palette { grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+    .upload-section { padding: 1.25rem; }
+    .grid-3 > div { padding: 1.5rem 1rem; }
+}
+
 @media (max-width: 320px) {
     .stylist-header { padding: 5rem 0 1.5rem; }
     .stylist-header h1 { font-size: 1.5rem; }

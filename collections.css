@@ -593,6 +593,21 @@
     }
 }
 
+@media (max-width: 360px) {
+    .collections-header { padding: 4.5rem 0 1.5rem; }
+    .collections-header .hero-title { font-size: 2rem; }
+    .collection-section { margin-bottom: 2.5rem; padding-bottom: 1.5rem; }
+    .col-banner { height: 250px; min-height: 250px; margin-bottom: 1.5rem; }
+    .col-banner-overlay { padding: 1.25rem; }
+    .col-title { font-size: 1.75rem; }
+    .col-story { margin-bottom: 1.5rem; }
+    .col-story h3 { font-size: 1.35rem; }
+    .col-gallery { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .col-gallery-img.large { grid-column: span 1; grid-row: span 1; }
+    .col-products-grid { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .mini-product { padding: 0.75rem; }
+}
+
 @media (max-width: 320px) {
     .collections-header { padding: 4rem 0 1.5rem; }
     .collections-header .hero-title { font-size: 1.75rem; }
