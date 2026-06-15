@@ -171,10 +171,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const previewLoading = document.getElementById('preview-loading');
         const previewResult = document.getElementById('preview-result');
         const finalResultImg = document.getElementById('final-result-img');
+        const overlayProductImg = document.getElementById('overlay-product-img');
+        const resultViewport = document.getElementById('result-viewport');
         const baToggle = document.getElementById('ba-toggle');
         const reuploadBtn = document.getElementById('reupload-btn');
+        const scaleSlider = document.getElementById('overlay-scale');
+        const opacitySlider = document.getElementById('overlay-opacity');
         
         let uploadedImageSrc = '';
+        let overlayActive = false;
+        let overlayState = { x: 50, y: 35, scale: 0.5, opacity: 0.88 };
+
+        // Get product image URL from current page
+        const productImgUrl = imgParam || document.querySelector('.ghost-img')?.src || '';
+
+        // Preload product image
+        const prodImgPreload = new Image();
+        prodImgPreload.src = productImgUrl;
 
         // Open/Close Modal
         openTryon.addEventListener('click', () => {
@@ -224,32 +237,209 @@ document.addEventListener('DOMContentLoaded', () => {
                 userPhotoPreview.style.display = 'block';
                 uploadArea.style.cursor = 'default';
                 
-                // Trigger Right Loading Simulation
+                // Trigger Right Loading
                 previewEmpty.style.display = 'none';
                 previewResult.style.display = 'none';
                 previewLoading.style.display = 'flex';
                 
-                // Simulate AI Processing (3 seconds)
-                setTimeout(() => {
-                    previewLoading.style.display = 'none';
-                    previewResult.style.display = 'flex';
-                    finalResultImg.src = "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800"; // Styled Result Mock
-                    tryonControls.style.display = 'block';
-                    baToggle.checked = true;
-                }, 3000);
+                // Load both images, then position overlay
+                overlayActive = false;
+                overlayState.x = 50;
+                overlayState.y = 35;
+                overlayState.scale = parseInt(scaleSlider?.value || 50) / 100;
+                overlayState.opacity = parseInt(opacitySlider?.value || 88) / 100;
+                
+                const userTemp = new Image();
+                userTemp.onload = async () => {
+                    finalResultImg.src = uploadedImageSrc;
+                    
+                    // Try pose detection for auto-positioning
+                    try {
+                        const torso = await detectTorso(userTemp);
+                        if (torso) {
+                            overlayState.x = torso.x;
+                            overlayState.y = torso.y;
+                            overlayState.scale = Math.max(0.2, Math.min(0.8, torso.scale * 1.8));
+                        } else {
+                            overlayState.x = 50;
+                            overlayState.y = 35;
+                        }
+                    } catch (e) {
+                        overlayState.x = 50;
+                        overlayState.y = 35;
+                    }
+                    
+                    overlayProductImg.onload = () => {
+                        overlayActive = true;
+                        setTimeout(() => {
+                            previewLoading.style.display = 'none';
+                            previewResult.style.display = 'flex';
+                            tryonControls.style.display = 'block';
+                            overlayProductImg.style.display = 'block';
+                            baToggle.checked = true;
+                            requestAnimationFrame(() => positionOverlay());
+                        }, 500);
+                    };
+                    if (overlayProductImg.complete && overlayProductImg.naturalWidth) {
+                        overlayProductImg.onload();
+                    } else {
+                        overlayProductImg.src = productImgUrl;
+                    }
+                };
+                userTemp.src = uploadedImageSrc;
             };
             reader.readAsDataURL(file);
+        }
+
+        // Pose detection with TensorFlow.js MoveNet
+        let poseDetector = null;
+        let poseDetectorPromise = null;
+
+        async function getPoseDetector() {
+            if (poseDetector) return poseDetector;
+            if (poseDetectorPromise) return poseDetectorPromise;
+            
+            poseDetectorPromise = (async () => {
+                try {
+                    if (typeof poseDetection === 'undefined' || typeof tf === 'undefined') {
+                        return null;
+                    }
+                    await tf.setBackend('webgl');
+                    poseDetector = await poseDetection.createDetector(
+                        poseDetection.SupportedModels.MoveNet,
+                        { modelType: poseDetection.movenet.modelType.SINGLEPOSE_LIGHTNING }
+                    );
+                    return poseDetector;
+                } catch (e) {
+                    return null;
+                }
+            })();
+            
+            return poseDetectorPromise;
+        }
+
+        async function detectTorso(imgEl) {
+            try {
+                const detector = await getPoseDetector();
+                if (!detector) return null;
+                
+                const poses = await detector.estimatePoses(imgEl);
+                if (!poses || !poses[0] || !poses[0].keypoints) return null;
+                
+                const kp = poses[0].keypoints;
+                const ls = kp.find(k => k.name === 'left_shoulder' && k.score > 0.3);
+                const rs = kp.find(k => k.name === 'right_shoulder' && k.score > 0.3);
+                const lh = kp.find(k => k.name === 'left_hip' && k.score > 0.3);
+                const rh = kp.find(k => k.name === 'right_hip' && k.score > 0.3);
+                
+                if (!ls || !rs || !lh || !rh) return null;
+                
+                const shoulderMidX = (ls.x + rs.x) / 2;
+                const shoulderMidY = (ls.y + rs.y) / 2;
+                const hipMidX = (lh.x + rh.x) / 2;
+                const hipMidY = (lh.y + rh.y) / 2;
+                
+                const cx = (shoulderMidX + hipMidX) / 2;
+                const cy = (shoulderMidY + hipMidY) / 2;
+                const torsoW = Math.abs(rs.x - ls.x);
+                
+                const imgW = imgEl.naturalWidth;
+                const imgH = imgEl.naturalHeight;
+                
+                return {
+                    x: (cx / imgW) * 100,
+                    y: (cy / imgH) * 100,
+                    scale: (torsoW / imgW) * 2
+                };
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function positionOverlay() {
+            if (!resultViewport) return;
+            const vw = resultViewport.clientWidth;
+            const vh = resultViewport.clientHeight;
+            const s = overlayState.scale;
+            const ox = overlayState.x;
+            const oy = overlayState.y;
+            const op = overlayState.opacity;
+            
+            // Size overlay relative to viewport width, preserve aspect ratio
+            overlayProductImg.style.width = (s * 100) + '%';
+            overlayProductImg.style.height = 'auto';
+            overlayProductImg.style.left = ox + '%';
+            overlayProductImg.style.top = oy + '%';
+            overlayProductImg.style.transform = 'translate(-50%, -50%)';
+            overlayProductImg.style.opacity = op;
+        }
+
+        // Scale slider
+        if (scaleSlider) {
+            scaleSlider.addEventListener('input', () => {
+                overlayState.scale = parseInt(scaleSlider.value) / 100;
+                if (overlayActive) positionOverlay();
+            });
+        }
+
+        // Opacity slider
+        if (opacitySlider) {
+            opacitySlider.addEventListener('input', () => {
+                overlayState.opacity = parseInt(opacitySlider.value) / 100;
+                if (overlayActive) positionOverlay();
+            });
+        }
+
+        // Drag to reposition overlay
+        let dragData = null;
+        function startDrag(e) {
+            if (!overlayActive) return;
+            const pt = e.type.startsWith('touch') ? e.touches[0] : e;
+            dragData = {
+                startX: pt.clientX,
+                startY: pt.clientY,
+                origX: overlayState.x,
+                origY: overlayState.y
+            };
+            overlayProductImg.style.cursor = 'grabbing';
+            e.preventDefault();
+        }
+        function moveDrag(e) {
+            if (!dragData) return;
+            const pt = e.type.startsWith('touch') ? e.touches[0] : e;
+            const dx = pt.clientX - dragData.startX;
+            const dy = pt.clientY - dragData.startY;
+            const vw = resultViewport.clientWidth;
+            const vh = resultViewport.clientHeight;
+            overlayState.x = dragData.origX + (dx / vw) * 100;
+            overlayState.y = dragData.origY + (dy / vh) * 100;
+            positionOverlay();
+            e.preventDefault();
+        }
+        function endDrag() {
+            if (dragData) {
+                dragData = null;
+                overlayProductImg.style.cursor = 'move';
+            }
+        }
+        if (overlayProductImg) {
+            overlayProductImg.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', moveDrag);
+            document.addEventListener('mouseup', endDrag);
+            overlayProductImg.addEventListener('touchstart', startDrag, { passive: false });
+            document.addEventListener('touchmove', moveDrag, { passive: false });
+            document.addEventListener('touchend', endDrag);
         }
 
         // Before/After Toggle Logic
         baToggle.addEventListener('change', (e) => {
             const labels = document.querySelectorAll('.ba-label');
             if(e.target.checked) {
-                finalResultImg.src = "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800"; // Styled
+                overlayProductImg.style.display = overlayActive ? 'block' : 'none';
                 labels[0].classList.remove('active');
                 labels[1].classList.add('active');
             } else {
-                finalResultImg.src = uploadedImageSrc; // Original
+                overlayProductImg.style.display = 'none';
                 labels[1].classList.remove('active');
                 labels[0].classList.add('active');
             }
@@ -258,6 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Re-upload Logic
         reuploadBtn.addEventListener('click', () => {
             uploadedImageSrc = '';
+            overlayActive = false;
             userPhotoPreview.style.display = 'none';
             uploadPlaceholder.style.display = 'flex';
             uploadArea.style.cursor = 'pointer';
@@ -265,8 +456,28 @@ document.addEventListener('DOMContentLoaded', () => {
             previewResult.style.display = 'none';
             previewLoading.style.display = 'none';
             previewEmpty.style.display = 'flex';
+            overlayProductImg.style.display = 'none';
+            overlayProductImg.style.left = '50%';
+            overlayProductImg.style.top = '35%';
             fileInput.value = '';
         });
+
+        // Share Button Logic
+        const shareBtn = document.getElementById('share-btn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                const url = window.location.href;
+                if (navigator.share) {
+                    navigator.share({ title: document.title, url: url });
+                } else {
+                    navigator.clipboard.writeText(url).then(() => {
+                        const orig = shareBtn.innerHTML;
+                        shareBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied';
+                        setTimeout(() => { shareBtn.innerHTML = orig; }, 2000);
+                    });
+                }
+            });
+        }
     }
 
     // Add to Cart Button Logic

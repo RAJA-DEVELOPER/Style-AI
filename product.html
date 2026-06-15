@@ -430,14 +430,14 @@
                     
                     <div class="tryon-controls" id="tryon-controls" style="display:none;">
                         <div class="control-group">
-                            <label>Try Different Color</label>
-                            <div class="color-options small">
-                                <button class="color-swatch active" style="background-color: #C19A6B;"></button>
-                                <button class="color-swatch" style="background-color: #2F353B;"></button>
-                                <button class="color-swatch" style="background-color: #1A1A1A;"></button>
-                            </div>
+                            <label>Size</label>
+                            <input type="range" id="overlay-scale" min="20" max="80" value="50" style="width:100%;">
                         </div>
-                        <button class="btn btn-outline" id="reupload-btn" style="width: 100%; margin-top: 1rem; border-radius: 0;">Upload New Photo</button>
+                        <div class="control-group">
+                            <label>Transparency</label>
+                            <input type="range" id="overlay-opacity" min="50" max="100" value="88" style="width:100%;">
+                        </div>
+                        <button class="btn btn-outline" id="reupload-btn" style="width: 100%; margin-top: 0.75rem; border-radius: 0;">Upload New Photo</button>
                     </div>
                 </div>
 
@@ -457,8 +457,9 @@
                             </div>
                         </div>
                         <div class="preview-result" id="preview-result" style="display:none; width:100%; height:100%; flex-direction:column;">
-                            <div style="flex:1; overflow:hidden; position:relative;">
+                            <div style="flex:1; overflow:hidden; position:relative;" id="result-viewport">
                                 <img src="" id="final-result-img" alt="Result" style="width:100%; height:100%; object-fit:contain;">
+                                <img src="" id="overlay-product-img" alt="Product Overlay" style="position:absolute; display:none; cursor:move; pointer-events:auto; transition:opacity 0.2s;">
                             </div>
                             <div style="padding:1.5rem; background: var(--cards); border-top: 1px solid rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center;">
                                 <div class="ba-toggle-wrapper">
@@ -471,7 +472,7 @@
                                 </div>
                                 <div class="preview-actions">
                                     <button class="btn btn-primary" style="border-radius: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download</button>
-                                    <button class="btn btn-outline" style="border-radius: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg> Share</button>
+                                    <button class="btn btn-outline" id="share-btn" style="border-radius: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg> Share</button>
                                 </div>
                             </div>
                         </div>
@@ -540,6 +541,9 @@
 
     <script src="script.js"></script>
     <script src="cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@latest"></script>
     <script src="product.js"></script>
 </body>
 </html>
