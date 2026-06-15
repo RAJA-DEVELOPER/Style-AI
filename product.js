@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let uploadedImageSrc = '';
         let overlayActive = false;
-        let overlayState = { x: 50, y: 35, scale: 0.5, opacity: 0.88 };
+        let overlayState = { x: 50, y: 35, scale: 0.5, opacity: 0.88, rotation: 0 };
 
         // Get product image URL from current page
         const productImgUrl = imgParam || document.querySelector('.ghost-img')?.src || '';
@@ -224,97 +224,50 @@ document.addEventListener('DOMContentLoaded', () => {
             if(this.files.length) handleFile(this.files[0]);
         });
 
-        function handleFile(file) {
-            if(!file.type.startsWith('image/')) return;
-            
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                uploadedImageSrc = e.target.result;
-                
-                // Show Left Preview
-                uploadPlaceholder.style.display = 'none';
-                userPhotoPreview.src = uploadedImageSrc;
-                userPhotoPreview.style.display = 'block';
-                uploadArea.style.cursor = 'default';
-                
-                // Trigger Right Loading
-                previewEmpty.style.display = 'none';
-                previewResult.style.display = 'none';
-                previewLoading.style.display = 'flex';
-                
-                // Load both images, then position overlay
-                overlayActive = false;
-                overlayState.x = 50;
-                overlayState.y = 35;
-                overlayState.scale = parseInt(scaleSlider?.value || 50) / 100;
-                overlayState.opacity = parseInt(opacitySlider?.value || 88) / 100;
-                
-                const userTemp = new Image();
-                userTemp.onload = async () => {
-                    finalResultImg.src = uploadedImageSrc;
-                    
-                    // Try pose detection for auto-positioning
-                    try {
-                        const torso = await detectTorso(userTemp);
-                        if (torso) {
-                            overlayState.x = torso.x;
-                            overlayState.y = torso.y;
-                            overlayState.scale = Math.max(0.2, Math.min(0.8, torso.scale * 1.8));
-                        } else {
-                            overlayState.x = 50;
-                            overlayState.y = 35;
-                        }
-                    } catch (e) {
-                        overlayState.x = 50;
-                        overlayState.y = 35;
-                    }
-                    
-                    overlayProductImg.onload = () => {
-                        overlayActive = true;
-                        setTimeout(() => {
-                            previewLoading.style.display = 'none';
-                            previewResult.style.display = 'flex';
-                            tryonControls.style.display = 'block';
-                            overlayProductImg.style.display = 'block';
-                            baToggle.checked = true;
-                            requestAnimationFrame(() => positionOverlay());
-                        }, 500);
-                    };
-                    if (overlayProductImg.complete && overlayProductImg.naturalWidth) {
-                        overlayProductImg.onload();
-                    } else {
-                        overlayProductImg.src = productImgUrl;
-                    }
-                };
-                userTemp.src = uploadedImageSrc;
-            };
-            reader.readAsDataURL(file);
+        // -----------------------------------------------------------------------
+        // Tier 1: AI Try-On via HuggingFace IDM-VTON (free, no API key needed)
+        // -----------------------------------------------------------------------
+        async function tryAITryon(personFile, garmentUrl) {
+            if (typeof Client === 'undefined' || typeof handle_file === 'undefined') return null;
+            try {
+                const savedToken = localStorage.getItem('hf_token') || '';
+                const savedSpace = localStorage.getItem('hf_space') || 'yisol/IDM-VTON';
+                const opts = savedToken ? { token: savedToken } : {};
+                const client = await Client.connect(savedSpace, opts);
+                const result = await client.predict("/tryon", [
+                    { background: handle_file(personFile), layers: [], composite: null },
+                    handle_file(garmentUrl),
+                    "A photo of a person wearing this garment",
+                    true, true, 30, 42
+                ]);
+                const url = result?.data?.[0]?.url || result?.data?.[0];
+                if (url && typeof url === 'string' && url.startsWith('http')) return url;
+                return null;
+            } catch (e) {
+                return null;
+            }
         }
 
-        // Pose detection with TensorFlow.js MoveNet
+        // -----------------------------------------------------------------------
+        // Tier 2: Pose Detection (TensorFlow.js MoveNet) for CSS overlay
+        // -----------------------------------------------------------------------
         let poseDetector = null;
         let poseDetectorPromise = null;
 
         async function getPoseDetector() {
             if (poseDetector) return poseDetector;
             if (poseDetectorPromise) return poseDetectorPromise;
-            
             poseDetectorPromise = (async () => {
                 try {
-                    if (typeof poseDetection === 'undefined' || typeof tf === 'undefined') {
-                        return null;
-                    }
+                    if (typeof poseDetection === 'undefined' || typeof tf === 'undefined') return null;
                     await tf.setBackend('webgl');
                     poseDetector = await poseDetection.createDetector(
                         poseDetection.SupportedModels.MoveNet,
                         { modelType: poseDetection.movenet.modelType.SINGLEPOSE_LIGHTNING }
                     );
                     return poseDetector;
-                } catch (e) {
-                    return null;
-                }
+                } catch (e) { return null; }
             })();
-            
             return poseDetectorPromise;
         }
 
@@ -322,133 +275,266 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const detector = await getPoseDetector();
                 if (!detector) return null;
-                
                 const poses = await detector.estimatePoses(imgEl);
-                if (!poses || !poses[0] || !poses[0].keypoints) return null;
-                
+                if (!poses?.[0]?.keypoints) return null;
                 const kp = poses[0].keypoints;
                 const ls = kp.find(k => k.name === 'left_shoulder' && k.score > 0.3);
                 const rs = kp.find(k => k.name === 'right_shoulder' && k.score > 0.3);
                 const lh = kp.find(k => k.name === 'left_hip' && k.score > 0.3);
                 const rh = kp.find(k => k.name === 'right_hip' && k.score > 0.3);
-                
                 if (!ls || !rs || !lh || !rh) return null;
-                
-                const shoulderMidX = (ls.x + rs.x) / 2;
-                const shoulderMidY = (ls.y + rs.y) / 2;
-                const hipMidX = (lh.x + rh.x) / 2;
-                const hipMidY = (lh.y + rh.y) / 2;
-                
-                const cx = (shoulderMidX + hipMidX) / 2;
-                const cy = (shoulderMidY + hipMidY) / 2;
+                const smx = (ls.x + rs.x) / 2;
+                const smy = (ls.y + rs.y) / 2;
+                const hmx = (lh.x + rh.x) / 2;
+                const hmy = (lh.y + rh.y) / 2;
+                const cx = (smx + hmx) / 2;
+                const cy = (smy + hmy) / 2;
                 const torsoW = Math.abs(rs.x - ls.x);
-                
-                const imgW = imgEl.naturalWidth;
-                const imgH = imgEl.naturalHeight;
-                
+                const rotation = Math.atan2(smx - hmx, hmy - smy) * (180 / Math.PI);
                 return {
-                    x: (cx / imgW) * 100,
-                    y: (cy / imgH) * 100,
-                    scale: (torsoW / imgW) * 2
+                    x: (cx / imgEl.naturalWidth) * 100,
+                    y: (cy / imgEl.naturalHeight) * 100,
+                    scale: (torsoW / imgEl.naturalWidth) * 2,
+                    rotation
                 };
-            } catch (e) {
-                return null;
+            } catch (e) { return null; }
+        }
+
+        // -----------------------------------------------------------------------
+        // handleFile: Try AI first, then fall back to canvas compositing
+        // -----------------------------------------------------------------------
+        async function handleFile(file) {
+            if(!file.type.startsWith('image/')) return;
+            
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                try {
+                    uploadedImageSrc = e.target.result;
+                    
+                    uploadPlaceholder.style.display = 'none';
+                    userPhotoPreview.src = uploadedImageSrc;
+                    userPhotoPreview.style.display = 'block';
+                    uploadArea.style.cursor = 'default';
+                    
+                    previewEmpty.style.display = 'none';
+                    previewResult.style.display = 'none';
+                    previewLoading.style.display = 'flex';
+                    overlayActive = false;
+                    
+                    // Load user image
+                    const userTemp = new Image();
+                    await new Promise((res, rej) => { userTemp.onload = res; userTemp.onerror = rej; userTemp.src = uploadedImageSrc; });
+                    
+                    // Try AI (Tier 1) with timeout - errors don't block Tier 2
+                    let aiUrl = null;
+                    try {
+                        const aiPromise = tryAITryon(file, productImgUrl);
+                        const timeout = new Promise(r => setTimeout(() => r(null), 50000));
+                        aiUrl = await Promise.race([aiPromise, timeout]);
+                    } catch (e) { /* AI failed, fall through */ }
+                    
+                    if (aiUrl) {
+                        previewLoading.style.display = 'none';
+                        previewResult.style.display = 'flex';
+                        finalResultImg.src = aiUrl;
+                        tryonControls.style.display = 'block';
+                        baToggle.checked = true;
+                        return;
+                    }
+                    
+                    // Tier 2: Canvas compositing
+                    overlayState.x = 50;
+                    overlayState.y = 35;
+                    overlayState.scale = parseInt(scaleSlider?.value || 50) / 100;
+                    overlayState.opacity = parseInt(opacitySlider?.value || 88) / 100;
+                    overlayState.rotation = 0;
+                    userRenderImg = userTemp;
+                    finalResultImg.src = uploadedImageSrc;
+                    
+                    // Load product image
+                    productRenderImg = new Image();
+                    productRenderImg.onload = () => {
+                        overlayActive = true;
+                        // Auto position via pose detection (non-blocking)
+                        detectTorso(userTemp).then(torso => {
+                            if (torso) {
+                                overlayState.x = torso.x;
+                                overlayState.y = torso.y;
+                                overlayState.scale = Math.max(0.1, Math.min(1.2, torso.scale * 1.8));
+                                overlayState.rotation = torso.rotation || 0;
+                            }
+                        }).finally(() => {
+                            setTimeout(() => {
+                                previewLoading.style.display = 'none';
+                                previewResult.style.display = 'flex';
+                                tryonControls.style.display = 'block';
+                                baToggle.checked = true;
+                                renderComposite();
+                            }, 300);
+                        });
+                    };
+                    productRenderImg.onerror = () => {
+                        // Fallback even if product image fails - draw what we have
+                        overlayActive = true;
+                        setTimeout(() => {
+                            previewLoading.style.display = 'none';
+                            previewResult.style.display = 'flex';
+                            tryonControls.style.display = 'block';
+                            baToggle.checked = true;
+                            renderComposite();
+                        }, 300);
+                    };
+                    productRenderImg.src = productImgUrl;
+                    
+                } catch (err) {
+                    // Ultimate fallback: show user photo
+                    previewLoading.style.display = 'none';
+                    previewResult.style.display = 'flex';
+                    finalResultImg.src = uploadedImageSrc || '';
+                    tryonControls.style.display = 'block';
+                    baToggle.checked = true;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Canvas compositing
+        let userRenderImg = null;
+        let productRenderImg = null;
+        let renderPending = false;
+
+        function scheduleRender() {
+            if (!renderPending && overlayActive && baToggle?.checked) {
+                renderPending = true;
+                requestAnimationFrame(() => { renderPending = false; renderComposite(); });
             }
         }
 
-        function positionOverlay() {
-            if (!resultViewport) return;
-            const vw = resultViewport.clientWidth;
-            const vh = resultViewport.clientHeight;
-            const s = overlayState.scale;
-            const ox = overlayState.x;
-            const oy = overlayState.y;
-            const op = overlayState.opacity;
-            
-            // Size overlay relative to viewport width, preserve aspect ratio
-            overlayProductImg.style.width = (s * 100) + '%';
-            overlayProductImg.style.height = 'auto';
-            overlayProductImg.style.left = ox + '%';
-            overlayProductImg.style.top = oy + '%';
-            overlayProductImg.style.transform = 'translate(-50%, -50%)';
-            overlayProductImg.style.opacity = op;
+        function renderComposite() {
+            try {
+                if (!resultViewport || !userRenderImg) return;
+                
+                const vw = resultViewport.clientWidth || 400;
+                const vh = resultViewport.clientHeight || 500;
+                const canvas = document.createElement('canvas');
+                canvas.width = vw;
+                canvas.height = vh;
+                const ctx = canvas.getContext('2d');
+                
+                // Draw user photo
+                ctx.drawImage(userRenderImg, 0, 0, vw, vh);
+                
+                // Draw garment overlay if product image is loaded
+                if (productRenderImg && productRenderImg.naturalWidth) {
+                    const cx = (overlayState.x / 100) * vw;
+                    const cy = (overlayState.y / 100) * vh;
+                    const rot = (overlayState.rotation || 0) * Math.PI / 180;
+                    const aspect = productRenderImg.naturalWidth / productRenderImg.naturalHeight;
+                    const dw = vw * 0.6 * overlayState.scale;
+                    const dh = aspect ? dw / aspect : dw;
+                    const blend = document.getElementById('overlay-blend')?.value || 'source-over';
+                    
+                    ctx.save();
+                    ctx.translate(cx, cy);
+                    ctx.rotate(rot);
+                    ctx.globalAlpha = overlayState.opacity;
+                    ctx.shadowColor = 'rgba(0,0,0,0.12)';
+                    ctx.shadowBlur = 15;
+                    ctx.shadowOffsetY = 4;
+                    ctx.globalCompositeOperation = blend;
+                    ctx.drawImage(productRenderImg, -dw/2, -dh/2, dw, dh);
+                    ctx.restore();
+                }
+                
+                finalResultImg.src = canvas.toDataURL('image/jpeg', 0.92);
+                
+                // Show drag hint
+                const dragHint = document.getElementById('drag-hint');
+                if (dragHint) {
+                    dragHint.style.opacity = '1';
+                    if (dragHint._hideTimer) clearTimeout(dragHint._hideTimer);
+                    dragHint._hideTimer = setTimeout(() => { dragHint.style.opacity = '0'; }, 3000);
+                }
+            } catch (e) {
+                // Canvas failed, show user photo
+                if (uploadedImageSrc) finalResultImg.src = uploadedImageSrc;
+            }
         }
 
-        // Scale slider
+        // Sliders
         if (scaleSlider) {
             scaleSlider.addEventListener('input', () => {
                 overlayState.scale = parseInt(scaleSlider.value) / 100;
-                if (overlayActive) positionOverlay();
+                scheduleRender();
             });
         }
-
-        // Opacity slider
         if (opacitySlider) {
             opacitySlider.addEventListener('input', () => {
                 overlayState.opacity = parseInt(opacitySlider.value) / 100;
-                if (overlayActive) positionOverlay();
+                scheduleRender();
             });
         }
+        const rotateSlider = document.getElementById('overlay-rotate');
+        if (rotateSlider) {
+            rotateSlider.addEventListener('input', () => {
+                overlayState.rotation = parseInt(rotateSlider.value);
+                scheduleRender();
+            });
+        }
+        const blendSelect = document.getElementById('overlay-blend');
+        if (blendSelect) blendSelect.addEventListener('change', scheduleRender);
 
-        // Drag to reposition overlay
+        // Drag to reposition (on finalResultImg, not overlay img)
         let dragData = null;
         function startDrag(e) {
             if (!overlayActive) return;
             const pt = e.type.startsWith('touch') ? e.touches[0] : e;
-            dragData = {
-                startX: pt.clientX,
-                startY: pt.clientY,
-                origX: overlayState.x,
-                origY: overlayState.y
-            };
-            overlayProductImg.style.cursor = 'grabbing';
+            dragData = { startX: pt.clientX, startY: pt.clientY, origX: overlayState.x, origY: overlayState.y };
             e.preventDefault();
         }
         function moveDrag(e) {
             if (!dragData) return;
             const pt = e.type.startsWith('touch') ? e.touches[0] : e;
-            const dx = pt.clientX - dragData.startX;
-            const dy = pt.clientY - dragData.startY;
             const vw = resultViewport.clientWidth;
             const vh = resultViewport.clientHeight;
-            overlayState.x = dragData.origX + (dx / vw) * 100;
-            overlayState.y = dragData.origY + (dy / vh) * 100;
-            positionOverlay();
+            overlayState.x = dragData.origX + ((pt.clientX - dragData.startX) / vw) * 100;
+            overlayState.y = dragData.origY + ((pt.clientY - dragData.startY) / vh) * 100;
+            scheduleRender();
             e.preventDefault();
         }
         function endDrag() {
-            if (dragData) {
-                dragData = null;
-                overlayProductImg.style.cursor = 'move';
-            }
+            dragData = null;
         }
-        if (overlayProductImg) {
-            overlayProductImg.addEventListener('mousedown', startDrag);
+        if (finalResultImg) {
+            finalResultImg.style.cursor = 'grab';
+            finalResultImg.addEventListener('mousedown', startDrag);
             document.addEventListener('mousemove', moveDrag);
             document.addEventListener('mouseup', endDrag);
-            overlayProductImg.addEventListener('touchstart', startDrag, { passive: false });
+            finalResultImg.addEventListener('touchstart', startDrag, { passive: false });
             document.addEventListener('touchmove', moveDrag, { passive: false });
             document.addEventListener('touchend', endDrag);
         }
 
-        // Before/After Toggle Logic
+        // Before/After Toggle
         baToggle.addEventListener('change', (e) => {
             const labels = document.querySelectorAll('.ba-label');
-            if(e.target.checked) {
-                overlayProductImg.style.display = overlayActive ? 'block' : 'none';
+            if (e.target.checked) {
+                if (overlayActive) scheduleRender();
                 labels[0].classList.remove('active');
                 labels[1].classList.add('active');
             } else {
-                overlayProductImg.style.display = 'none';
+                finalResultImg.src = uploadedImageSrc;
                 labels[1].classList.remove('active');
                 labels[0].classList.add('active');
             }
         });
 
-        // Re-upload Logic
+        // Re-upload
         reuploadBtn.addEventListener('click', () => {
             uploadedImageSrc = '';
             overlayActive = false;
+            userRenderImg = null;
+            productRenderImg = null;
             userPhotoPreview.style.display = 'none';
             uploadPlaceholder.style.display = 'flex';
             uploadArea.style.cursor = 'pointer';
@@ -456,19 +542,16 @@ document.addEventListener('DOMContentLoaded', () => {
             previewResult.style.display = 'none';
             previewLoading.style.display = 'none';
             previewEmpty.style.display = 'flex';
-            overlayProductImg.style.display = 'none';
-            overlayProductImg.style.left = '50%';
-            overlayProductImg.style.top = '35%';
             fileInput.value = '';
         });
 
-        // Share Button Logic
+        // Share Button
         const shareBtn = document.getElementById('share-btn');
         if (shareBtn) {
             shareBtn.addEventListener('click', () => {
                 const url = window.location.href;
                 if (navigator.share) {
-                    navigator.share({ title: document.title, url: url });
+                    navigator.share({ title: document.title, url });
                 } else {
                     navigator.clipboard.writeText(url).then(() => {
                         const orig = shareBtn.innerHTML;
@@ -477,6 +560,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
+        }
+
+        // Save HF settings to localStorage
+        const hfTokenInput = document.getElementById('hf-token');
+        const hfSpaceInput = document.getElementById('hf-space');
+        if (hfTokenInput) {
+            hfTokenInput.value = localStorage.getItem('hf_token') || '';
+            hfTokenInput.addEventListener('change', () => localStorage.setItem('hf_token', hfTokenInput.value));
+        }
+        if (hfSpaceInput) {
+            hfSpaceInput.value = localStorage.getItem('hf_space') || '';
+            hfSpaceInput.addEventListener('change', () => localStorage.setItem('hf_space', hfSpaceInput.value));
         }
     }
 

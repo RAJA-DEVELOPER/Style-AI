@@ -431,12 +431,33 @@
                     <div class="tryon-controls" id="tryon-controls" style="display:none;">
                         <div class="control-group">
                             <label>Size</label>
-                            <input type="range" id="overlay-scale" min="20" max="80" value="50" style="width:100%;">
+                            <input type="range" id="overlay-scale" min="10" max="120" value="50" style="width:100%;">
                         </div>
                         <div class="control-group">
-                            <label>Transparency</label>
+                            <label>Rotate</label>
+                            <input type="range" id="overlay-rotate" min="-30" max="30" value="0" style="width:100%;">
+                        </div>
+                        <div class="control-group">
+                            <label>Blend</label>
+                            <select id="overlay-blend" style="width:100%;padding:0.4rem 0.6rem;font-size:0.75rem;border:1px solid var(--border);border-radius:4px;background:var(--cards);color:var(--text);">
+                                <option value="source-over">Normal</option>
+                                <option value="multiply">Multiply</option>
+                                <option value="overlay">Overlay</option>
+                                <option value="soft-light">Soft Light</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Opacity</label>
                             <input type="range" id="overlay-opacity" min="50" max="100" value="88" style="width:100%;">
                         </div>
+                        <details style="margin-top:0.75rem;font-size:0.75rem;color:var(--muted);">
+                            <summary style="cursor:pointer;">AI Settings (optional)</summary>
+                            <div style="margin-top:0.5rem;display:flex;flex-direction:column;gap:0.5rem;">
+                                <input type="text" id="hf-token" placeholder="HuggingFace Token (hf_...)" style="padding:0.4rem 0.6rem;font-size:0.75rem;border:1px solid var(--border);border-radius:4px;background:var(--cards);color:var(--text);">
+                                <input type="text" id="hf-space" placeholder="Space name (default: yisol/IDM-VTON)" style="padding:0.4rem 0.6rem;font-size:0.75rem;border:1px solid var(--border);border-radius:4px;background:var(--cards);color:var(--text);">
+                                <p style="margin:0;line-height:1.4;">Get a free token at <a href="https://huggingface.co/settings/tokens" target="_blank" style="color:var(--primary);">huggingface.co/settings/tokens</a>. Duplicate the Space to your account for dedicated quota.</p>
+                            </div>
+                        </details>
                         <button class="btn btn-outline" id="reupload-btn" style="width: 100%; margin-top: 0.75rem; border-radius: 0;">Upload New Photo</button>
                     </div>
                 </div>
@@ -459,6 +480,7 @@
                         <div class="preview-result" id="preview-result" style="display:none; width:100%; height:100%; flex-direction:column;">
                             <div style="flex:1; overflow:hidden; position:relative;" id="result-viewport">
                                 <img src="" id="final-result-img" alt="Result" style="width:100%; height:100%; object-fit:contain;">
+                                <div id="drag-hint" style="position:absolute;bottom:0.75rem;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.65);color:#fff;font-size:0.7rem;padding:0.35rem 0.75rem;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.5s;">Drag to reposition</div>
                                 <img src="" id="overlay-product-img" alt="Product Overlay" style="position:absolute; display:none; cursor:move; pointer-events:auto; transition:opacity 0.2s;">
                             </div>
                             <div style="padding:1.5rem; background: var(--cards); border-top: 1px solid rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center;">
@@ -544,6 +566,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js"></script>
     <script src="product.js"></script>
 </body>
 </html>
