@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <span>${item.quantity}</span>
                                 <button class="qty-btn plus">+</button>
                             </div>
-                            <button class="remove-btn-text">Remove</button>
+                            <button class="remove-btn-text" aria-label="Remove"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -195,17 +195,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemIndex = cartData.findIndex(i => i.id === id);
         
         if (itemIndex > -1) {
-            if (e.target.classList.contains('plus')) {
+            if (e.target.closest('.plus')) {
                 cartData[itemIndex].quantity += 1;
             }
-            if (e.target.classList.contains('minus')) {
+            if (e.target.closest('.minus')) {
                 if (cartData[itemIndex].quantity > 1) {
                     cartData[itemIndex].quantity -= 1;
                 } else {
                     cartData.splice(itemIndex, 1);
                 }
             }
-            if (e.target.classList.contains('remove-btn-text')) {
+            if (e.target.closest('.remove-btn-text')) {
                 cartData.splice(itemIndex, 1);
             }
             
@@ -218,9 +218,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Delegate "Add to Cart" globally if classes match
     document.body.addEventListener('click', (e) => {
-        if (e.target.classList.contains('add-to-cart') || e.target.classList.contains('move-to-cart-btn')) {
+        const addBtn = e.target.closest('.add-to-cart, .move-to-cart-btn');
+        if (addBtn) {
             // Find parent card to extract info
-            const card = e.target.closest('.product-card, .wishlist-card');
+            const card = addBtn.closest('.product-card, .wishlist-card');
             if (card) {
                 const img = card.querySelector('img').src;
                 const brand = card.querySelector('.product-brand, .wishlist-brand')?.innerText || 'Brand';

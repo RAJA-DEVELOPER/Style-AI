@@ -609,3 +609,318 @@
     .upload-section { padding: 1rem; }
     .grid-3 > div { padding: 1.25rem 1rem; }
 }
+
+/* ====================================
+   Mobile Responsive Additions
+   ==================================== */
+
+@media (max-width: 767px) {
+    .grid-3 .inverted-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .grid-3 .inverted-section .btn {
+        width: 100%;
+    }
+
+    .grid-3 > div[style*="padding"] {
+        padding: 2rem 1.25rem !important;
+    }
+
+    .grid-2 > div[style*="padding"] {
+        padding: 1.5rem !important;
+    }
+
+    .dashboard-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .dashboard-cta .btn {
+        margin: 0 !important;
+    }
+
+    .dashboard-cta .btn + .btn {
+        margin-left: 0 !important;
+    }
+
+    .upload-box h3 {
+        font-size: 1.1rem;
+    }
+
+    .upload-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 1rem;
+    }
+
+    .img-card-overlay h4 {
+        font-size: 1rem;
+    }
+
+    .dashboard-section {
+        margin-bottom: 3rem;
+    }
+
+    .tips-list li {
+        font-size: 0.875rem;
+        padding-left: 1.5rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-card {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .dashboard-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.7rem;
+    }
+
+    .skintone-result {
+        gap: 1rem;
+    }
+
+    .swatch-large {
+        width: 64px;
+        height: 64px;
+    }
+
+    .skintone-result h4 {
+        font-size: 1rem;
+    }
+
+    .skintone-result p {
+        font-size: 0.8rem;
+    }
+
+    .score-circle {
+        width: 100px;
+        height: 100px;
+        padding-top: 28px;
+        border-width: 3px;
+    }
+
+    .score-number {
+        font-size: 2rem;
+    }
+
+    .score-text {
+        font-size: 0.875rem;
+    }
+
+    .dashboard-grid {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .upload-section {
+        margin: 1.5rem auto 2.5rem;
+    }
+
+    .grid-3 > div {
+        padding: 1.5rem 1rem;
+    }
+
+    .grid-3 > div[style*="padding"] {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .grid-2 > div[style*="padding"] {
+        padding: 1.25rem !important;
+    }
+
+    .grid-3 .inverted-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .upload-box {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .img-card-overlay {
+        padding: 1rem 0.75rem 0.75rem;
+    }
+
+    .img-card-overlay h4 {
+        font-size: 0.9rem;
+    }
+
+    .saved-looks {
+        padding: 1.25rem;
+    }
+
+    .saved-header {
+        gap: 0.75rem;
+    }
+
+    .saved-grid {
+        gap: 0.5rem;
+    }
+
+    .dna-trait {
+        margin-bottom: 0.75rem;
+    }
+
+    .trait-label {
+        font-size: 0.8rem;
+    }
+
+    .card-header {
+        gap: 0.75rem;
+    }
+
+    .card-header h3 {
+        margin-bottom: 0;
+    }
+
+    .dashboard-section {
+        margin-bottom: 2rem;
+    }
+
+    .section-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+    }
+
+    .section-header p {
+        font-size: 0.875rem;
+    }
+
+    .dark-section {
+        padding: 1.25rem;
+        border-radius: 0.5rem;
+    }
+
+    .outfit-grid,
+    .occasion-grid,
+    .gallery-grid,
+    .trending-carousel {
+        gap: 1rem;
+    }
+
+    .processing-text {
+        font-size: 0.75rem;
+    }
+
+    .progress-bar {
+        width: min(220px, 85%);
+    }
+
+    .tips-list li {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+        padding-left: 1.25rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .dashboard-card {
+        padding: 0.875rem;
+        border-radius: 0.75rem;
+    }
+
+    .dashboard-card h3 {
+        font-size: 1rem;
+    }
+
+    .dashboard-grid {
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .dashboard-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.1rem, 5vw, 1.35rem);
+    }
+
+    .section-header p {
+        font-size: 0.8rem;
+    }
+
+    .score-circle {
+        width: 80px;
+        height: 80px;
+        padding-top: 20px;
+        margin-bottom: 1rem;
+    }
+
+    .score-number {
+        font-size: 1.75rem;
+    }
+
+    .score-max {
+        font-size: 0.75rem;
+    }
+
+    .score-text {
+        font-size: 0.8rem;
+    }
+
+    .color-palette {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .palette-swatch {
+        min-height: 72px;
+        padding: 0.35rem;
+        font-size: 0.6rem;
+    }
+
+    .upload-box {
+        padding: 1.25rem 0.5rem;
+    }
+
+    .upload-box h3 {
+        font-size: 1rem;
+    }
+
+    .upload-box p {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .upload-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0.75rem;
+    }
+
+    .grid-3 > div {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .grid-3 > div[style*="padding"] {
+        padding: 1.25rem 0.75rem !important;
+    }
+
+    .grid-3 .inverted-section {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .dark-section {
+        padding: 1rem;
+    }
+
+    .saved-looks {
+        padding: 1rem;
+    }
+}

@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${generateWishlistIcon(product.id)}
                     <button class="quick-view-btn">Quick View</button>
                     <img src="${product.image}" class="product-img" alt="${product.name}">
-                    <div class="add-to-cart">Add to Cart</div>
+                    <button class="add-to-cart" aria-label="Add to Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
                 </div>
                 <div class="product-info">
                     <div class="product-brand">${product.brand}</div>
@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Card click routing to product details page
     document.addEventListener('click', (e) => {
-        if (e.target.closest('.wishlist-btn') || e.target.classList.contains('add-to-cart')) {
+        if (e.target.closest('.wishlist-btn') || e.target.closest('.add-to-cart')) {
             return;
         }
         

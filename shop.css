@@ -592,7 +592,8 @@
     .highlight-content h3 { font-size: 1.4rem; }
 
     .quick-view-btn,
-    .wishlist-btn {
+    .wishlist-btn,
+    .add-to-cart {
         opacity: 1;
     }
     .quick-view-btn {
@@ -604,6 +605,10 @@
         text-align: center;
         padding: 0.5rem 1rem;
         font-size: 0.65rem;
+    }
+    .product-card:hover .quick-view-btn {
+        top: auto;
+        opacity: 1;
     }
     .wishlist-btn {
         width: 36px;

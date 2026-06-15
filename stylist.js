@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('recommendation-gallery').innerHTML = recs.map(r => `
             <div class="img-card" style="aspect-ratio: 3/4; background: #f0f0f0;">
                 <img src="${r}" style="width: 100%; height: 100%; object-fit: cover;">
-                <div style="position: absolute; top: 1rem; right: 1rem; background: #fff; padding: 0.25rem 0.5rem; font-size: 0.75rem; border-radius: 2px;">98% Match</div>
+                <div style="position: absolute; top: 1rem; right: 1rem; background: var(--cards); color: var(--text); padding: 0.25rem 0.5rem; font-size: 0.75rem; border-radius: 2px;">98% Match</div>
             </div>
         `).join('');
 

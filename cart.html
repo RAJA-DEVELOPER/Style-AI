@@ -303,7 +303,7 @@
                                 <h3 class="full-cart-title">${item.title}</h3>
                                 <div class="full-cart-meta">Size: ${item.size || 'OS'} | Color: ${item.color || 'Default'}</div>
                                 <div class="full-cart-price-mobile">${formatMoney(item.price)}</div>
-                                <button class="remove-item-btn" data-index="${index}">Remove</button>
+                                <button class="remove-item-btn" data-index="${index}" aria-label="Remove"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
                             </div>
                         </div>
                         <div class="full-cart-qty">
@@ -337,20 +337,22 @@
             // Event Delegation for Table actions
             itemsContainer.addEventListener('click', (e) => {
                 let cartData = JSON.parse(localStorage.getItem('styleai_cart')) || [];
-                const index = e.target.getAttribute('data-index');
+                const btn = e.target.closest('[data-index]');
+                if (!btn) return;
+                const index = btn.getAttribute('data-index');
                 
                 if (index !== null) {
-                    if (e.target.classList.contains('full-plus')) {
+                    if (btn.classList.contains('full-plus')) {
                         cartData[index].quantity += 1;
                     }
-                    if (e.target.classList.contains('full-minus')) {
+                    if (btn.classList.contains('full-minus')) {
                         if (cartData[index].quantity > 1) {
                             cartData[index].quantity -= 1;
                         } else {
                             cartData.splice(index, 1);
                         }
                     }
-                    if (e.target.classList.contains('remove-item-btn')) {
+                    if (btn.classList.contains('remove-item-btn')) {
                         cartData.splice(index, 1);
                     }
                     
