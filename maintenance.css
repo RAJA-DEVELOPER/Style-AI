@@ -1,7 +1,8 @@
 /* Maintenance Page Specific Styles */
 
 body {
-    overflow: hidden; /* Prevent scrolling for a clean slate */
+    overflow-x: hidden;
+    overflow-y: auto;
     background-color: var(--background);
 }
 
@@ -24,11 +25,12 @@ body {
 .maintenance-page {
     position: relative;
     z-index: 2;
-    min-height: calc(100vh - 80px); /* Account for nav */
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 2rem 0;
 }
 
 .maintenance-content {
@@ -178,7 +180,12 @@ body {
     justify-content: center;
 }
 
-/* Social Links */
+/* Page Footer with Social Links */
+.maintenance-footer {
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -235,11 +242,26 @@ body {
     50% { opacity: 0; }
 }
 
+/* Desktop: keep content higher up, not vertically centered */
+@media (min-width: 1025px) {
+    .maintenance-page {
+        justify-content: flex-start;
+        padding-top: 5rem;
+    }
+    .maintenance-content {
+        padding: 3rem;
+    }
+    .maintenance-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-bottom: 1.5rem;
+    }
+}
+
 /* Responsive */
 @media (max-width: 767px) {
-    body {
-        overflow-y: auto;
-    }
     .maintenance-content {
         padding: 3rem 2rem;
         margin: 2rem;
@@ -253,9 +275,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-    body {
-        overflow-y: auto;
-    }
 
     .maintenance-page {
         padding-block: 6rem 2rem;

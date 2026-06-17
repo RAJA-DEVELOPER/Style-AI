@@ -383,7 +383,7 @@ ul {
 
 
 /* Mobile Nav Styles */
-@media (max-width: 1024px) {
+@media (max-width: 1109px) {
     .nav-links {
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
@@ -1040,7 +1040,7 @@ ul {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1109px) {
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .editorial-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -1418,6 +1418,24 @@ ul {
     pointer-events: none;
 }
 
+/* Nav Wishlist Badge */
+.wishlist-counter-icon {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--text);
+    color: var(--cards);
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
 /* Dark Mode Overrides for Overlays */
 [data-theme="dark"] .navbar {
     background: rgba(15, 23, 42, 0.85);
@@ -1597,6 +1615,12 @@ ul {
 .nav-icon-wrapper,
 .mobile-menu-toggle {
     border-radius: 999px;
+}
+
+@media (min-width: 1110px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
 }
 
 .nav-icon-wrapper {
@@ -1857,7 +1881,7 @@ main[style*="padding: 8rem"] div[style*="font-size: 1.125rem"] {
     justify-content: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1109px) {
     .section-subtitle {
         margin-bottom: clamp(2rem, 5vw, 3rem);
     }
@@ -1979,7 +2003,7 @@ main[style*="padding: 8rem"] div[style*="font-size: 1.125rem"] {
 }
 
 /* Site-wide tablet and mobile completion */
-@media (max-width: 1024px) {
+@media (max-width: 1109px) {
     .container {
         padding-inline: clamp(1.25rem, 4vw, 2.5rem);
     }
@@ -2303,6 +2327,11 @@ main[style*="padding: 8rem"] div[style*="font-size: 1.125rem"] {
     margin-right: 4px;
 }
 
+[dir="rtl"] .wishlist-counter-icon {
+    right: auto;
+    left: -8px;
+}
+
 [dir="rtl"] .ai-stylist-content {
     text-align: right;
 }
@@ -2356,7 +2385,7 @@ main[style*="padding: 8rem"] div[style*="font-size: 1.125rem"] {
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1109px) {
     [dir="rtl"] .nav-links {
         gap: 2rem;
     }

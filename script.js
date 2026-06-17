@@ -137,16 +137,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const wishlistData = JSON.parse(localStorage.getItem('styleai_wishlist')) || { products: [] };
         const wishlistProductIds = new Set((wishlistData.products || []).map(p => p.id));
         
-        // Update Navbar Badge count
+        // Update Navbar Wishlist badge count
         const count = wishlistProductIds.size;
-        const wishlistLinks = document.querySelectorAll('.nav-links a[href="wishlist.html"]');
-        wishlistLinks.forEach(link => {
+        const wishlistIcon = document.getElementById('wishlist-icon');
+        const wishlistBadge = wishlistIcon ? wishlistIcon.querySelector('.wishlist-counter-icon') : null;
+        if (wishlistBadge) {
             if (count > 0) {
-                link.innerHTML = `Wishlist <span class="wishlist-counter" style="display: inline-flex; align-items: center; justify-content: center; background: var(--text); color: var(--cards); font-size: 0.7rem; border-radius: 50%; width: 16px; height: 16px; margin-left: 4px; font-weight: 600; line-height: 1;">${count}</span>`;
+                wishlistBadge.textContent = count;
+                wishlistBadge.style.display = 'flex';
             } else {
-                link.innerHTML = 'Wishlist';
+                wishlistBadge.style.display = 'none';
             }
-        });
+        }
 
         // Update all product cards and product details heart icons on the page
         document.querySelectorAll('.product-card').forEach(card => {
