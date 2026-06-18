@@ -304,8 +304,10 @@
     align-items: end;
     border-bottom: 1px solid var(--border);
     background:
-        radial-gradient(circle at 18% 8%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 30%),
-        linear-gradient(180deg, var(--cards), var(--background));
+        linear-gradient(to right, rgba(15,23,42,0.65), rgba(15,23,42,0.25)),
+        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070');
+    background-size: cover;
+    background-position: center 30%;
 }
 
 .collections-header::after {
@@ -321,12 +323,14 @@
     line-height: 0.92;
     letter-spacing: 0;
     margin-bottom: 1.25rem;
+    color: #fff;
 }
 
 .collections-header .hero-subtitle {
     max-width: 760px;
     margin: 0 auto;
     line-height: 1.7;
+    color: rgba(255,255,255,0.8);
 }
 
 .collection-section {
@@ -387,6 +391,14 @@
 
 .col-story p {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+/* Curator's Note quote alignment */
+section[style*="border-bottom: 1px solid var(--border)"] .container.text-center p:last-of-type {
+    text-align: left;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .col-gallery {
@@ -498,8 +510,17 @@
         text-align: left;
     }
 
+    .collections-header .container.text-center,
+    .collections-header .hero-subtitle {
+        text-align: left;
+    }
+
     .collections-header .hero-subtitle {
         margin-inline: 0;
+    }
+
+    .container.text-center {
+        text-align: left;
     }
 
     .col-banner {

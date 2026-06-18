@@ -152,6 +152,7 @@
 .filter-list input {
     margin-right: 0.75rem;
     accent-color: var(--text);
+    cursor: pointer;
 }
 
 .color-filters {
@@ -213,6 +214,14 @@
     margin-bottom: 2rem;
     font-size: 0.875rem;
     color: var(--muted);
+}
+
+.sort-dropdown {
+    cursor: pointer;
+}
+
+.sort-dropdown label {
+    cursor: pointer;
 }
 
 .sort-dropdown select {

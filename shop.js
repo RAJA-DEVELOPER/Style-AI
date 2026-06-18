@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Product Database (40 Realistic Products)
+    // Product Database (39 Realistic Products)
     const images = [
         "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600", // 1. Oversized Wool Coat
         "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=600", // 2. Double-Breasted Blazer
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Build product array
     const products = [];
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 39; i++) {
         const name = names[i % names.length];
         const brand = brands[Math.floor(Math.random() * brands.length)];
         const priceNum = Math.floor(Math.random() * 2500) + 150;
