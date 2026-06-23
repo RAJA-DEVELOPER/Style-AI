@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600", // 32. Silk Camisole
         "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600", // 33. Straight-Leg Jeans
         "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?q=80&w=600", // 34. Chelsea Leather Boots
-        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600", // 35. Ribbed Knit Dress
+        "https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?q=80&w=600", // 35. Ribbed Knit Dress
         "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600", // 36. Oversized Poplin Shirt
         "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=600", // 37. Tailored Vest
         "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=600", // 38. Classic Loafers

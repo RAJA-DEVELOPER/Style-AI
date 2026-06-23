@@ -1,115 +1,51 @@
-/* Register Page Styles - Luxury Glassmorphism */
+/* Register Page Styles - Centered Minimal */
 
-body {
-    overflow-y: auto; /* allow scroll for longer form */
-    overflow-x: hidden;
-}
-
-
-/* Split Layout (Reversed from Login) */
-.register-layout {
-    display: flex;
+.register-page {
     min-height: 100vh;
-    width: 100vw;
-    position: relative;
-    overflow-x: hidden;
-}
-
-/* Right Visual Background */
-.register-visual {
-    flex: 1;
-    position: relative;
-    background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1920');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding: 8rem 6rem 6rem;
+    justify-content: center;
+    padding: 2rem 1rem;
 }
 
-.visual-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-    z-index: 1;
-}
-
-.visual-content {
+.register-container {
+    width: 100%;
+    max-width: 420px;
     position: relative;
-    z-index: 2;
-    color: #ffffff;
-    max-width: 500px;
-}
-
-.brand-statement {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-    word-wrap: break-word;
-}
-
-.visual-content p {
-    font-size: 1.25rem;
-    opacity: 0.8;
-    font-family: var(--font-accent);
-    letter-spacing: 0.05em;
-}
-
-.text-right {
-    text-align: right;
-}
-
-/* Left Register Form */
-.register-form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--background);
-    position: relative;
-    padding: 120px 2rem 4rem;
-    flex: 1;
-    min-height: 100vh;
-}
-
-[data-theme="dark"] .register-form-container {
-    background: var(--background);
 }
 
 .register-card {
-    width: 100%;
-    max-width: 480px;
-    padding: 3rem 4rem;
-    z-index: 2;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-/* Glassmorphism Effect */
-.glass-panel {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: var(--cards);
     border-radius: 1.5rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border);
 }
 
-[data-theme="dark"] .glass-panel {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+.register-logo {
+    display: inline-block;
+    font-family: var(--font-accent);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.register-logo:hover {
+    color: var(--primary);
 }
 
 .register-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .register-header h2 {
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--text);
 }
 
 .register-header p {
@@ -117,107 +53,66 @@ body {
     font-size: 0.875rem;
 }
 
-/* Floating Inputs */
-.floating-input {
-    position: relative;
-    margin-bottom: 1.5rem;
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
-.floating-input input {
+.form-group input {
     width: 100%;
-    padding: 1rem 2.5rem 0.5rem 1rem;
-    font-size: 1rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
     font-family: var(--font-body);
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid rgba(0,0,0,0.1);
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
     color: var(--text);
-    transition: all 0.3s ease;
-    border-radius: 4px 4px 0 0;
-}
-
-[data-theme="dark"] .floating-input input {
-    border-bottom: 2px solid rgba(255,255,255,0.25);
-}
-
-.floating-input input:focus {
     outline: none;
-    border-bottom-color: var(--primary);
-    background: rgba(0,0,0,0.02);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
 }
 
-[data-theme="dark"] .floating-input input:focus {
-    background: rgba(255,255,255,0.02);
+.form-group input:focus {
+    border-color: var(--text);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
 }
 
-.floating-input label {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
+[data-theme="dark"] .form-group input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+.form-group input::placeholder {
     color: var(--muted);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    font-size: 1rem;
-}
-
-.floating-input input:focus ~ label,
-.floating-input input:not(:placeholder-shown) ~ label {
-    top: 0;
-    transform: translateY(0);
-    font-size: 0.75rem;
-    color: var(--primary);
-}
-
-/* Validation UI */
-.validation-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.floating-input.valid .validation-icon {
-    opacity: 1;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%2310B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
-}
-
-.floating-input.invalid .validation-icon {
-    opacity: 1;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%23EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>');
-}
-
-.error-msg {
-    color: #EF4444;
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
-    display: none;
+    opacity: 0.6;
 }
 
 /* Password Group */
 .password-group {
-    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.password-group input {
+    padding-right: 2.5rem;
 }
 
 .toggle-password {
     position: absolute;
-    right: 10px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
     color: var(--muted);
     cursor: pointer;
+    padding: 4px;
     z-index: 2;
 }
 
 .toggle-password svg {
     width: 18px;
     height: 18px;
+    display: block;
 }
 
 .toggle-password:hover {
@@ -226,20 +121,15 @@ body {
 
 /* Strength Meter */
 .strength-meter {
-    margin-bottom: 1.5rem;
-    padding: 0 0.25rem;
+    margin-top: -0.5rem;
 }
 
 .strength-bar {
     height: 4px;
-    background: rgba(0,0,0,0.1);
+    background: var(--border);
     border-radius: 2px;
     overflow: hidden;
     margin-bottom: 0.25rem;
-}
-
-[data-theme="dark"] .strength-bar {
-    background: rgba(255,255,255,0.15);
 }
 
 .strength-fill {
@@ -258,79 +148,106 @@ body {
     text-align: right;
 }
 
+/* Validation UI */
+.validation-icon {
+    display: none;
+}
+
+.form-group.valid .validation-icon,
+.form-group.invalid .validation-icon {
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group.valid .validation-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%2310B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+}
+
+.form-group.invalid .validation-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%23EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>');
+}
+
+.error-msg {
+    color: #EF4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
 /* Gender Select (Radio Group) */
 .gender-select {
-    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .select-label {
     font-size: 0.875rem;
     color: var(--muted);
-    margin-bottom: 0.5rem;
 }
 
 .radio-group {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .radio-btn {
     flex: 1;
-    position: relative;
     cursor: pointer;
 }
 
 .radio-btn input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
+    width: 0;
+    height: 0;
 }
 
 .radio-btn span {
     display: block;
     text-align: center;
-    padding: 0.75rem 0.5rem;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
+    padding: 0.7rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
     color: var(--text);
-    transition: all 0.3s ease;
-}
-
-[data-theme="dark"] .radio-btn span {
-    border-color: rgba(255,255,255,0.2);
-    color: var(--text);
+    transition: all 0.2s;
 }
 
 .radio-btn input:checked ~ span {
     border-color: var(--text);
-    color: var(--text);
-    background: rgba(0,0,0,0.02);
-}
-
-[data-theme="dark"] .radio-btn input:checked ~ span {
-    background: rgba(255,255,255,0.05);
+    background: var(--background);
 }
 
 /* Custom Checkbox */
 .form-options {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .custom-checkbox {
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--muted);
+    gap: 0.5rem;
 }
 
 .custom-checkbox input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
-    height: 0;
     width: 0;
+    height: 0;
 }
 
 .checkmark {
@@ -339,10 +256,9 @@ body {
     background-color: transparent;
     border: 1px solid var(--muted);
     border-radius: 4px;
-    margin-right: 0.5rem;
     position: relative;
-    transition: var(--transition);
     flex-shrink: 0;
+    transition: border-color 0.2s;
 }
 
 .custom-checkbox:hover input ~ .checkmark {
@@ -379,15 +295,23 @@ body {
 /* Submit Button */
 .register-btn {
     width: 100%;
-    padding: 1rem;
+    padding: 0.85rem;
     font-size: 1rem;
-    border-radius: 0.5rem;
-    position: relative;
-    overflow: hidden;
-    min-height: 44px;
+    border-radius: 0.75rem;
+    min-height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background: var(--text);
+    color: var(--background);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.register-btn:hover {
+    opacity: 0.85;
 }
 
 .login-redirect {
@@ -420,256 +344,15 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* Page Animations */
-.animate-fade {
-    animation: fadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-slide-up {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* Responsive */
-@media (max-width: 1024px) {
-    .brand-statement {
-        font-size: 3.5rem;
-    }
-    .register-visual {
-        padding: 8rem 3rem 5rem;
-    }
+@media (max-width: 480px) {
     .register-card {
-        padding: 2.5rem;
+        padding: 2rem 1.25rem;
     }
-}
-
-@media (max-width: 767px) {
-    .register-layout {
-        flex-direction: column;
-        width: 100%;
-        min-height: 100svh;
-    }
-    .login-nav {
-        background: color-mix(in srgb, var(--background) 86%, transparent) !important;
-        backdrop-filter: blur(18px) !important;
-        -webkit-backdrop-filter: blur(18px) !important;
-        border-bottom: 1px solid var(--border) !important;
-    }
-    .register-visual {
-        position: relative;
-        width: 100%;
-        min-height: 34vh;
-        padding: 7rem 1.5rem 2rem;
-        justify-content: flex-start;
-        align-items: flex-end;
-    }
-    .register-form-container {
-        width: 100%;
-        padding: 5.5rem 1.5rem 2rem;
-        align-items: stretch;
-    }
-    .register-card {
-        width: 100%;
-        padding: 2rem;
-        max-width: 560px;
-        margin-inline: auto;
-    }
-    .register-btn {
-        width: 100%;
-        min-height: 46px;
+    .register-header h2 {
+        font-size: 1.5rem;
     }
     .radio-group {
         flex-direction: column;
-        gap: 0.5rem;
     }
-    .radio-btn span {
-        min-height: 46px;
-    }
-    .text-right {
-        text-align: left;
-    }
-}
-
-@media (max-width: 480px) {
-    .register-visual {
-        min-height: 30vh;
-        padding: 6.5rem 1rem 2rem;
-        background-position: 60% center;
-    }
-    .brand-statement {
-        font-size: 2rem;
-    }
-    .register-form-container {
-        padding: 5rem 1rem 1.5rem;
-    }
-    .register-card {
-        padding: 1.5rem 1rem;
-        border-radius: 1rem;
-    }
-    .custom-checkbox {
-        align-items: flex-start;
-    }
-}
-
-@media (max-width: 360px) {
-    .login-nav .nav-container {
-        padding-left: 1rem !important;
-    }
-    .login-nav .nav-icons {
-        right: 1rem !important;
-    }
-    .register-visual {
-        min-height: 25vh;
-        padding: 6rem 0.5rem 1.5rem;
-        background-position: 60% center;
-    }
-    .brand-statement {
-        font-size: 1.65rem;
-    }
-    .visual-content p {
-        font-size: 0.875rem;
-    }
-    .register-form-container {
-        padding: 4.5rem 0.5rem 1rem;
-    }
-    .register-card {
-        padding: 1.25rem 0.75rem;
-    }
-    .register-header h2 {
-        font-size: 1.3rem;
-    }
-    .register-header p {
-        font-size: 0.8rem;
-    }
-    .floating-input {
-        margin-bottom: 0.85rem;
-    }
-    .floating-input input {
-        padding: 0.75rem 2rem 0.35rem 0.75rem;
-        font-size: 0.875rem;
-    }
-    .floating-input label {
-        font-size: 0.875rem;
-    }
-    .select-label {
-        font-size: 0.8rem;
-    }
-    .radio-btn span {
-        padding: 0.55rem 0.35rem;
-        font-size: 0.8rem;
-    }
-    .register-btn {
-        padding: 0.8rem;
-        font-size: 0.875rem;
-    }
-    .custom-checkbox {
-        font-size: 0.8rem;
-    }
-}
-
-[dir="rtl"] .visual-content {
-    text-align: left;
-}
-
-[dir="rtl"] .visual-overlay {
-    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
-}
-
-[dir="rtl"] .register-visual {
-    justify-content: flex-start;
-}
-
-[dir="rtl"] .floating-input label {
-    left: auto;
-    right: 1rem;
-}
-
-[dir="rtl"] .floating-input input {
-    padding: 1rem 1rem 0.5rem 2.5rem;
-}
-
-[dir="rtl"] .floating-input input:focus ~ label,
-[dir="rtl"] .floating-input input:not(:placeholder-shown) ~ label {
-    left: auto;
-    right: 1rem;
-}
-
-[dir="rtl"] .toggle-password {
-    right: auto;
-    left: 10px;
-}
-
-[dir="rtl"] .validation-icon {
-    right: auto;
-    left: 10px;
-}
-
-[dir="rtl"] .register-header {
-    text-align: right;
-}
-
-[dir="rtl"] .custom-checkbox {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .custom-checkbox .checkmark {
-    margin-right: 0;
-    margin-left: 0.5rem;
-}
-
-[dir="rtl"] .radio-group {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .strength-text {
-    text-align: left;
-}
-
-[dir="rtl"] .login-redirect {
-    text-align: center;
-}
-
-@media (max-width: 767px) {
-    [dir="rtl"] .register-visual {
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 480px) {
-    [dir="rtl"] .radio-group {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-}
-
-@media (max-width: 360px) {
-    [dir="rtl"] .floating-input input {
-        padding: 0.75rem 0.75rem 0.35rem 2rem;
-    }
-}
-
-@media (max-width: 320px) {
-    .register-header { padding: 4.5rem 0 1rem; }
-    .register-card { padding: 1.25rem; }
-    .register-card h2 { font-size: 1.25rem; }
-    .register-card p { font-size: 0.8rem; }
-    .radio-group { gap: 0.35rem; }
-    .radio-btn { padding: 0.4rem 0.6rem; font-size: 0.75rem; }
-    .radio-btn span { font-size: 0.65rem; }
-    .btn { padding: 0.65rem; font-size: 0.82rem; }
-    .social-register { gap: 0.5rem; }
-    .social-register .btn { font-size: 0.78rem; padding: 0.55rem; }
-    .register-footer { font-size: 0.8rem; }
-    .brand-statement { display: none; }
 }

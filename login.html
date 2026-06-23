@@ -8,75 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
 
-    <nav class="navbar login-nav" id="navbar">
-        <div class="container nav-container">
-            <div class="nav-logo"><a href="index.html" style="text-decoration:none; color:inherit;">StyleAI.</a></div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="shop.html">Shop</a>
-                <a href="stylist.html">AI Stylist</a>
-                <a href="collections.html">Collections</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="nav-icons">
-                <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
-                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </a>
-                <a href="javascript:void(0);" class="nav-icon-wrapper" id="dir-toggle" style="color: inherit;" aria-label="Toggle Direction">
-                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 17H3M3 7l4 4-4 4"></path><path d="M3 7h18"></path></svg>
-                </a>
-                <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
-                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </a>
-                <a href="wishlist.html" class="nav-icon-wrapper" id="wishlist-icon" style="color: inherit;" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg>
-                    <span class="wishlist-counter-icon" style="display: none;">0</span>
-                </a>
-                <a href="cart.html" class="nav-icon-wrapper" id="cart-icon" style="color: inherit;" aria-label="Cart">
-                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                    <span class="cart-counter" style="display: none;">0</span>
-                </a>
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <div class="login-layout">
-        <!-- Left Side: Brand Visual -->
-        <div class="login-visual animate-fade">
-            <div class="visual-overlay"></div>
-            <div class="visual-content">
-                <h1 class="brand-statement">Curate your<br>signature style.</h1>
-                <p>Enter the realm of artificial intelligence tailored for haute couture.</p>
-            </div>
-        </div>
-
-        <!-- Right Side: Login Form -->
-        <div class="login-form-container">
-            <div class="login-card glass-panel animate-slide-up">
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-card">
                 <div class="login-header">
+                    <a href="index.html" class="login-logo">StyleAI.</a>
                     <h2>Welcome Back</h2>
                     <p>Enter your details to access your curated wardrobe.</p>
                 </div>
 
                 <form class="login-form" id="loginForm">
-                    <div class="form-group floating-input">
-                        <input type="email" id="email" required placeholder=" ">
-                        <label for="email">Email address</label>
+                    <div class="form-group">
+                        <input type="email" id="email" required placeholder="Email address">
                     </div>
 
-                    <div class="form-group floating-input">
-                        <input type="password" id="password" required placeholder=" ">
-                        <label for="password">Password</label>
+                    <div class="form-group password-group">
+                        <input type="password" id="password" required placeholder="Password">
+                        <button type="button" class="toggle-password" tabindex="-1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
                     </div>
 
                     <div class="form-options">
@@ -113,20 +68,32 @@
         </div>
     </div>
 
-    <!-- Need minimal script for theme toggle since we're using script.js -->
     <script src="script.js"></script>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = document.querySelector('.login-btn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<span class="spinner"></span> Authenticating...';
-            btn.style.opacity = '0.8';
-            setTimeout(() => {
-                window.location.href = 'shop.html';
-            }, 1500);
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.toggle-password');
 
+            toggleBtn.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                if (type === 'text') {
+                    toggleBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>';
+                } else {
+                    toggleBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
+                }
+            });
+
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = document.querySelector('.login-btn');
+                btn.innerHTML = '<span class="spinner"></span> Authenticating...';
+                btn.style.opacity = '0.8';
+                setTimeout(() => {
+                    window.location.href = 'shop.html';
+                }, 1500);
+            });
+        });
     </script>
 </body>
 </html>

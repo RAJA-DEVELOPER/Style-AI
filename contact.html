@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
@@ -27,9 +28,6 @@
             <div class="nav-icons">
                 <a href="javascript:void(0);" class="nav-icon-wrapper" id="theme-toggle" style="color: inherit;" aria-label="Toggle Theme">
                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </a>
-                <a href="javascript:void(0);" class="nav-icon-wrapper" id="dir-toggle" style="color: inherit;" aria-label="Toggle Direction">
-                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 17H3M3 7l4 4-4 4"></path><path d="M3 7h18"></path></svg>
                 </a>
                 
                 <a href="login.html" class="nav-icon-wrapper" style="color: inherit;" aria-label="User Account">
@@ -53,7 +51,7 @@
     </nav>
 
     <!-- 1. Hero -->
-    <header class="contact-hero">
+    <header class="contact-hero" style="padding-bottom: 6rem;">
         <div class="container text-center">
             <p class="section-subtitle">Client Services</p>
             <h1 class="hero-title">How May We Assist You?</h1>
@@ -62,7 +60,7 @@
     </header>
 
     <!-- 4. Support Center -->
-    <section class="section-padding" style="padding-top: 0;">
+    <section class="section-padding">
         <div class="container">
             <div class="support-grid animate-on-scroll">
                 <div class="support-card">
@@ -370,7 +368,7 @@
             <p class="section-subtitle animate-on-scroll">Exclusive Client Services</p>
             <h2 class="section-title animate-on-scroll">Your Level of Care</h2>
             <div class="grid-3 animate-on-scroll" style="margin-top: 3rem; gap: 2rem; text-align: left;">
-                <div style="border: 1px solid var(--border); border-radius: 1rem; overflow: hidden;">
+                <div class="tier-card" style="border: 1px solid var(--border);">
                     <div style="background: var(--cards); padding: 2.5rem;">
                         <p style="font-family: var(--font-accent); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.75rem;">Tier One</p>
                         <h3 style="font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: 1rem;">Atelier</h3>
@@ -382,7 +380,7 @@
                         </ul>
                     </div>
                 </div>
-                <div style="border: 2px solid var(--text); border-radius: 1rem; overflow: hidden; transform: scale(1.03); box-shadow: 0 20px 60px rgba(0,0,0,0.12);">
+                <div class="tier-card" style="border: 2px solid var(--text); box-shadow: 0 20px 60px rgba(0,0,0,0.12);">
                     <div class="inverted-section" style=" padding: 0.5rem; text-align: center; font-size: 0.7rem; font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.1em;">Most Popular</div>
                     <div style="background: var(--cards); padding: 2.5rem;">
                         <p style="font-family: var(--font-accent); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.75rem;">Tier Two</p>
@@ -396,7 +394,7 @@
                         </ul>
                     </div>
                 </div>
-                <div style="border: 1px solid var(--border); border-radius: 1rem; overflow: hidden;">
+                <div class="tier-card" style="border: 1px solid var(--border);">
                     <div style="background: var(--cards); padding: 2.5rem;">
                         <p style="font-family: var(--font-accent); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.75rem;">Tier Three</p>
                         <h3 style="font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: 1rem;">Couture</h3>

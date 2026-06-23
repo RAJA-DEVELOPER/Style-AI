@@ -2,22 +2,59 @@
 
 /* Hero */
 .contact-hero {
-    padding: clamp(100px, 18vw, 150px) 0 clamp(2rem, 5vw, 60px);
-    background: var(--background);
+    position: relative;
+    height: clamp(45vh, 60vh, 70vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    background-image: url('https://images.unsplash.com/photo-1753161027469-ec615d155997?q=100&w=2070');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-hero .container {
+    position: relative;
+    z-index: 2;
 }
 
 .contact-hero .hero-title {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 1rem;
     word-wrap: break-word;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.5);
 }
 
 .contact-hero .hero-subtitle {
     max-width: 600px;
     margin: 0 auto;
-    color: var(--muted);
+    color: rgba(255,255,255,0.85);
     font-size: 1.125rem;
 }
+
+/* Level of Care Cards */
+.tier-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: hidden;
+    text-align: center;
+    height: 100%;
+}
+
+.tier-card > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tier-card ul {
+    margin-top: auto;
+}
+
+
 
 /* Support Center Grid */
 .support-grid {
